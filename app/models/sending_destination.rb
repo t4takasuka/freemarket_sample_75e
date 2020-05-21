@@ -1,4 +1,6 @@
 class SendingDestination < ApplicationRecord
+  belongs_to :user, optional: true
+
   # 漢字
     kanji = /\A[一-龥]+\z/
   # 全角ひらがな、カタカナ

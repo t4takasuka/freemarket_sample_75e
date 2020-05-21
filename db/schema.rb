@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_21_062424) do
+ActiveRecord::Schema.define(version: 2020_05_21_064119) do
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name", null: false
@@ -22,10 +22,28 @@ ActiveRecord::Schema.define(version: 2020_05_21_062424) do
     t.date "birth_day", null: false
     t.text "introduction"
     t.string "avatar"
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "sending_destinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "destination_first_name", null: false
+    t.string "destination_family_name", null: false
+    t.string "destination_first_name_kana", null: false
+    t.string "destination_family_name_kana", null: false
+    t.integer "post_code", null: false
+    t.string "prefecture_code", null: false
+    t.string "city", null: false
+    t.string "house_number", null: false
+    t.string "building_name"
+    t.integer "phone_number", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["phone_number"], name: "index_sending_destinations_on_phone_number", unique: true
+    t.index ["user_id"], name: "index_sending_destinations_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -42,4 +60,5 @@ ActiveRecord::Schema.define(version: 2020_05_21_062424) do
   end
 
   add_foreign_key "profiles", "users"
+  add_foreign_key "sending_destinations", "users"
 end
