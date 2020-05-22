@@ -75,3 +75,38 @@ body{
 body{
   background-color: cadetblue;
 }
+
+.top-page-appBanner {
+  background-image: url(bg-appBanner-pict.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 100px 40px;
+  object-fit: contain;
+  &__title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    text-shadow:0 0 10px  darkorange;
+  }
+  &__text {
+    font-size: 35px;
+    line-height: 2rem;
+  }
+  &__icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+    img {
+      width: 200px;
+    }
+    img:hover {
+      opacity: 0.5;
+    }
+    &--Apple {
+      padding-top: 0.9rem;
+    }
+  }
+}
