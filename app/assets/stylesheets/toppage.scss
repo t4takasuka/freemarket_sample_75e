@@ -5,7 +5,7 @@ body{
 
 // ヘッダー部分
 .top-page-header {
-  background-color: bisque;
+  background-color: #eee;
   padding: 0 60px;
   &__headerinner {
     max-width: 950px;
@@ -31,14 +31,14 @@ body{
     &--btn {
       height: 40px;
       width: 40px;
-      background-color: aquamarine;
+      background-color: #3CCACE;
       line-height: 0;
       border-radius: 10px;
       position: absolute;
     }
   }
 }
-
+// ヘッダーナビ部
 .top-page-headerNav {
   height: 40px;
   display: flex;
@@ -69,11 +69,6 @@ body{
       color: black;
     }
   }
-}
-
-
-body{
-  background-color: cadetblue;
 }
 // アプリケーションバナー部
 .top-page-appBanner {
@@ -114,7 +109,7 @@ body{
 .top-page-footer {
   padding: 50px;
   color: white;
-  background-color: rgb(243, 168, 138);
+  background-color: #272727;
   &__contents {
     display: flex;
     justify-content: space-between;
@@ -142,5 +137,17 @@ body{
     &--Cmark {
       text-align: center;
     }
+  }
+  &__exhibitionBtn {
+    width: 110px;
+    text-align: center;
+    background-color: #3CCACE;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 15px;
+    color: white;
+    position: fixed;
+    right: 20px;
+    bottom: 15px;
   }
 }
