@@ -75,7 +75,7 @@ body{
 body{
   background-color: cadetblue;
 }
-
+// アプリケーションバナー部
 .top-page-appBanner {
   background-image: url(bg-appBanner-pict.jpg);
   background-size: cover;
@@ -107,6 +107,40 @@ body{
     }
     &--Apple {
       padding-top: 0.9rem;
+    }
+  }
+}
+// フッター部
+.top-page-footer {
+  padding: 50px;
+  color: white;
+  background-color: rgb(243, 168, 138);
+  &__contents {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  &__content {
+    list-style: none;
+    &--title {
+      font-size: 17px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    a {
+      color: white;
+      line-height: 35px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+  }
+  &__logo {
+    text-align: center;
+    &--Cmark {
+      text-align: center;
     }
   }
 }
