@@ -1,0 +1,58 @@
+%h2 送り先情報入力
+= form_for(@sending_destination, url: sending_destinations_path) do |f|
+  = render "devise/shared/error_messages", resource: @sending_destination
+
+  .field
+    = f.label :送り先お名前（全角）
+    %span.l-single-content__require 必須
+    %br/
+    = f.text_field :destination_family_name
+    = f.text_field :destination_first_name
+    
+  .field
+    = f.label :送り先お名前カナ（全角）
+    %span.l-single-content__require 必須
+    %br/
+    = f.text_field :destination_family_name_kana
+    = f.text_field :destination_first_name_kana
+
+  .field
+    = f.label :郵便番号
+    %span.l-single-content__require 必須
+    %br/
+    = f.text_field :post_code
+  
+  .field
+    = f.label :都道府県
+    %span.l-single-content__require 必須
+    %br/
+    = f.select :prefecture_code, SendingDestination.prefecture_codes.keys, {}
+
+  .field
+    = f.label :市町村
+    %span.l-single-content__require 必須
+    %br/
+    = f.text_field :city
+
+  .field
+    = f.label :番地
+    %span.l-single-content__require 必須
+    %br/
+    = f.text_field :house_number
+
+  .field
+    = f.label :建物名称
+    %span.l-single-content__optional 任意
+    %br/
+    = f.text_field :building_name
+
+  .field
+    = f.label :電話番号
+    %span.l-single-content__require 必須
+    %br/
+  = f.text_field :phone_number
+
+  .field
+    = f.submit "登録する！", class: "btn-default btn-red", url: "sending_destination_path", method: :post
+
+= render "devise/shared/links"

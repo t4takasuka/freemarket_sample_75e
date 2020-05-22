@@ -2,24 +2,29 @@
 = form_for(@user, url: user_registration_path) do |f|
   = render "devise/shared/error_messages", resource: @user
   .field
-    = f.label :nickname
+    = f.label :ニックネーム
+    %span.l-single-content__require 必須
     %br/
     = f.text_field :nickname
   .field
-    = f.label :email
+    = f.label :メールアドレス
+    %span.l-single-content__require 必須
     %br/
     = f.email_field :email, autofocus: true, autocomplete: "email"
   .field
-    = f.label :password
+    = f.label :パスワード
+    %span.l-single-content__require 必須
     - if @minimum_password_length
       %em
         (#{@minimum_password_length} characters minimum)
     %br/
     = f.password_field :password, autocomplete: "new-password"
   .field
-    = f.label :password_confirmation
+    = f.label :パスワード（確認）
+    %span.l-single-content__require 必須
     %br/
     = f.password_field :password_confirmation, autocomplete: "new-password"
   .actions
-    = f.submit "Next"
+    = f.submit "次へ進む"
+    
 = render "devise/shared/links"
