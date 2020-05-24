@@ -93,7 +93,6 @@ describe Profile do
         profile.valid?
         expect(profile.errors[:birthday]).to include("を入力してください")
       end
-
     end
   end
 end
