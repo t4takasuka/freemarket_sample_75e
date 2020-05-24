@@ -2,15 +2,15 @@
 = form_for(@user, url: user_registration_path) do |f|
   = render "devise/shared/error_messages", resource: @user
   .field
-    = f.label :ニックネーム
+    = f.label :ニックネーム（ 15文字以内 ）
     %span.l-single-content__require 必須
     %br/
-    = f.text_field :nickname
+    = f.text_field :nickname, placeholder: "例）たろう"
   .field
     = f.label :メールアドレス
     %span.l-single-content__require 必須
     %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
+    = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
   .field
     = f.label :パスワード
     %span.l-single-content__require 必須
@@ -18,12 +18,12 @@
       %em
         (#{@minimum_password_length} characters minimum)
     %br/
-    = f.password_field :password, autocomplete: "new-password"
+    = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上の半角英数字"
   .field
     = f.label :パスワード（確認）
     %span.l-single-content__require 必須
     %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
+    = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "再度パスワードを入力してください"
   .actions
     = f.submit "次へ進む"
     

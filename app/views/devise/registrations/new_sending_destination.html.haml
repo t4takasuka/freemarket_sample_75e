@@ -6,21 +6,21 @@
     = f.label :送り先お名前（全角）
     %span.l-single-content__require 必須
     %br/
-    = f.text_field :destination_family_name
-    = f.text_field :destination_first_name
+    = f.text_field :destination_family_name, placeholder: "例）山田"
+    = f.text_field :destination_first_name, placeholder: "例）太郎"
     
   .field
     = f.label :送り先お名前カナ（全角）
     %span.l-single-content__require 必須
     %br/
-    = f.text_field :destination_family_name_kana
-    = f.text_field :destination_first_name_kana
+    = f.text_field :destination_family_name_kana, placeholder: "例）ヤマダ"
+    = f.text_field :destination_first_name_kana, placeholder: "例）タロウ"
 
   .field
-    = f.label :郵便番号
+    = f.label :郵便番号（ ハイフン無し ）
     %span.l-single-content__require 必須
     %br/
-    = f.text_field :post_code
+    = f.text_field :post_code, placeholder: "ハイフン無し 7桁"
   
   .field
     = f.label :都道府県
@@ -32,25 +32,25 @@
     = f.label :市町村
     %span.l-single-content__require 必須
     %br/
-    = f.text_field :city
+    = f.text_field :city, placeholder: "例）新宿区1丁目"
 
   .field
     = f.label :番地
     %span.l-single-content__require 必須
     %br/
-    = f.text_field :house_number
+    = f.text_field :house_number, placeholder: "例）1番地"
 
   .field
-    = f.label :建物名称
+    = f.label :建物名称・部屋番号
     %span.l-single-content__optional 任意
     %br/
-    = f.text_field :building_name
+    = f.text_field :building_name, placeholder: "例）新宿ビル 101号室"
 
   .field
-    = f.label :電話番号
+    = f.label :電話番号（ ハイフン無し ）
     %span.l-single-content__require 必須
     %br/
-  = f.text_field :phone_number
+  = f.text_field :phone_number, placeholder: "ハイフン無し 7桁"
 
   .field
     = f.submit "登録する！", class: "btn-default btn-red", url: "sending_destination_path", method: :post
