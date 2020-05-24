@@ -13,19 +13,21 @@ class SendingDestination < ApplicationRecord
     福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46, 
     沖縄県:47
   }
-  # 漢字
-    kanji = /\A[一-龥]+\z/
-  # 全角ひらがな、カタカナ
-    kana = /\A[ぁ-んァ-ヶー－]+\z/
+
+  # 全角ひらがな・カタカナ・漢字
+    zenkaku = /\A[ぁ-んァ-ン一-龥]+\z/
+  # 全角ひらがな
+    kana = /\A[ぁ-んー－]+\z/
   # 郵便番号（ハイフンなし7桁）
     postal = /\A\d{7}\z/
   # 携帯番号(ハイフンなし10桁or11桁)
     phone = /\A\d{10,11}\z/
 
   validates :destination_first_name, :destination_family_name, :destination_first_name_kana, :destination_family_name_kana, :post_code, :prefecture_code, :city, :house_number, :phone_number, presence: true
-  validates :destination_family_name, length: { maximum: 15 }, format: { with: kanji }
-  validates :destination_first_name_kana, length: { maximum: 15 }, format: { with: kana }
-  validates :destination_family_name_kana, length: { maximum: 15 }, format: { with: kana }
+  validates :destination_first_name, format: { with: zenkaku }
+  validates :destination_family_name, format: { with: zenkaku }
+  validates :destination_first_name_kana, format: { with: kana }
+  validates :destination_family_name_kana, format: { with: kana }
   validates :post_code, format: { with: postal }
   validates :phone_number, uniqueness: true, format: { with: phone }
 end
