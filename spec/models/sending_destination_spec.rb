@@ -142,6 +142,5 @@ describe SendingDestination do
         expect(another_sending_destination.errors[:phone_number]).to include("はすでに存在します")
       end
     end
-
   end
 end

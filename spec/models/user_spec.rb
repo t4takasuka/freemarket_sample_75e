@@ -73,7 +73,6 @@ describe User do
         user.valid?
         expect(user.errors[:password]).to include("は7文字以上で入力してください")
       end
-
     end
   end
 end
