@@ -1,13 +1,14 @@
 class Profile < ApplicationRecord
   belongs_to :user, optional: true
 
-  # 漢字
-    kanji = /\A[一-龥]+\z/
-  # 全角カタカナ
-    kana = /\A[ァ-ヶー－]+\z/
+  # 全角ひらがな・カタカナ・漢字
+    zenkaku = /\A[ぁ-んァ-ン一-龥]+\z/
+  # 全角ひらがな
+    kana = /\A[ぁ-んー－]+\z/
   
   validates :first_name, :family_name, :first_name_kana, :family_name_kana, :birthday, presence: true
-  validates :family_name, length: { maximum: 15 }, format: { with: kanji }
-  validates :first_name_kana, length: { maximum: 15 }, format: { with: kana }
-  validates :family_name_kana, length: { maximum: 15 }, format: { with: kana }
+  validates :first_name, format: { with: zenkaku }
+  validates :family_name, format: { with: zenkaku }
+  validates :first_name_kana, format: { with: kana }
+  validates :family_name_kana, format: { with: kana }
 end

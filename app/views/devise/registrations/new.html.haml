@@ -2,7 +2,7 @@
 = form_for(@user, url: user_registration_path) do |f|
   = render "devise/shared/error_messages", resource: @user
   .field
-    = f.label :ニックネーム（ 15文字以内 ）
+    = f.label :ニックネーム（15文字以内）
     %span.l-single-content__require 必須
     %br/
     = f.text_field :nickname, placeholder: "例）たろう"
