@@ -26,7 +26,7 @@
     = f.label :都道府県
     %span.l-single-content__require 必須
     %br/
-    = f.select :prefecture_code, SendingDestination.prefecture_codes.keys, {}
+    = f.select :prefecture_code, SendingDestination.prefecture_codes.keys, {prompt: '選択してください'}
 
   .field
     = f.label :市町村

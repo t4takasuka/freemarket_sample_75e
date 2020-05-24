@@ -3,12 +3,13 @@ ja:
     models:
       user: ユーザー
       profile : プロフィール
-      sendingDestination: 送り先
+      sending_destination: 送り先
     attributes:
       user:
         nickname: ニックネーム
-        email: メールアドレス
+        email: メールアドレス1
         password: パスワード
+        password_confirmation: パスワード（再入力）
       profile :
         first_name: 姓
         family_name: 名
@@ -22,12 +23,10 @@ ja:
         destination_family_name: 送り先の方の名
         destination_first_name_kana: 送り先の方の姓（かな）
         destination_family_name_kana: 送り先の方の名（かな）
-        post_code: 郵便番号（ハイフン無し）
+        post_code: 郵便番号
         prefecture_code: 都道府県
         city: 市町村
         house_number: 番地
         building_name: 建物名称以下
-        phone_number: 電話番号（ハイフン無し）
+        phone_number: 電話番号
         
-
-
