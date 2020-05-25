@@ -28,11 +28,17 @@
               
           .top-page-headerNav__right
             %ul
-              %li.top-page-headerNav__right--login
-                %a{:href => ""}ログイン
-              %li.top-page-headerNav__right--signup
-                %a{:href => ""}新規登録
-
+              - if user_signed_in?
+                %li.top-page-headerNav__right--mypage
+                  %a{:href => ""}マイページ
+                %li.top-page-headerNav__right--signout
+                  = link_to "ログアウト*後で消す", destroy_user_session_path, method: :delete
+              - else
+                %li.top-page-headerNav__right--login
+                  %a{:href => "/users/sign_in"}ログイン
+                %li.top-page-headerNav__right--signup
+                  %a{:href => "/users/sign_up"}新規登録
+              
     .top-page-appBanner
       .top-page-appBanner__title
         だれでもかんたん、人生を楽しくするフリマアプリ
