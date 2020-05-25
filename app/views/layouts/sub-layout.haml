@@ -8,4 +8,29 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    .sub-wrapper
+      .sub-wrapper__container
+        %header
+          .header__left
+            = link_to image_tag("logo.png",size:"150x45")
+          .header__right
+            %ul
+              %li
+                会員情報入力
+              %li
+                プロフィール情報入力
+              %li
+                送り先情報入力
+        = yield
+        %footer
+          .footer__links
+            %ul
+              %li
+                %a{href: ""} プライバシーポリシー
+              %li
+                %a{href: ""} 利用規約
+              %li
+                %a{href: ""} 特定商取引に関する表記
+          .footer__logo
+            = link_to image_tag("logo.png",size:"150x45")
+
