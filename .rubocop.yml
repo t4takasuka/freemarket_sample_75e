@@ -41,3 +41,12 @@ AsciiComments:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+
+Metrics/AbcSize:
+  Enabled: true
+  Max: 30
+
+# メソッド名の長さ
+Metrics/MethodLength:
+  Enabled: true
+  Max: 15
