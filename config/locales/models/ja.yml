@@ -7,7 +7,7 @@ ja:
     attributes:
       user:
         nickname: ニックネーム
-        email: メールアドレス1
+        email: メールアドレス
         password: パスワード
         password_confirmation: パスワード（再入力）
       profile :
