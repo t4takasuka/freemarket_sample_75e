@@ -59,4 +59,12 @@ ActiveRecord::Schema.define(version: 2020_05_21_064119) do
 
   add_foreign_key "profiles", "users"
   add_foreign_key "sending_destinations", "users"
+ActiveRecord::Schema.define(version: 2020_05_22_064538) do
+
+  create_table "itemimgs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "image", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end

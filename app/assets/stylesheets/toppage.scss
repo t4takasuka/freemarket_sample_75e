@@ -1,0 +1,154 @@
+body{
+  width: 100%;
+  height: 100vh;
+}
+
+// ヘッダー部分
+.top-page-header {
+  background-color: #eee;
+  padding: 0 60px;
+  &__headerinner {
+    max-width: 950px;
+    margin: 0 auto;
+  }
+  &__mainheader {
+    padding-top: 20px;
+    display: flex;
+  }
+  &__image {
+    margin-right: 30px;
+  }
+  &__searchbox {
+    width: 100%;
+    position: relative;
+  }
+  &__form {
+    width: calc(100% - 40px);
+    height: 40px;
+    border-radius: 10px;
+    padding-left: 10px;
+    background-color: azure;
+    &--btn {
+      height: 40px;
+      width: 40px;
+      background-color: #3CCACE;
+      line-height: 0;
+      border-radius: 10px;
+      position: absolute;
+    }
+  }
+}
+// ヘッダーナビ部
+.top-page-headerNav {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  &__left {
+    display: flex;
+    line-height: 40px;
+    ul {
+      display: flex;
+      list-style: none;
+    }
+    & li a {
+      text-decoration: none;
+      margin: 0 40px 0 10px;
+      color: black;
+    }
+  }
+  &__right {
+    display: flex;
+    line-height: 40px;
+    ul {
+      display: flex;
+      list-style: none;
+    }
+    & li a {
+      margin: 0 10px 0 40px;
+      text-decoration: none;
+      color: black;
+    }
+  }
+}
+// アプリケーションバナー部
+.top-page-appBanner {
+  background-image: url(bg-appBanner-pict.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 100px 40px;
+  object-fit: contain;
+  &__title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    text-shadow:0 0 10px  darkorange;
+  }
+  &__text {
+    font-size: 35px;
+    line-height: 2rem;
+  }
+  &__icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+    img {
+      width: 200px;
+    }
+    img:hover {
+      opacity: 0.5;
+    }
+    &--Apple {
+      padding-top: 0.9rem;
+    }
+  }
+}
+// フッター部
+.top-page-footer {
+  padding: 50px;
+  color: white;
+  background-color: #272727;
+  &__contents {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  &__content {
+    list-style: none;
+    &--title {
+      font-size: 17px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    a {
+      color: white;
+      line-height: 35px;
+      text-decoration: none;
+      font-size: 12px;
+    }
+  }
+  &__logo {
+    text-align: center;
+    &--Cmark {
+      text-align: center;
+    }
+  }
+  &__exhibitionBtn {
+    width: 110px;
+    text-align: center;
+    background-color: #3CCACE;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 15px;
+    color: white;
+    position: fixed;
+    right: 20px;
+    bottom: 15px;
+    padding: 5px;
+  }
+}
