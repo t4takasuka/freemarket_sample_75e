@@ -6,6 +6,6 @@ FactoryBot.define do
     first_name_kana          { "たろう" }
     birthday                 { "2020-01-01" }
     introduction             { "こんにちは" }
-    avatar                   {File.open("#{Rails.root}/public/images/test_image.jpg")}
+    avatar                   { File.open("#{Rails.root}/public/images/test_image.jpg") }
   end
 end
