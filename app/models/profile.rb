@@ -6,9 +6,13 @@ class Profile < ApplicationRecord
   # 全角ひらがな
   kana = /\A[ぁ-んー－]+\z/
 
-  validates :first_name, :family_name, :first_name_kana, :family_name_kana, :birthday, presence: true
-  validates :first_name, format: { with: zenkaku }
-  validates :family_name, format: { with: zenkaku }
-  validates :first_name_kana, format: { with: kana }
-  validates :family_name_kana, format: { with: kana }
+  validates :birthday, presence: true
+  validates :first_name, format: { with: zenkaku }, allow_blank: true
+  validates :first_name, presence: true
+  validates :family_name, format: { with: zenkaku }, allow_blank: true
+  validates :family_name, presence: true
+  validates :first_name_kana, format: { with: kana }, allow_blank: true
+  validates :first_name_kana, presence: true
+  validates :family_name_kana, format: { with: kana }, allow_blank: true
+  validates :family_name_kana, presence: true
 end
