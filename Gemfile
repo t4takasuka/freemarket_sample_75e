@@ -77,3 +77,4 @@ gem 'haml-rails'
 gem 'devise'
 gem 'kaminari'
 gem 'pry-rails'
+gem "font-awesome-sass"
