@@ -1,3 +1,16 @@
+.session3-top {
+  margin-bottom: 20px;
+  ul {
+    list-style: none;
+    text-align: center;
+    li {
+      display: inline;
+      span {
+        color: #4DD0E1;
+      }
+    }
+  }
+}
 .session3-container {
   background-color: white;
   .form-title {

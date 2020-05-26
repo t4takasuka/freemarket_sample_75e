@@ -11,16 +11,7 @@
     .sub-wrapper
       .sub-wrapper__container
         %header
-          .header__left
-            = link_to image_tag("logo.png",size:"150x45"), root_path
-          .header__right
-            %ul
-              %li
-                ①会員情報入力➔
-              %li
-                ②プロフィール情報入力➔
-              %li
-                ③送り先情報入力
+          = link_to image_tag("logo.png",size:"150x45"), root_path
         = yield
         %footer
           .footer__links
