@@ -1,4 +1,4 @@
-.session1-container {
+.session3-container {
   background-color: white;
   .form-title {
     text-align: center;
@@ -22,6 +22,19 @@
         border-radius: 5px;
         padding: 0 10px;
       }
+      select {
+        height: 50px;
+        border: 1px solid #E0E0E0;
+        border-radius: 5px;
+        padding: 0 10px;
+      }
+      textarea {
+        height: 150px;
+        width: 100%;
+        border: 1px solid #E0E0E0;
+        border-radius: 5px;
+        padding: 0 10px;
+      }
       .form__require {
         background-color: #ea352d;
         color: white;
@@ -29,8 +42,14 @@
         margin-left: 8px;
         font-size: 12px;
       }
+      .form__any {
+        background-color: #E0E0E0;
+        padding: 3px;
+        margin-left: 8px;
+        font-size: 12px;
+      }
       &--actions {
-        .session-next-btn {
+        .session-enter-btn {
           background-color: #4DD0E1;
           color: white;
         }

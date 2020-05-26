@@ -12,15 +12,15 @@
       .sub-wrapper__container
         %header
           .header__left
-            = link_to image_tag("logo.png",size:"150x45")
+            = link_to image_tag("logo.png",size:"150x45"), root_path
           .header__right
             %ul
               %li
-                会員情報入力
+                ①会員情報入力➔
               %li
-                プロフィール情報入力
+                ②プロフィール情報入力➔
               %li
-                送り先情報入力
+                ③送り先情報入力
         = yield
         %footer
           .footer__links
@@ -32,5 +32,5 @@
               %li
                 %a{href: ""} 特定商取引に関する表記
           .footer__logo
-            = link_to image_tag("logo.png",size:"150x45")
+            = link_to image_tag("logo.png",size:"150x45"), root_path
 

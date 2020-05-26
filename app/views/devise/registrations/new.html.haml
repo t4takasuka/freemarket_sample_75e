@@ -1,31 +1,43 @@
-.devise-container
-  %h2 会員情報入力
-  = form_for(@user, url: user_registration_path) do |f|
-    = render "devise/shared/error_messages", resource: @user
-    .field
-      = f.label :ニックネーム（15文字以内）
-      %span.l-single-content__require 必須
-      %br/
-      = f.text_field :nickname, placeholder: "例）たろう"
-    .field
-      = f.label :メールアドレス
-      %span.l-single-content__require 必須
-      %br/
-      = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
-    .field
-      = f.label :パスワード
-      %span.l-single-content__require 必須
-      - if @minimum_password_length
-        %em
-          (#{@minimum_password_length} characters minimum)
-      %br/
-      = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上の半角英数字"
-    .field
-      = f.label :パスワード（確認）
-      %span.l-single-content__require 必須
-      %br/
-      = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "再度パスワードを入力してください"
-    .actions
-      = f.submit "次へ進む"
-      
-  = render "devise/shared/links"
+.session1-container
+  .form-title
+    %h2 会員情報入力
+  .form-container
+    = form_for(@user, url: user_registration_path) do |f|
+      = render "devise/shared/error_messages", resource: @user
+      .form-container__box
+        .form-container__box--nickname
+          = f.label :ニックネーム
+          %span.form__require 必須
+          %em
+            (15文字以内)
+          %br/
+          = f.text_field :nickname, placeholder: "例）たろう"
+      .form-container__box
+        .form-container__box--email
+          = f.label :メールアドレス
+          %span.form__require 必須
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
+      .form-container__box
+        .form-container__box--password
+          = f.label :パスワード
+          %span.form__require 必須
+          - if @minimum_password_length
+            %em
+              (#{@minimum_password_length}文字以上の半角英数字)
+          %br/
+          = f.password_field :password, autocomplete: "new-password", placeholder: "7文字以上の半角英数字"
+      .form-container__box
+        .form-container__box--password-confirmation
+          = f.label :パスワード（確認）
+          %span.form__require 必須
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "再度パスワードを入力してください"
+      .form-container__box
+        %p 「次へ進む」のボタンを押すことにより、
+        %a{href: ""}> 利用規約
+        に同意したものとみなします
+      .form-container__box
+        .form-container__box--actions
+          = f.submit "次へ進む", class: "session-next-btn"
+          
