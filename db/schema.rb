@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_05_25_073611) do
 
   create_table "itemimgs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "image", null: false
+    t.string "image", null: false
     t.bigint "item_id", null: false
     t.index ["item_id"], name: "index_itemimgs_on_item_id"
   end
