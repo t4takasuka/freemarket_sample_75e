@@ -70,13 +70,3 @@
     }
   }
 }
-
-// ↓deviseエラー関連
-#error_explanation {
-  background-color: red;
-  color: white;
-}
-.field_with_errors {
-  display: contents;
-  // もしくは diplay: inline;
-}
