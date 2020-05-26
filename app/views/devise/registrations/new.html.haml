@@ -43,7 +43,7 @@
           = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "再度パスワードを入力してください"
       .form-container__box
         %p 「次へ進む」のボタンを押すことにより、
-        %a{href: ""}> 利用規約
+        = link_to "利用規約"
         に同意したものとみなします
       .form-container__box
         .form-container__box--actions
