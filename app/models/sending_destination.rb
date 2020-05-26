@@ -22,11 +22,17 @@ class SendingDestination < ApplicationRecord
   # 携帯番号(ハイフンなし10桁or11桁)
   phone = /\A\d{10,11}\z/
 
-  validates :destination_first_name, :destination_family_name, :destination_first_name_kana, :destination_family_name_kana, :post_code, :prefecture_code, :city, :house_number, :phone_number, presence: true
-  validates :destination_first_name, format: { with: zenkaku }
-  validates :destination_family_name, format: { with: zenkaku }
-  validates :destination_first_name_kana, format: { with: kana }
-  validates :destination_family_name_kana, format: { with: kana }
-  validates :post_code, format: { with: postal }
-  validates :phone_number, uniqueness: true, format: { with: phone }
+  validates :prefecture_code, :city, :house_number, presence: true
+  validates :destination_first_name, format: { with: zenkaku }, allow_blank: true
+  validates :destination_first_name, presence: true
+  validates :destination_family_name, format: { with: zenkaku }, allow_blank: true
+  validates :destination_family_name, presence: true
+  validates :destination_first_name_kana, format: { with: kana }, allow_blank: true
+  validates :destination_first_name_kana, presence: true
+  validates :destination_family_name_kana, format: { with: kana }, allow_blank: true
+  validates :destination_family_name_kana, presence: true
+  validates :post_code, format: { with: postal }, allow_blank: true
+  validates :post_code, presence: true
+  validates :phone_number, uniqueness: true, format: { with: phone }, allow_blank: true
+  validates :phone_number, presence: true
 end
