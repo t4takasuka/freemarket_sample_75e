@@ -109,3 +109,16 @@
     border-radius: 4px;
   }
 }
+
+.detail {
+  @include cover;
+  &__content {
+    @include cont;
+  }
+  &__title {
+    font-weight: bold;
+  }
+  input {
+    @include input;
+  }
+}

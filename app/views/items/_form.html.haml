@@ -26,6 +26,24 @@
         %span.form__request 必須
       .goods__info
         = f.text_area :name,class:"goods__textarea", placeholder: "商品の説明（必須 1,000文字以内)（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+    .detail
+      .detail__content
+        商品の詳細
+      .detail__title
+        カテゴリー
+        %span.form__request 必須
+      .detail__category
+        = f.text_field :text, placeholder: "選択してください(プルダウンになる)"
+      .detail__title
+        ブランド
+        %span.form__request2 任意
+      .detail__bland
+        = f.text_field :text, placeholder: "例）シャネル（インクリメンタルサーチ使用）"
+      .detail__title
+        商品の状態
+        %span.form__request 必須
+      .detail__status
+        = f.text_field :text, placeholder: "選択してください（プルダウンにする。）"
 
 
   -# = f.text_field :name, placeholder: "商品名"
