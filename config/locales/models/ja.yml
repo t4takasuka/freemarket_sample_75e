@@ -1,0 +1,32 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      profile : プロフィール
+      sending_destination: 送り先
+    attributes:
+      user:
+        nickname: ニックネーム
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（再入力）
+      profile :
+        first_name: 姓
+        family_name: 名
+        first_name_kana: 姓（かな）
+        family_name_kana: 名（かな）
+        birthday: 生年月日
+        introduction: 自己紹介文
+        avatar: プロフィール画像
+      sending_destination:
+        destination_first_name: 送り先の方の姓
+        destination_family_name: 送り先の方の名
+        destination_first_name_kana: 送り先の方の姓（かな）
+        destination_family_name_kana: 送り先の方の名（かな）
+        post_code: 郵便番号
+        prefecture_code: 都道府県
+        city: 市町村
+        house_number: 番地
+        building_name: 建物名称以下
+        phone_number: 電話番号
+        

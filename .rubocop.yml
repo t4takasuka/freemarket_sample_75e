@@ -28,3 +28,25 @@ Metrics/LineLength:
 #'frozen_string_literal: true'を無効
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+# モジュール名::クラス名の定義を許可
+ClassAndModuleChildren:
+  Enabled: false
+
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
+
+# Rspecではコードブロック内の行数が増えてしまうため除外
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/AbcSize:
+  Enabled: true
+  Max: 30
+
+# メソッド名の長さ
+Metrics/MethodLength:
+  Enabled: true
+  Max: 15

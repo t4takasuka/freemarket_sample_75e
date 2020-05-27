@@ -1,0 +1,69 @@
+.session3-top
+  %ul{class: "transitionーdiagram"}
+    %li
+      %span ①会員情報入力
+    %li
+      %span ➔ ②プロフィール情報入力
+    %li
+      %span ➔ ③送り先情報入力
+.session3-container
+  .form-title
+    %h2 送り先情報入力
+  .form-container
+    = form_for(@sending_destination, url: sending_destinations_path) do |f|
+      = render "devise/shared/error_messages", resource: @sending_destination
+      .form-container__box
+        .form-container__box--name
+          = f.label :送り先お名前（全角）
+          %span.form__require 必須
+          %br/
+          .float
+            = f.text_field :destination_family_name, placeholder: "例）山田"
+            = f.text_field :destination_first_name, placeholder: "例）太郎"
+      .form-container__box
+        .form-container__box--name
+          = f.label :送り先お名前ひらがな（全角）
+          %span.form__require 必須
+          %br/
+          .float
+            = f.text_field :destination_family_name_kana, placeholder: "例）やまだ"
+            = f.text_field :destination_first_name_kana, placeholder: "例）たろう"
+      .form-container__box
+        .form-container__box--name
+          = f.label :郵便番号（ハイフン無し）
+          %span.form__require 必須
+          %br/
+          = f.text_field :post_code, placeholder: "ハイフン無し 7桁"
+      .form-container__box
+        .form-container__box--name
+          = f.label :都道府県
+          %span.form__require 必須
+          %br/
+          = f.select :prefecture_code, SendingDestination.prefecture_codes.keys, {prompt: '選択してください'}
+      .form-container__box
+        .form-container__box--name
+          = f.label :市町村
+          %span.form__require 必須
+          %br/
+          = f.text_field :city, placeholder: "例）新宿区1丁目"
+      .form-container__box
+        .form-container__box--name
+          = f.label :番地
+          %span.form__require 必須
+          %br/
+          = f.text_field :house_number, placeholder: "例）1番地"
+      .form-container__box
+        .form-container__box--name
+          = f.label :建物名称・部屋番号
+          %span.form__any 任意
+          %br/
+          = f.text_field :building_name, placeholder: "例）新宿ビル 101号室"
+      .form-container__box
+        .form-container__box--name
+          = f.label :電話番号（ハイフン無し）
+          %span.form__require 必須
+          %br/
+          = f.text_field :phone_number, placeholder: "ハイフン無し 10桁または11桁"
+      .form-container__box
+        .form-container__box--actions
+          = f.submit "登録する", class: "session-enter-btn", url: "sending_destination_path", method: :post
