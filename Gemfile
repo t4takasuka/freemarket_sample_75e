@@ -78,3 +78,8 @@ gem 'devise'
 gem 'kaminari'
 gem 'pry-rails'
 gem "font-awesome-sass"
+
+gem 'mini_magick'
+gem 'fog-aws'
+gem 'active_hash'
+gem 'rails-i18n'
