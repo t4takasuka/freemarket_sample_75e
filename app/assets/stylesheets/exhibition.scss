@@ -122,3 +122,16 @@
     @include input;
   }
 }
+
+.delivery {
+  @include cover;
+  &__content {
+    @include cont;
+  }
+  &__title {
+    font-weight: bold;
+  }
+  input {
+    @include input;
+  }
+}

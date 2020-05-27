@@ -44,6 +44,24 @@
         %span.form__request 必須
       .detail__status
         = f.text_field :text, placeholder: "選択してください（プルダウンにする。）"
+    .delivery
+      .delivery__content
+        配送について
+      .delivery__title
+        配送料の負担
+        %span.form__request 必須
+      .delivery__burden
+        = f.text_field :text, placeholder: "選択してください（プルダウンにする。）"
+      .delivery__title
+        発送元の地域
+        %span.form__request 必須
+      .delivery__area
+        = f.text_field :text, placeholder: "選択してください（プルダウンにする。）"
+      .delivery__title
+        発送までの日数
+        %span.form__request 必須
+      .delivery__days
+        = f.text_field :text, placeholder: "選択してください（プルダウンにする。）"
 
 
   -# = f.text_field :name, placeholder: "商品名"
