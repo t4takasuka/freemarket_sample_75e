@@ -1,0 +1,17 @@
+.login-container
+  .login-container__title
+    %h2 ログイン
+  .form-container
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .form-container__box
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .form-container__box
+        = f.label :password
+        %br/
+        = f.password_field :password, autocomplete: "current-password"
+      .form-container__box
+        .form-container__box--actions
+          = f.submit "ログイン", class: "session-next-btn"
+

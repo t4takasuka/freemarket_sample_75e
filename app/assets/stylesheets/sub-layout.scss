@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+.sub-wrapper {
+  background-color: rgb(245, 245, 245);
+  &__container {
+    width: 700px;
+    margin: 0 auto;
+    header {
+      padding: 30px 0;
+      height: 100px;
+      align-items: center;
+      img {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+    footer {
+      margin-top: 20px;
+      height: 150px;
+      padding: 20px 0;
+      text-align: center;
+      .footer__links {
+        margin-bottom: 30px;
+        ul {
+          list-style: none;
+          text-align: center;
+        }
+        li {
+          display: inline-block;
+          margin-left: 10px;
+        }
+      }
+    }
+        
+  }
+}
+
+// ↓deviseエラー関連
+#error_explanation {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #F8BBD0;
+  ul {
+    list-style: none;
+    text-align: center;
+    li {
+      color: #D81B60;
+    }
+  }
+}
+.field_with_errors {
+  display: contents;
+}

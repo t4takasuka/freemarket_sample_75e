@@ -1,0 +1,6 @@
+= form_with model: @item, local: true do |f|
+  = f.text_field :name, placeholder: "商品名"
+  = f.text_field :price, placeholder: "販売価格"
+  = f.fields_for :itemimgs do |i|
+    = i.file_field :image
+  = f.submit "出品する"

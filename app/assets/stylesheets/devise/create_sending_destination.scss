@@ -1,0 +1,12 @@
+.session4-container {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .form-title {
+    text-align: center;
+    h2 {
+      margin-bottom: 15px;
+    }
+  }
+}
