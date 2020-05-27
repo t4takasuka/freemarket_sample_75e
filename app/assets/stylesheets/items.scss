@@ -101,6 +101,10 @@
               padding: 15px 15px;
               border: 1px solid #dedede;
               font-size: 14px;
+              & a {
+                text-decoration: none;
+                color: #3ccace;
+              }
             }
           }
         }
@@ -122,9 +126,16 @@
           & ul.optional {
             margin: 10px 0 0;
             display: flex;
-            & i.optionalBtn {
+            & li.optionalBtn {
               font-size: 14px;
-              
+              & a {
+                padding: 6px 10px;
+                display: inline-block;
+                border-radius: 4px;
+                color: #333;
+                border: 1px solid #333;
+                text-decoration: none;
+              }
             }
           }
         }
@@ -134,15 +145,54 @@
         background-color: #fff;
         margin: 10px 0;
         text-align: center;
+        .newCommnets {
+          .comment_body {
+            width: 100%;
+          }
+          .noticeMsg {
+            padding: 8px;
+            font-size: 14px;
+            background-color: #f8f8f8;
+            margin: 10px 0;
+            text-align: left;
+          }
+          .commentBtn {
+            line-height: 48px;
+            background-color: #3ccace;
+            border: 1px solid #3ccace;
+            color: #fff;
+            width: 60%;
+            font-size: 18px;
+            border-radius: 100px;
+          }
+        }
       }
     }
     
     .links{
       list-style: none;
+      display: flex;
+      & li {
+        margin: auto 0 0 0;
+        & a {
+          text-decoration: none;
+          color: #3ccace;
 
+        }
+      }
+      & li.last {
+        margin: 0 0 0 auto;
+      }
     }
     .relatedItems{
-
+      a {
+        display: block;
+        margin: 24px 0 8px;
+        color: #3ccace;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 22px;
+      }
     }
   }
 }
