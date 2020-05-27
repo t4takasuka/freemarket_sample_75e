@@ -10,11 +10,22 @@
   = form_with model: @item, local: true do |f|
     .sell__preview
       = f.fields_for :itemimgs do |i|
-        = i.file_field :image
+        = i.file_field :image,class:"hidden-field"
         .sell__preview--text
           %span ドラッグアンドドロップ
           %br
           またはクリックしてファイルをアップロード
+    .goods
+      .goods__title
+        商品名
+        %span.form__request 必須
+      .goods__name
+        = f.text_field :name,class:"goods__input-name", placeholder: "商品名"
+      .goods__title
+        商品の説明
+        %span.form__request 必須
+      .goods__info
+        = f.text_area :name,class:"goods__textarea", placeholder: "商品の説明（必須 1,000文字以内)（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
 
 
   -# = f.text_field :name, placeholder: "商品名"
