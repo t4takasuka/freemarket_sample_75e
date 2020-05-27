@@ -1,6 +1,22 @@
-= form_with model: @item, local: true do |f|
-  = f.text_field :name, placeholder: "商品名"
-  = f.text_field :price, placeholder: "販売価格"
-  = f.fields_for :itemimgs do |i|
-    = i.file_field :image
-  = f.submit "出品する"
+.app-name
+  %a{:href => "#"}
+    = image_tag src="logo.png",size:"200x60"
+.sell
+  .sell__title
+    出品画像
+    %span.form__request 必須
+  .sell__text
+    最大10枚までアップロードできます！
+  = form_with model: @item, local: true do |f|
+    .sell__preview
+      = f.fields_for :itemimgs do |i|
+        = i.file_field :image
+        .sell__preview--text
+          %span ドラッグアンドドロップ
+          %br
+          またはクリックしてファイルをアップロード
+
+
+  -# = f.text_field :name, placeholder: "商品名"
+  -# = f.text_field :price, placeholder: "販売価格"
+  -# = f.submit "出品する"

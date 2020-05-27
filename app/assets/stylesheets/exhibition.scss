@@ -30,7 +30,54 @@
   margin-top: 16px;
 }
 
+.form__request {
+  @include req;
+}
+
+.form__request2 {
+  font-size: 13px;
+  color: white;
+  background-color: grey;
+  padding: 4px;
+  border-radius: 10px;
+}
+
 .app-name {
   text-align: center;
   padding: 50px 0;
+}
+
+.sell {
+  @include cover;
+  &__title {
+    font-weight: bold;
+  }
+  &__text {
+    font-size: 15px;
+    margin-top: 16px;
+  }
+  &__preview {
+    margin: 0 auto;
+    margin-top: 16px;
+    height: 180px;
+    width: 600px;
+    position: relative;
+    background-color: gray;
+    border: dashed 2px whitesmoke;
+    &--text {
+      text-align: center;
+      font-size: 12px;
+      padding-top: 70px;
+    }
+  }
+  form input {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+  }
 }
