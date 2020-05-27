@@ -1,15 +1,15 @@
-.pickup
+.pickupcontainer
   %section.pickupContainer
     %h2.head ピックアップカテゴリー
     .productBox
       .productHead
-        %a{:href => "#"}
+        = link_to "#" do
           %h3.title 新規投稿商品
       .productLists
         .productList
-          %a{:href => "/products/3"}
+          = link_to "products/3" do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
+              =image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
             .productList--body
               %h3.name product3
               .details
@@ -20,9 +20,9 @@
                     0
                 %p (税込)
         .productList
-          %a{:href => "/products/2"}
+          = link_to "/products/2" do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}/
+              =image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
             .productList--body
               %h3.name product2
               .details
@@ -33,9 +33,9 @@
                     0
                 %p (税込)
         .productList
-          %a{:href => "/products/1"}
+          = link_to "/products/1" do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
+              =image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
             .productList--body
               %h3.name product1
               .details
@@ -49,13 +49,13 @@
     %h2.head ピックアップブランド
     .productBox
       .productHead
-        %a{:href => "#"}
+        = link_to "#" do
           %h3.title アーカイバ
       .productLists
         .productList
-          %a{:href => "/products/3"}
+          = link_to "/products/3" do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"}/
+              =image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
             .productList--body
               %h3.name product3
               .details
@@ -66,9 +66,9 @@
                     0
                 %p (税込)
         .productList
-          %a{:href => "/products/2"}
+          = link_to "/products/2" do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"}/
+              =image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png"
             .productList--body
               %h3.name product2
               .details
@@ -79,9 +79,9 @@
                     0
                 %p (税込)
         .productList
-          %a{:href => "/products/1"}
+          = link_to "/products/1" do
             %figure.productList--img
-              %img{:src => "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"}/
+              =image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png"
             .productList--body
               %h3.name product1
               .details
