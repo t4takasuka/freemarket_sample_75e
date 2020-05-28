@@ -3,3 +3,4 @@
 = "円"
 - item.itemimgs.each do |itemimg|
   = image_tag itemimg.image.url
+  = link_to '編集', edit_item_path(item)

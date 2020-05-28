@@ -39,6 +39,7 @@
                 %li.top-page-headerNav__right--signup
                   %a{:href => "/users/sign_up"}新規登録
               
+    = yield
     .top-page-appBanner
       .top-page-appBanner__title
         だれでもかんたん、人生を楽しくするフリマアプリ
@@ -94,4 +95,3 @@
         出品する
         .top-page-footer__exhibitionBtn--icon
           = image_tag src="icon_camera.png",size:"60x60"
-    = yield
