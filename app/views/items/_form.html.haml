@@ -4,16 +4,19 @@
   = f.text_field :price, placeholder: "販売価格"
   %br/
   #itemimg-box
+    #previews
+      - if @item.persisted?
+        - @item.itemimgs.each_with_index do |itemimg, i|
+          = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
     = f.fields_for :itemimgs do |itemimg|
       .js-file_group{"data-index" => "#{itemimg.index}"}
-        = itemimg.file_field :image, class: "js-file"
+        = itemimg.file_field :image, class: 'js-file'
         %br/
         %span.js-remove 削除
-    -#   - if @item.persisted?
-    -#     = itemimg.check_box :_destroy, data:{ index: itemimg.index }, class: "hidden-destroy"
-    -# - if @item.persisited?
-    -#   .js-file_group{"data-index" => "#{@item.itemimgs.count}"}
-    -#     = file_field_tag :image, name: "item[itemimgs_attributes][#{@item.itemimgs.count}][image]",class: 'js-file'
-    -#     .js-remove 削除
-  = f.submit "出品する"
-
+      - if @item.persisted?
+        = itemimg.check_box :_destroy, data:{ index: itemimg.index }, class: 'hidden-destroy'
+    - if @item.persisted?
+      .js-file_group{"data-index" => "#{@item.itemimgs.count}"}
+        = file_field_tag :image, name: "item[itemimgs_attributes][#{@item.itemimgs.count}][image]", class: 'js-file'
+        .js-remove 削除
+  = f.submit
