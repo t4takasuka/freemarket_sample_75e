@@ -1,5 +1,7 @@
--# %h1 Items#index
--# %p Find me in app/views/items/index.html.erb
+.main
+  = render "mainVisual"
+  = render "topIntroduction"
+  = render "topMiddleDl"
+  = render "topKeyFeatures"
+  = render "pickupContainer"
 
-= link_to '出品', new_item_path
-= render @items
