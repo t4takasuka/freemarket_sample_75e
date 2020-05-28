@@ -5,38 +5,37 @@
       .top-page-footer__content--title
         FURIMAについて
       %li
-        %a{:href => ""}会社概要(運営会社)
+        = link_to "会社概要(運営会社)","/"
       %li   
-        %a{:href => ""}プライバシーポリシー
+        = link_to "プライバシーポリシー","/"
       %li   
-        %a{:href => ""}FURIMA利用規約
+        = link_to "FURIMA利用規約","/"
       %li
-        %a{:href => ""}ポイントに関する特約
+        = link_to "ポイントに関する特約","/"
     .top-page-footer__content
       %li
       .top-page-footer__content--title
         FURIMAを見る
       %li
-        %a{:href => ""}カテゴリー一覧
+        = link_to "カテゴリー一覧","/"
       %li   
-        %a{:href => ""}ブランド一覧
+        = link_to "ブランド一覧","/"
     .top-page-footer__content
       %li
       .top-page-footer__content--title
         ヘルプ&ガイド
       %li
-        %a{:href => ""}FURIMAのガイド
+        = link_to "FURIMAのガイド","/"
       %li   
-        %a{:href => ""}FURIMAロゴ利用ガイドライン
+        = link_to "FURIMAロゴ利用ガイドライン","/"
       %li   
-        %a{:href => ""}お知らせ
+        = link_to "お知らせ","/"
   .top-page-footer__logo
-    %a{:href => ""}
-      =image_tag src="logo-white.png",size:"170x50"
+    = link_to image_tag("logo-white.png",size:"170x50"),"/"
     .top-page-footer__logo--Cmark
       © FURIMA
-%a{:href => ""}
-  .top-page-footer__exhibitionBtn
-    出品する
-    .top-page-footer__exhibitionBtn--icon
-      = image_tag src="icon_camera.png",size:"60x60"
+= link_to new_item_path,class:"top-page-footer__exhibitionBtn" do
+  .top-page-footer__exhibitionBtn--icon
+    .top-page-footer__exhibitionBtn--text
+      出品する
+    = image_tag("icon_camera.png",size:"60x60")

@@ -5,8 +5,6 @@
       今すぐ無料ダンロード！
       .top-page-appBanner__icons
         .top-page-appBanner__icons--Apple
-          %a{:href => ""}
-            =image_tag src="App_Store.svg",size:"140x60"
+          = link_to image_tag("App_Store.svg",size:"140x60"),"/"
         .top-page-appBanner__icons--Google
-          %a{:href => ""}
-            = image_tag src="google-play-badge.png",size:"190x90"
+          = link_to image_tag("google-play-badge.png",size:"190x90"),"/"
