@@ -186,8 +186,11 @@ body {
   }
   &__buttons {
     text-align: center;
+    color: white;
+    font-weight: bold;
     &--back {
       margin-top: 20px;
+      font-weight: normal;
        a {
         text-decoration: none;
         color: #0095ee;
@@ -200,8 +203,6 @@ body {
     width: 300px;
     background-color: red;
     border-radius: 4px;
-    color: white;
-    text-align: center;
   }
   &__notes {
     margin-top: 50px;
