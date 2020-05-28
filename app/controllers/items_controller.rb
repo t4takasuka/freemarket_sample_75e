@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create]
+  before_action :set_item, except: %i[index new create]
 
   def index
     @items = Item.all
@@ -23,8 +23,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @item.update(items_params)
@@ -42,7 +41,7 @@ class ItemsController < ApplicationController
   private
 
   def items_params
-    params.require(:item).permit(:name, :price, itemimgs_attributes: [:image, :_destroy, :id])
+    params.require(:item).permit(:name, :price, itemimgs_attributes: %i[image _destroy id])
   end
 
   def set_item

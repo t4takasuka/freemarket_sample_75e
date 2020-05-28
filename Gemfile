@@ -73,22 +73,14 @@ group :production do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'active_hash'
 gem 'carrierwave'
 gem 'devise'
-gem 'haml-rails'
-gem 'kaminari'
-
-gem 'pry-rails'
+gem 'fog-aws'
 gem "font-awesome-sass"
-
-gem 'mini_magick'
-gem 'fog-aws'
-gem 'active_hash'
-gem 'rails-i18n'
-
-gem 'mini_magick'
-gem 'fog-aws'
-gem 'active_hash'
-gem 'rails-i18n'
+gem 'haml-rails'
 gem 'jquery-rails'
+gem 'kaminari'
+gem 'mini_magick'
+gem 'rails-i18n'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
