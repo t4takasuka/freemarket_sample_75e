@@ -78,6 +78,15 @@ gem 'carrierwave'
 gem 'devise'
 gem 'haml-rails'
 gem 'kaminari'
+
+gem 'pry-rails'
+gem "font-awesome-sass"
+
+gem 'mini_magick'
+gem 'fog-aws'
+gem 'active_hash'
+gem 'rails-i18n'
+
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'active_hash'
