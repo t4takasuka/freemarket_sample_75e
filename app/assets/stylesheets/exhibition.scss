@@ -1,0 +1,241 @@
+@mixin cover {
+  max-width: 700px;
+  background-color: white;
+  margin: 0 auto;
+  padding: 50px;
+  border-top: 1px solid #8c8b8b;
+}
+
+@mixin req {
+  font-size: 13px;
+  color: white;
+  background-color: red;
+  padding: 4px;
+  border-radius: 10px;
+}
+
+@mixin cont {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+@mixin input {
+  width: 100%;
+  margin-bottom: 30px;
+  height: 45px;
+  border: solid 1px black;
+  border-radius: 4px;
+  padding-left: 10px;
+  margin-top: 16px;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  background-color: #eee;
+}
+
+.form__request {
+  @include req;
+}
+
+.form__request2 {
+  font-size: 13px;
+  color: white;
+  background-color: grey;
+  padding: 4px;
+  border-radius: 10px;
+}
+
+.app-name {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.sell {
+  max-width: 700px;
+  background-color: white;
+  margin: 0 auto;
+  &__title {
+    font-weight: bold;
+    padding: 50px 50px 5px;
+  }
+  &__text {
+    font-size: 15px;
+    margin-top: 16px;
+    font-weight: normal;
+  }
+  &__preview {
+    margin: 16px 50px 50px;
+    height: 180px;
+    width: 600px;
+    position: relative;
+    background-color: #eee;
+    border: dashed 2px gray;
+    &--text {
+      text-align: center;
+      font-size: 12px;
+      padding-top: 70px;
+    }
+  }
+  .hidden-field {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.goods {
+  @include cover;
+   .set_input{
+    width: 100%;
+    margin-bottom: 30px;
+    height: 45px;
+    border: solid 1px black;
+    border-radius: 4px;
+    padding-left: 10px;
+    margin-top: 16px;
+  }
+  &__title {
+    font-weight: bold;
+  }
+  &__info {
+    margin-top: 16px;
+  }
+  &__textarea {
+    width: 100%;
+    height: 150px;
+    border: solid 1px black;
+    border-radius: 4px;
+  }
+}
+
+.detail {
+  @include cover;
+  &__content {
+    @include cont;
+  }
+  &__title {
+    font-weight: bold;
+  }
+  .set_input {
+    @include input;
+  }
+}
+
+.delivery {
+  @include cover;
+  &__content {
+    @include cont;
+  }
+  &__title {
+    font-weight: bold;
+  }
+  .set_input {
+    @include input;
+  }
+}
+
+.price {
+  @include cover;
+  &__title {
+    height: 45px;
+    line-height: 45px;
+    font-weight: bold;
+    position: relative;
+  }
+  &__sellprice {
+    text-align: right;
+  }
+  &__range {
+    margin-bottom: 30px;
+  }
+  &__input-sell {
+    height: 45px;
+    border: solid 1px black;
+    border-radius: 4px;
+    text-align: right;
+    padding-right: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  &__yen {
+    margin-left: 250px;
+  }
+  &__fee {
+    padding: 30px 0 20px 0;
+    display: flex;
+    &--totalPrice {
+      margin-left: auto;
+    }
+  }
+  &__profit {
+    border-top: 1px solid #8c8b8b;
+    padding: 20px 0 40px 0;
+    display: flex;
+    &--totalPrice {
+      margin-left: auto;
+    }
+  }
+  &__buttons {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    &--back {
+      margin-top: 20px;
+      font-weight: normal;
+       a {
+        text-decoration: none;
+        color: #0095ee;
+      }
+    }
+  }
+  &__exhibitionBtn {
+    margin: 0 auto;
+    height: 50px;
+    width: 300px;
+    background-color: red;
+    border-radius: 4px;
+  }
+  &__notes {
+    margin-top: 50px;
+    font-size: 11px;
+    a {
+      text-decoration: none;
+      color: #0095ee;
+    }
+  }
+}
+
+.sell-footer {
+  padding: 50px;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  &__contents {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 80px;
+    font-size: 12px;
+    li {
+      list-style: none;
+    }
+    a {
+      text-decoration: none;
+      color: #272727;
+    }
+  }
+  &__logo {
+    margin-top: 30px;
+    &--Cmark {
+      font-size: 12px;
+    }
+  }
+}
