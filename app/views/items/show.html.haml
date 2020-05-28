@@ -7,14 +7,14 @@
         .itembox__body
           %ul
             %li
-              = image_tag asset_path("saba.png"), size:""
+              = image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", size:""
               %ul
                 %li
-                  = image_tag asset_path("saba.png"), size:""
+                  = image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", size:""
                 %li
-                  = image_tag asset_path("curry.png"), size:""
+                  = image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", size:""
                 %li
-                  = image_tag asset_path("nabe.png"), size:""
+                  = image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png", size:""
         .itembox__price
           %span 
             ¥30000
@@ -61,13 +61,13 @@
         .itembox__optionalArea
           %ul
             %li.optionalBtn--likeBtn
-              %i
-              お気に入り 0
+              %i.fa.fa-star
+                お気に入り 0
           %ul.optional
             %li.optionalBtn
               %a{:href => "#"} 
-                %i
-                  不適切な商品通報
+                %i.fa.fa-flag
+                  不適切な商品の通報
       .commentBox
         = form_with url: root_path, class: "newComments", local: true do |f|
           = f.text_area :comment, class: "commentBody"
@@ -75,18 +75,21 @@
             相手のことを考え丁寧なコメントを心がけましょう。
             %br
             不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          = f.submit "コメントする", class: "commentBtn"
+          %button{type: "submit", class: "commentBtn"}
+            %i.fas.fa-comment
+              コメントする
+            
       .links
         %li
           %a{:href => "#"}
-            %i
+            %i.fa.fa-angle-left
               %span
                 前の商品
         %li.last
           %a{:href => "#"}
             %span
               後ろの商品
-              %i
+              %i.fa.fa-angle-right
       .relatedItems
         %a{:href => "#"} ベビー・キッズをもっと見る
 
