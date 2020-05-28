@@ -145,30 +145,31 @@
         background-color: #fff;
         margin: 10px 0;
         text-align: center;
-        .newCommnets {
-          .comment_body {
-            width: 100%;
-          }
-          .noticeMsg {
-            padding: 8px;
-            font-size: 14px;
-            background-color: #f8f8f8;
-            margin: 10px 0;
-            text-align: left;
-          }
-          .commentBtn {
-            line-height: 48px;
-            background-color: #3ccace;
-            border: 1px solid #3ccace;
-            color: #fff;
-            width: 60%;
-            font-size: 18px;
-            border-radius: 100px;
-          }
+        .commentBody {
+          width: 100%;
+          min-height: 104px;
+          padding: 10px;
+          border: 1px solid;
+        }
+        .noticeMsg {
+          padding: 8px;
+          font-size: 14px;
+          background-color: #f8f8f8;
+          margin: 10px 0;
+          text-align: left;
+        }
+        .commentBtn {
+          line-height: 48px;
+          background-color: #3ccace;
+          border: 1px solid #3ccace;
+          color: #fff;
+          width: 60%;
+          font-size: 18px;
+          border-radius: 100px;
+          margin-top: 20px;
         }
       }
     }
-    
     .links{
       list-style: none;
       display: flex;
@@ -177,7 +178,6 @@
         & a {
           text-decoration: none;
           color: #3ccace;
-
         }
       }
       & li.last {
