@@ -5,8 +5,8 @@
   .sell__title
     出品画像
     %span.form__request 必須
-  .sell__text
-    最大10枚までアップロードできます！
+    .sell__text
+      最大10枚までアップロードできます！
   = form_with model: @item, local: true do |f|
     .sell__preview
       = f.fields_for :itemimgs do |i|
@@ -20,12 +20,12 @@
         商品名
         %span.form__request 必須
       .goods__name
-        = f.text_field :name,class:"goods__input-name", placeholder: "商品名"
+        = f.text_field :name,class:"set_input", placeholder: "商品名"
       .goods__title
         商品の説明
         %span.form__request 必須
       .goods__info
-        = f.text_area :name,class:"goods__textarea", placeholder: "商品の説明（必須 1,000文字以内)（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        = f.text_area :text,class:"goods__textarea", placeholder: "商品の説明（必須 1,000文字以内)（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
     .detail
       .detail__content
         商品の詳細
@@ -33,17 +33,17 @@
         カテゴリー
         %span.form__request 必須
       .detail__category
-        = f.text_field :text, placeholder: "選択してください(プルダウンになる)"
+        = f.text_field :text,class:"set_input", placeholder: "選択してください(プルダウンになる)"
       .detail__title
         ブランド
         %span.form__request2 任意
       .detail__bland
-        = f.text_field :text, placeholder: "例）シャネル（インクリメンタルサーチ使用）"
+        = f.text_field :text,class:"set_input", placeholder: "例）シャネル（インクリメンタルサーチ使用）"
       .detail__title
         商品の状態
         %span.form__request 必須
       .detail__status
-        = f.text_field :text, placeholder: "選択してください（プルダウンにする。）"
+        = f.text_field :text,class:"set_input", placeholder: "選択してください（プルダウンにする。）"
     .delivery
       .delivery__content
         配送について
@@ -51,19 +51,59 @@
         配送料の負担
         %span.form__request 必須
       .delivery__burden
-        = f.text_field :text, placeholder: "選択してください（プルダウンにする。）"
+        = f.text_field :text,class:"set_input", placeholder: "選択してください（プルダウンにする。）"
       .delivery__title
         発送元の地域
         %span.form__request 必須
       .delivery__area
-        = f.text_field :text, placeholder: "選択してください（プルダウンにする。）"
+        = f.text_field :text,class:"set_input", placeholder: "選択してください（プルダウンにする。）"
       .delivery__title
         発送までの日数
         %span.form__request 必須
       .delivery__days
-        = f.text_field :text, placeholder: "選択してください（プルダウンにする。）"
-
-
-  -# = f.text_field :name, placeholder: "商品名"
-  -# = f.text_field :price, placeholder: "販売価格"
-  -# = f.submit "出品する"
+        = f.text_field :text,class:"set_input", placeholder: "選択してください（プルダウンにする。）"
+    .price
+      .price__range
+        価格（￥300〜9,999,999）
+      .price__title
+        販売価格
+        %span.form__request 必須
+        %span.price__yen ￥
+        .price__sellprice
+          = f.text_field :price,class:"price__input-sell", placeholder: "0"
+      .price__fee
+        販売手数料（10％）
+        .price__fee--totalPrice -----
+      .price__profit
+        販売利益
+        .price__profit--totalPrice -----
+      .price__buttons
+        = f.submit "出品する",class:"price__exhibitionBtn"
+        .price__buttons--back
+          = link_to "もどる", root_path
+      .price__notes
+        禁止されている
+        %a{:href => ""}行為
+        および
+        %a{:href => ""}出品物
+        を必ずご確認ください。
+        %a{:href => ""}偽ブランド品
+        や
+        %a{:href => ""}盗品物
+        などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして
+        %a{:href => ""}加盟店規約
+        に同意したことになります。
+.sell-footer
+  .sell-footer__list
+    %ul.sell-footer__contents
+      %li
+        %a{:href => ""}プライバシーポリシー
+      %li
+        %a{:href => ""}メルカリ利用規約
+      %li
+        %a{:href => ""}特定商取引に関する表記
+  .sell-footer__logo
+    %a{:href => "/"}
+      = image_tag src="logo.png",size:"170x50"
+  .sell-footer__logo--Cmark
+    © FURIMA

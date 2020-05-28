@@ -1,6 +1,6 @@
 @mixin cover {
   max-width: 700px;
-  background-color: lightskyblue;
+  background-color: white;
   margin: 0 auto;
   padding: 50px;
   border-top: 1px solid #8c8b8b;
@@ -30,6 +30,12 @@
   margin-top: 16px;
 }
 
+body {
+  height: 100vh;
+  width: 100%;
+  background-color: #eee;
+}
+
 .form__request {
   @include req;
 }
@@ -49,24 +55,24 @@
 
 .sell {
   max-width: 700px;
-  background-color: lightskyblue;
+  background-color: white;
   margin: 0 auto;
-  padding: 50px;
   &__title {
     font-weight: bold;
+    padding: 50px 50px 5px;
   }
   &__text {
     font-size: 15px;
     margin-top: 16px;
+    font-weight: normal;
   }
   &__preview {
-    margin: 0 auto;
-    margin: 16px 0;
+    margin: 16px 50px 50px;
     height: 180px;
     width: 600px;
     position: relative;
-    background-color: gray;
-    border: dashed 2px whitesmoke;
+    background-color: #eee;
+    border: dashed 2px gray;
     &--text {
       text-align: center;
       font-size: 12px;
@@ -87,7 +93,7 @@
 
 .goods {
   @include cover;
-   &__input-name{
+   .set_input{
     width: 100%;
     margin-bottom: 30px;
     height: 45px;
@@ -118,7 +124,7 @@
   &__title {
     font-weight: bold;
   }
-  input {
+  .set_input {
     @include input;
   }
 }
@@ -131,7 +137,106 @@
   &__title {
     font-weight: bold;
   }
-  input {
+  .set_input {
     @include input;
+  }
+}
+
+.price {
+  @include cover;
+  &__title {
+    height: 45px;
+    line-height: 45px;
+    font-weight: bold;
+    position: relative;
+  }
+  &__sellprice {
+    text-align: right;
+  }
+  &__range {
+    margin-bottom: 30px;
+  }
+  &__input-sell {
+    height: 45px;
+    border: solid 1px black;
+    border-radius: 4px;
+    text-align: right;
+    padding-right: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  &__yen {
+    margin-left: 250px;
+  }
+  &__fee {
+    padding: 30px 0 20px 0;
+    display: flex;
+    &--totalPrice {
+      margin-left: auto;
+    }
+  }
+  &__profit {
+    border-top: 1px solid #8c8b8b;
+    padding: 20px 0 40px 0;
+    display: flex;
+    &--totalPrice {
+      margin-left: auto;
+    }
+  }
+  &__buttons {
+    text-align: center;
+    &--back {
+      margin-top: 20px;
+       a {
+        text-decoration: none;
+        color: #0095ee;
+      }
+    }
+  }
+  &__exhibitionBtn {
+    margin: 0 auto;
+    height: 50px;
+    width: 300px;
+    background-color: red;
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+  }
+  &__notes {
+    margin-top: 50px;
+    font-size: 11px;
+    a {
+      text-decoration: none;
+      color: #0095ee;
+    }
+  }
+}
+
+.sell-footer {
+  padding: 50px;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  &__list {
+  }
+  &__contents {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 80px;
+    font-size: 12px;
+    li {
+      list-style: none;
+    }
+    a {
+      text-decoration: none;
+      color: #272727;
+    }
+  }
+  &__logo {
+    margin-top: 30px;
+    &--Cmark {
+      font-size: 12px;
+    }
   }
 }
