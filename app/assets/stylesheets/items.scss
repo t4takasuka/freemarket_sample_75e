@@ -228,9 +228,9 @@
       display: flex;
       justify-content: space-around;
       .productList {
-        width: 220px;
         display: inline-block;
         float: left;
+        margin: 15px;
         li{
           display:block;
           }
