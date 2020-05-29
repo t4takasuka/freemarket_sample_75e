@@ -3,21 +3,17 @@
     .top-content
       .itembox
         .itembox__name
-          product3
+          = @item.name
         .itembox__body
           %ul
             %li
               = image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", size:""
               %ul
-                %li
-                  = image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", size:""
-                %li
-                  = image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/10/a004.png", size:""
-                %li
-                  = image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/7/a001.png", size:""
+                - @item.images.each_with_index do |image, i|
+                  %li= image_tag image.src.url, data: { index: i }
         .itembox__price
           %span 
-            ¥30000
+            = "¥#{@item.price}"
           .itembox__price--detail
             %span
               (税込み)
