@@ -22,8 +22,7 @@ class ItemsController < ApplicationController
   def show
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @item.update(item_params)
