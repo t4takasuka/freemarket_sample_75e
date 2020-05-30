@@ -10,4 +10,9 @@ Rails.application.routes.draw do
   end
   root to: "items#index"
   resources :items
+  resources :mypages, only: :index do
+    collection do
+      get 'mypages/logout', to: "mypages#logout"
+    end
+  end
 end
