@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :credit_card do
+  factory :card do
     
   end
 end

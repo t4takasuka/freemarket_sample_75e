@@ -1,0 +1,11 @@
+%p クレジットード情報入力
+= form_with model: Card.new, url: cards_path, local: true, html:{name: "inputForm"} do |f|
+  %p カード番号
+  = f.text_field :card_number, id: "card_number", class: "card_form",maxlength: "16"
+  %p 有効期限
+  = f.select :exp_month , [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]], id: "exp_month",  class: "card-check-box"
+  = f.select :exp_year, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]], id: "exp_year", class: "card-check-box"
+  %p セキュリティーコード
+  = f.password_field :cvc, id: "cvc",class: "card_form" ,maxlength: "6"
+  #card_token.card-btn
+  = f.submit "登録", id: "token_submit", class: "card-btn"

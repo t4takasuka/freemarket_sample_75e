@@ -95,3 +95,4 @@ gem 'active_hash'
 gem 'rails-i18n'
 gem 'payjp'
 
+gem 'jquery-rails'
