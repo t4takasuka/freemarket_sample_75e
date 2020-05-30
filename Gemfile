@@ -77,20 +77,11 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'carrierwave'
 gem 'devise'
-gem 'fog-aws'
 gem 'haml-rails'
 gem 'kaminari'
 
-gem 'pry-rails'
+gem 'active_hash'
+gem 'fog-aws'
 gem "font-awesome-sass"
-
 gem 'mini_magick'
-gem 'fog-aws'
-gem 'active_hash'
 gem 'rails-i18n'
-
-gem 'mini_magick'
-gem 'fog-aws'
-gem 'active_hash'
-gem 'rails-i18n'
-

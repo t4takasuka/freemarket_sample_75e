@@ -13,19 +13,16 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
-  def update
-  end
+  def update; end
 
-  def destroy
-  end
+  def destroy; end
 
   private
+
   def items_params
     params.require(:item).permit(:name, :price, itemimgs_attributes: [:image])
   end
