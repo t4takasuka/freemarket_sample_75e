@@ -13,7 +13,9 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
-  def show; end
+  def show
+    @item = Item.find(params[:id])
+  end
 
   def edit; end
 
