@@ -13,5 +13,10 @@
           %span.bold 0  
 .s-container
   .s-main
-    %h2 <やることリスト>
+    %h2 やることリスト
     %h4 現在、やることリストはありません
+    %h2 設定
+    .left-text
+      = link_to "支払い方法"
+    .right-text
+      = link_to "ログアウト", users_logout_users_path

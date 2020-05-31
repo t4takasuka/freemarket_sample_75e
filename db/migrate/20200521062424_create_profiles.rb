@@ -7,6 +7,7 @@ class CreateProfiles < ActiveRecord::Migration[5.2]
       t.string :family_name_kana, null: false
       t.date :birthday,           null: false
       t.text :introduction
+      t.string :avatar
       t.references :user,         foreign_key: true
       t.timestamps
     end
