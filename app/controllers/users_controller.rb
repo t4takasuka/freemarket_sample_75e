@@ -5,12 +5,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def logout
-  end
-  
-  def mypage
-  end
+  def logout; end
 
+  def mypage; end
 
   private
 
@@ -18,7 +15,3 @@ class UsersController < ApplicationController
     redirect_to root_path unless user_signed_in?
   end
 end
-
-
-
-

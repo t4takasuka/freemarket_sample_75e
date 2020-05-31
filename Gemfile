@@ -84,7 +84,5 @@ gem 'active_hash'
 gem 'fog-aws'
 gem "font-awesome-sass"
 gem 'mini_magick'
-gem 'rails-i18n'
 gem 'payjp'
-
-
+gem 'rails-i18n'
