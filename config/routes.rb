@@ -10,5 +10,9 @@ Rails.application.routes.draw do
   end
   root to: "items#index"
   resources :items
-  resources :cards, only:[:index, :new, :create, :destroy, :show]
+  resources :cards, only:[:index, :new, :create, :destroy, :show] do
+    member do
+      post 'pay'
+    end
+  end
 end
