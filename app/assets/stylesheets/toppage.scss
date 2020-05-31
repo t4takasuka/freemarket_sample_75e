@@ -140,11 +140,12 @@ body{
   }
   &__exhibitionBtn {
     width: 110px;
-    text-align: center;
-    background-color: #3CCACE;
-    cursor: pointer;
     font-size: 20px;
     border-radius: 15px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #3CCACE;
+    cursor: pointer;
     color: white;
     position: fixed;
     right: 20px;

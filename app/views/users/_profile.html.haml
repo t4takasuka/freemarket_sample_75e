@@ -1,0 +1,23 @@
+.content
+  %section.mypage-user-icon
+    = link_to "#" do
+      .figure
+        =image_tag src="icon-01.png",size:"60x60"
+      .h2 サンプル
+      .mypage-number
+        %div
+          評価
+          %span.bold 0
+        %div
+          出品数
+          %span.bold 0
+  %section.mypage-tab-container-notification-todo
+    %ul.mypage-tabs
+      %li.active
+        %h3
+          = link_to "#mypage-tab-todo" do
+            やることリスト
+      %ul#mypage-tab-todo.mypage-item-list.tab-pane.active
+        %li.mypage-item-not-found.bold 現在、やることリストはありません
+  
+  
