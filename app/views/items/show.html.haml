@@ -64,6 +64,9 @@
               %a{:href => "#"} 
                 %i.fa.fa-flag
                   不適切な商品の通報
+      
+        =link_to "編集する", edit_item_path
+
       .commentBox
         = form_with url: root_path, class: "newComments", local: true do |f|
           = f.text_area :comment, class: "commentBody"

@@ -20,9 +20,7 @@
         %ul
           - if user_signed_in?
             %li.top-page-headerNav__right--mypage
-              = link_to "マイページ","/"
-            %li.top-page-headerNav__right--signout
-              = link_to "ログアウト*後で消す", destroy_user_session_path, method: :delete
+              = link_to "マイページ", mypages_path
           - else
             %li.top-page-headerNav__right--login
               = link_to "ログイン",user_session_path
