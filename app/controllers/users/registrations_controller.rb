@@ -75,7 +75,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def profile_params
-    params.require(:profile).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :birthday, :introduction, :avatar)
+    params.require(:profile).permit(:family_name, :first_name, :family_name_kana, :first_name_kana, :birthday, :introduction)
   end
 
   def sending_destination_params
