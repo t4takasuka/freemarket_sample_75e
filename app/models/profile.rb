@@ -1,5 +1,6 @@
 class Profile < ApplicationRecord
   belongs_to :user, optional: true
+  mount_uploader :avatar, ImageUploader
 
   # 全角ひらがな・カタカナ・漢字
   zenkaku = /\A[ぁ-んァ-ン一-龥]+\z/

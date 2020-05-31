@@ -1,3 +1,21 @@
 .main
-  = render "profile"
-  = render "setting"
+  .content
+    %section.mypage-user-icon
+      = link_to user_path(@user) do
+        .figure
+          - if @user.profile.avatar?
+            = image_tag @user.profile.avatar.url
+        .h2= @user.nickname
+        .mypage-number
+          %div
+            評価
+            %span.bold 0
+          %div
+            出品数
+            %span.bold 0
+.u-container
+  .u-main
+    .u-introduction
+      =@user.profile.introduction
+    %p
+      （＊seller.id が item と関連できたら、出品したアイテム情報を並べる予定です）

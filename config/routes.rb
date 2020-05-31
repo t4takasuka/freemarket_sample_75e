@@ -10,9 +10,10 @@ Rails.application.routes.draw do
   end
   root to: "items#index"
   resources :items
-  resources :mypages, only: :index do
+  resources :users, only: :show do
     collection do
-      get 'mypages/logout', to: "mypages#logout"
+      get 'users/mypage', to: "users#mypage"
+      get 'users/logout', to: "users#logout"
     end
   end
 end

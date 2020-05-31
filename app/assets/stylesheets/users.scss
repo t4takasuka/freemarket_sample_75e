@@ -7,7 +7,7 @@
       position: relative;
       height: 255px;
       padding: 20px;
-      background-image: url(awa2.jpg);
+      background-image: image-url("awa2.jpg");
       background-repeat: no-repeat;
       background-size: cover;
       text-align: center;
@@ -33,7 +33,7 @@
           margin: 8px 0 0;
           // font-size: 14px;
           font-weight: bold;
-       }
+      }
       .mypage-number {
         margin: 8px 0 0;
         font-size: 0;
@@ -50,74 +50,81 @@
       }
     }
   }
-  .mypage-tab-container-notification-todo {
-    margin: 0;
-    background: #fff;
+}
+}
+
+// setting.html.haml
+.s-container{
+  background-color: rgb(245, 245, 245);
+  padding: 10px 0;
+  .s-main{
+    background-color: white;
+    padding: 30px;
+    width: 700px;
+    margin: 0 auto;
     text-align: center;
-    .mypage-tabs{
-      border: 0;
-      background: #fff;
-      li {
-        width: 100%;
-        h3 {
-          font-size: 22px;
-          a {
-            position: relative;
-            display: block;
-            color: #333;
-            font-size: 16px;
-            line-height: 72px;
-            text-decoration: none;
-        }
-      }
+    h2 {
+      margin-bottom: 30px;
     }
-      }
-}
-  
-
-
-
-// / *setting.html.haml
-    .mypage-nav-head {
-      margin: 40px 4% 0;
-      font-size: 16px;
+    a{
+      text-decoration: none;
     }
-    .mypage-nav-list {
-      margin: 8px 0 0;
+    .left-text{
+      display: inline-block;
+      padding: 20px;
     }
-      li {
-        list-style: none;
-        .mypage-nav-list-item {
-          border-top: 1px solid #eee;
-          text-decoration: none;
-          position: relative;
-          display: block;
-          min-height: 48px;
-          padding: 16px;
-          background: #fff;
-          font-size: 14px;
-          color: #333;
-          .fas {
-            position: absolute;
-            top: 50%;
-            right: 16px;
-            color: black;
-            transform: translate(0, -50%);
-            .icon-arrow-right:before {
-              content: '\e005';
-          }
-        }
-      }
+    .right-text{
+      display: inline-block;
+      padding: 20px;
     }
-
-
-   
-
-
-}
+  }
 }
 
+// / ###ログアウト
+.l-container{
+  background-color: rgb(245, 245, 245);
+  padding: 30px 0;
+  .l-main{
+    background-color: white;
+    padding: 30px;
+    width: 700px;
+    margin: 0 auto;
+    a{
+      text-decoration: none;
+    }
+    .l-mainbtn{
+      background-color: red;
+      height: 40px;
+      width: 300px;
+      text-align: center;
+      margin: 0 auto;
+      h3{
+        color: white;
+        line-height: 40px;
+        font-size: 18px;
+      }
+    }
+  }
+}
 
+// show.html.haml
+.u-container{
+  background-color: rgb(245, 245, 245);
+  padding: 10px 0;
+  .u-main{
+    background-color: white;
+    padding: 50px;
+    width: 700px;
+    margin: 0 auto;
+    text-align: left;
+    .u-introduction{
+      width: 100%;
+      margin-bottom: 50px;
+      word-wrap: break-word;
+    }
 
-
-
+    a{
+      text-decoration: none;
+    }
+  }
+}

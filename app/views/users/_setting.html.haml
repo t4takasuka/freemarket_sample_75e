@@ -1,17 +1,7 @@
-.content
-  %h3.mypage-nav-head 設定
-  %ul.mypage-nav-list
-  %li
-    =link_to "#", class: "mypage-nav-list-item" do
-      支払い方法
-      %i.fas.fa-chevron-right
-    -# %a.mypage-nav-list-item{:href => "/jp/mypage/card/"}
-      支払い方法
-      
-  %li
-    =link_to "#", class: "mypage-nav-list-item" do
-      ログアウト
-      %i.fas.fa-chevron-right
-    -# %a.mypage-nav-list-item{:href => "/jp/logout/"}
-      ログアウト
-     
+.s-container
+  .s-main
+    %h2 設定
+    .left-text
+      = link_to "支払い方法"
+    .right-text
+      = link_to "ログアウト", users_logout_users_path
