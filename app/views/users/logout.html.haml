@@ -1,6 +1,9 @@
+= render "layouts/header_toppage"
 .l-container
   .l-main
     = link_to destroy_user_session_path, method: :delete do
       .l-mainbtn
         %h3
           ログアウト
+= render "layouts/appBanner_toppage"
+= render "layouts/footer_toppage"
