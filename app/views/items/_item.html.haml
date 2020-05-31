@@ -1,5 +1,16 @@
-= item.name
-= item.price 
-= "円"
-- item.itemimgs.each do |itemimg|
-  = image_tag itemimg.image.url
+.productList
+  = link_to item_path(item) do
+    %figure.productList--img
+      = image_tag item.images[0].src.url, width: "220", height: '150'
+    .productList--body
+      %h3.name 
+        = item.name
+      .details
+        %ul
+          %li 
+            = "#{item.price}円"
+          %li
+            %i.fa.fa-star.likeIcon
+            0
+        %p (税込)
+
