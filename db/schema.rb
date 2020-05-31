@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2020_05_22_064538) do
     t.string "family_name_kana", null: false
     t.date "birthday", null: false
     t.text "introduction"
-    t.string "avatar"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

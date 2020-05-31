@@ -3,8 +3,7 @@
     %section.mypage-user-icon
       = link_to user_path(@user) do
         .figure
-          - if @user.profile.avatar?
-            = image_tag @user.profile.avatar.url
+          =image_tag src="icon-01.png",size:"60x60"
         .h2= @user.nickname
         .mypage-number
           %div

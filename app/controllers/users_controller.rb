@@ -9,19 +9,8 @@ class UsersController < ApplicationController
   end
   
   def mypage
-    user = User.find(current_user.id)
-    @profile = user.profile
   end
 
-  def update
-    user = User.find(current_user.id)
-    @profile = user.profile
-    if @profile.update(profile_params)
-      redirect_to users_mypage_users_path, notice: 'アバター画像を更新しました'
-    else
-      render :mypage
-    end
-  end
 
   private
 

@@ -5,16 +5,5 @@
       = link_to "支払い方法"
     .right-text
       = link_to "ログアウト", users_logout_users_path
-    = form_with model: @profile do |f|
-      .form-container__box
-        .form-container__box--avatar
-          = f.label :アバター画像の設定をする
-          %span.form__any 
-          %br/
-          = f.file_field :avatar
-      .form-container__box
-        .form-container__box--actions
-          = f.submit "登録する", class: "session-next-btn"
-
 
 

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
   root to: "items#index"
   resources :items
-  resources :users, only: [:show, :update] do
+  resources :users, only: [:show] do
     collection do
       get 'users/mypage', to: "users#mypage"
       get 'users/logout', to: "users#logout"
