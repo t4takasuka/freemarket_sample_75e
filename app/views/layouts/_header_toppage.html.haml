@@ -7,24 +7,41 @@
         %input.top-page-header__form{name: "keyword", placeholder: "キーワードから探す",type: "text", value: ""}
         %button.top-page-header__form--btn{title: "",type: "submit"}
           = image_tag src="icon-search 1.png",size:"30x30"
-    
-    .top-page-headerNav
-      .top-page-headerNav__left
-        %ul
-          %li.top-page-headerNav__left--category
-            = link_to "カテゴリ","/"
-          %li.top-page-headerNav__left--bland
-            = link_to "ブランド","/"
-          
+
+    .top-page-headerNav__left
+      .header-category
+        %ul.category-title
+          %li.category-list-title
+            = link_to "カテゴリーから探す","category_path"
+            %ul.category-parent
+              - @categories.roots.each do |root_category|
+                %li.category-list-parent
+                  = link_to "category_index_path(category_path.id)" do
+                    = root_category.name
+                  %ul.category-child
+                    .category-childbox
+                    - root_category.children.each do |children_category|
+                      %li.category-list-child
+                        = link_to "/" do
+                          = children_category.name
+                        %ul.category-grandchild
+                          .category-grandchildbox
+                          - children_category.children.each do |children_children_category|
+                            %li.category-list-grandchild
+                              = link_to "/" do
+                                = children_children_category.name
+      %li.top-page-headerNav__left--bland
+        = link_to "ブランド","/"
+            
       .top-page-headerNav__right
         %ul
-          - if user_signed_in?
-            %li.top-page-headerNav__right--mypage
-              = link_to "マイページ","/"
-            %li.top-page-headerNav__right--signout
-              = link_to "ログアウト*後で消す", destroy_user_session_path, method: :delete
-          - else
-            %li.top-page-headerNav__right--login
-              = link_to "ログイン",user_session_path
-            %li.top-page-headerNav__right--signup
-              = link_to "新規登録",new_user_registration_path
+        - if user_signed_in?
+          %li.top-page-headerNav__right--mypage
+            = link_to "マイページ","/"
+          %li.top-page-headerNav__right--signout
+            = link_to "ログアウト*後で消す", destroy_user_session_path, method: :delete
+        - else
+          %li.top-page-headerNav__right--login
+            = link_to "ログイン",user_session_path
+          %li.top-page-headerNav__right--signup
+            = link_to "新規登録",new_user_registration_path

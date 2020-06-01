@@ -1,3 +1,92 @@
-// Place all the styles related to the category controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.category-title {
+  display: flex;
+  height: 40px;
+  float: left;
+  font-size: 14px;
+  &.category-title > li {
+    color: rgb(14, 9, 19);
+  }
+  .category-list-title {
+    position: relative;
+  }
+  &.category-title li {
+    list-style: none;
+    z-index: 10;
+  }
+  &.category-title li a {
+    background: #eee;
+    border-bottom: 1px solid rgb(219, 206, 206);
+    color: black;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    width: 200px;
+  }
+  &.category-title li li {
+    height: 0;
+    overflow: hidden;
+  }
+  &.category-title li:hover > ul > li {
+    height: 40px;
+    overflow: visible;
+  }
+  .category-child {
+    font-size: 12px;
+    height: 30px;
+    position: relative;
+
+  }
+  &.category-title li ul li ul {
+    left: 200px;
+    position: absolute;
+    top: 0;
+    width: 200px;
+    z-index: 90;
+  }
+  &.category-title > li > ul {
+    position: absolute;
+    top: 40px;
+  }
+  .category-child {
+    width: 0 !important;
+  }
+  .category-childbox {
+    display: none;
+    background-color: #eee;
+    width: 200px;
+    height: 560px;
+    position: absolute;
+    z-index: -1;
+  }
+  .category-list-parent:hover .category-childbox {
+    display: block;
+  }
+  .category-grandchildbox {
+    display: none;
+    background-color: #eee;
+    width: 200px;
+    height: 560px;
+    position: absolute;
+    z-index: -1;
+  }
+  .category-grandchild {
+    position: relative;
+    width: 0 !important;
+  }
+  .category-list-child:hover .category-grandchildbox {
+    display: block;
+  }
+  .category-parent > li > a {
+    transition: all 0s ease 0s;
+  }
+  .category-parent li a:hover {
+    background: #3CCACE;
+    color: white;
+  }
+  .category-parent li a:hover .category-child {
+    background: #3CCACE;
+    color: white;
+  }
+}

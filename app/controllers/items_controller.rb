@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all
+    @categories = Category.order(:id)
   end
 
   def new

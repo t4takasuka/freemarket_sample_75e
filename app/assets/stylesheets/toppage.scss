@@ -43,7 +43,7 @@ body{
   height: 40px;
   display: flex;
   justify-content: space-between;
-  &__left {
+  &__left--brand {
     display: flex;
     line-height: 40px;
     ul {
@@ -69,6 +69,11 @@ body{
       color: black;
     }
   }
+}
+
+.top-page-header__right {
+  background-color: #eee;
+  display: flex;
 }
 // アプリケーションバナー部
 .top-page-appBanner {
