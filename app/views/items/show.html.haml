@@ -8,10 +8,10 @@
         .itembox__body
           %ul
             %li
-              = image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", size:""
+              = image_tag @item.images[0].src.url
               %ul
                 - @item.images.each_with_index do |image, i|
-                  %li= image_tag image.src.url, data: { index: i }
+                  %li= image_tag image.src.url, data: { index: i }, width: "100", height: '100'
         .itembox__price
           %span 
             = "¥#{@item.price}"
@@ -20,6 +20,13 @@
               (税込み)
             %span
               送料込み
+        .BtnPurchase
+          =link_to "購入する", "#"
+        .BtnEdit
+          =link_to "編集する", edit_item_path 
+        .BtnDelete
+          =link_to "削除する", item_path, method: :delete ,data: {confirm: "本当に削除しますか？"}
+
         .itembox__itemdetail
           親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて
         .itembox__table
@@ -65,8 +72,6 @@
               %a{:href => "#"} 
                 %i.fa.fa-flag
                   不適切な商品の通報
-      
-        =link_to "編集する", edit_item_path
 
       .commentBox
         = form_with url: root_path, class: "newComments", local: true do |f|

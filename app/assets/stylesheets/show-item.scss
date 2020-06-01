@@ -29,8 +29,6 @@
               margin: 0 auto;
               & img {
                 object-fit: cover;
-                height: 346px;
-                width: 100%;
                 vertical-align: bottom;
               }
               & ul {
@@ -62,6 +60,54 @@
               font-weight: 1;
               box-sizing: border-box;
             }
+          }
+        }
+        .BtnPurchase {
+          background-color: red;
+          text-align: center;
+          padding: 10px;
+          display: block;
+          margin: 30px auto;
+          border-radius: 100px;
+          width: 60%;
+          cursor: pointer;
+          a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+          }
+        }
+        .BtnEdit {
+          background-color: #3ccace;
+          text-align: center;
+          padding: 10px;
+          display: block;
+          margin: 30px auto;
+          border-radius: 100px;
+          width: 60%;
+          cursor: pointer;
+          a {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+          }
+        }
+        .BtnDelete {
+          background-color: red;
+          text-align: center;
+          padding: 10px;
+          display: block;
+          margin: 30px auto;
+          border-radius: 100px;
+          width: 60%;
+          cursor: pointer;
+          a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
           }
         }
         &__itemdetail {
@@ -128,6 +174,7 @@
             }
           }
         }
+
       }
       .commentBox {
         padding: 24px;
