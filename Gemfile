@@ -76,14 +76,12 @@ end
 gem 'active_hash'
 gem 'carrierwave'
 gem 'devise'
+gem 'fog-aws'
+gem "font-awesome-sass"
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'kaminari'
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'fog-aws'
-gem "font-awesome-sass"
 gem 'mini_magick'
-gem 'rails-i18n'
 gem 'payjp'
-
-
+gem 'rails-i18n'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

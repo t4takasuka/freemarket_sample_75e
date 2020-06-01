@@ -2,7 +2,8 @@
   .top-page-header__headerinner
     .top-page-header__mainheader
       .top-page-header__image
-        = link_to image_tag("logo.png",size:"150x45")
+        = link_to root_path do
+          = image_tag("/assets/logo.png",size:"150x45")
       = form_tag('#', method: :get, class: "top-page-header__searchbox") do
         %input.top-page-header__form{name: "keyword", placeholder: "キーワードから探す",type: "text", value: ""}
         %button.top-page-header__form--btn{title: "",type: "submit"}
@@ -20,7 +21,7 @@
         %ul
           - if user_signed_in?
             %li.top-page-headerNav__right--mypage
-              = link_to "マイページ", mypages_path
+              = link_to "#{current_user.nickname}さんのマイページ", users_mypage_users_path
           - else
             %li.top-page-headerNav__right--login
               = link_to "ログイン",user_session_path
