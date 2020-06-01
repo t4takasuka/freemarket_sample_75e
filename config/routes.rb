@@ -9,7 +9,15 @@ Rails.application.routes.draw do
     post 'sending_destinations', to: 'users/registrations#create_sending_destination'
   end
   root to: "items#index"
-  resources :items
+  resources :items do
+    resources :purchases, only: [:index] do
+      collection do
+        post 'pay', to: 'purcahse#pay'
+        get 'done', to: 'purcahse#done'
+      end
+    end
+  end
+  
   resources :users, only: [:show] do
     collection do
       get 'users/mypage', to: "users#mypage"

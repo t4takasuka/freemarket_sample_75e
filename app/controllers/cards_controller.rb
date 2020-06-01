@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
   require 'payjp'
 
-  before_action :take_card, only:[:show, :destroy]
+  before_action :set_card, only:[:show, :destroy]
   before_action :set_api_key
 
   def new
@@ -62,7 +62,7 @@ class CardsController < ApplicationController
     @card_information = @customer.cards.retrieve(@card.card_id)
   end
 
-  def take_card
+  def set_card
     @card = Card.find_by(user_id: current_user.id)
   end
 end
