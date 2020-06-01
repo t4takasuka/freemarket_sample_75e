@@ -10,11 +10,10 @@ Rails.application.routes.draw do
   end
   root to: "items#index"
   resources :items do
-    resources :purchases, only: [:index] do
-      collection do
-        post 'pay', to: 'purcahse#pay'
-        get 'done', to: 'purcahse#done'
-      end
+    member do
+      get 'purchaseConfilmation'
+      post 'pay'
+      get 'purchaseCompleted'
     end
   end
   
