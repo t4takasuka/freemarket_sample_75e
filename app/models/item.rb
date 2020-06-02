@@ -1,8 +1,8 @@
 class Item < ApplicationRecord
   ### ER図の上から順番に記述
   # belongs_to :brand
-  has_many :itemimgs
-  accepts_nested_attributes_for :itemimgs, allow_destroy: true
+  has_many :images, dependent: :destroy
+  accepts_nested_attributes_for :images, allow_destroy: true
   # has_one :user_evaluation
 
   # belongs_to_active_hash :size
@@ -16,7 +16,7 @@ class Item < ApplicationRecord
 
   # has_many :favorites,  # 中間テーブルのため記載変更が必要
   # has_many :comments, dependent: :destroy # 中間テーブルのため記載変更が必要
-  
+
   # belongs_to_active_hash :categorie
 
   ### trello【サーバサイド】商品出品機能の求められる仕様から記述
