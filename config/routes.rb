@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get 'purchaseCompleted'
     end
   end
+  resources :category, only: [:index, :show]
   
   resources :users, only: [:show] do
     collection do
