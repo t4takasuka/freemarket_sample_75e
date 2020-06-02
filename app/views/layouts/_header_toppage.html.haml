@@ -31,13 +31,14 @@
                             %li.category-list-grandchild
                               = link_to "/" do
                                 = children_children_category.name
+
       %li.top-page-headerNav__left--bland
         = link_to "ブランド","/"
             
       .top-page-headerNav__right
         %ul
         - if user_signed_in?
-          %li.top-page-headerNav__right--mypage
+          %li.top-page-headerNav__right--mypage 
             = link_to "#{current_user.nickname}さんのマイページ", users_mypage_users_path
         - else
           %li.top-page-headerNav__right--login

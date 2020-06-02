@@ -10,12 +10,13 @@ Rails.application.routes.draw do
   end
   root to: "items#index"
   resources :items
-  resources :category, only: [:index, :show]
-  
+
   resources :users, only: [:show] do
     collection do
       get 'users/mypage', to: "users#mypage"
       get 'users/logout', to: "users#logout"
     end
   end
+  
+  resources :category, only: [:index, :show]
 end
