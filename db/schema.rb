@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_29_093156) do
+ActiveRecord::Schema.define(version: 2020_05_31_072258) do
+
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "src", null: false
@@ -23,6 +29,17 @@ ActiveRecord::Schema.define(version: 2020_05_29_093156) do
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "price", null: false
+    t.bigint "item_condition_id", null: false
+    t.bigint "postage_payer_id", null: false
+    t.integer "size_id"
+    t.bigint "postage_type_id", null: false
+    t.bigint "preparation_day_id", null: false
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["item_condition_id"], name: "index_items_on_item_condition_id"
+    t.index ["postage_payer_id"], name: "index_items_on_postage_payer_id"
+    t.index ["postage_type_id"], name: "index_items_on_postage_type_id"
+    t.index ["preparation_day_id"], name: "index_items_on_preparation_day_id"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
