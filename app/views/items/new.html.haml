@@ -1,5 +1,5 @@
 .app-name
-  =link_to image_tag("logo.png",size:"200x60"),"root_path"
+  =link_to image_tag("logo.png",size:"200x60"),"/"
 .sell
   .sell__title
     出品画像
@@ -8,3 +8,16 @@
       最大10枚までアップロードできます！
       
   = render partial: 'form'
+
+.exhibition-footer
+  .exhibition-footer__box
+    .exhibition-footer__privacy
+      = link_to "プライバシーポリシー","/"
+    .exhibition-footer__terms
+      = link_to "フリマ利用規約","/"
+    .exhibition-footer__specific
+      = link_to "特定商取引に関する表記","/"
+  .exhibition-footer__app-name
+    =link_to image_tag("logo.png",size:"150x45"),"/"
+    .exhibition-footer__Cmark
+      ©フリマッキー,inc.

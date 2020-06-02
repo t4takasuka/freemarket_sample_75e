@@ -214,28 +214,25 @@ body {
   }
 }
 
-.sell-footer {
-  padding: 50px;
-  text-align: center;
+.exhibition-footer {
   max-width: 700px;
   margin: 0 auto;
-  &__contents {
+  text-align: center;
+  &__box {
     display: flex;
-    justify-content: space-between;
-    padding: 0 80px;
     font-size: 12px;
-    li {
-      list-style: none;
-    }
+    padding: 30px 150px;
+    justify-content: space-between;
     a {
       text-decoration: none;
-      color: #272727;
+      color: black;
+    }
+    a:hover {
+      color: #0095ee;
     }
   }
-  &__logo {
-    margin-top: 30px;
-    &--Cmark {
-      font-size: 12px;
-    }
+  &__Cmark {
+    font-size: 12px;
+    margin-bottom: 30px;
   }
 }
