@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   end
   root to: "items#index"
   resources :items
+  resources :category, only: [:index, :show]
+  
   resources :users, only: [:show] do
     collection do
       get 'users/mypage', to: "users#mypage"
