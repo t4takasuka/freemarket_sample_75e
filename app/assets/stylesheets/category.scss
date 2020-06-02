@@ -33,7 +33,6 @@
     overflow: visible;
   }
   .category-child {
-    font-size: 12px;
     height: 30px;
     position: relative;
 
@@ -88,5 +87,8 @@
   .category-parent li a:hover .category-child {
     background: #3CCACE;
     color: white;
+  }
+  .category-child li a {
+    font-size: 12px;
   }
 }

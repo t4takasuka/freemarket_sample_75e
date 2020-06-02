@@ -37,7 +37,7 @@
         %ul
         - if user_signed_in?
           %li.top-page-headerNav__right--mypage
-            = link_to "マイページ","/"
+            = link_to "マイページ",users_mypage_users_path
           %li.top-page-headerNav__right--signout
             = link_to "ログアウト*後で消す", destroy_user_session_path, method: :delete
         - else
