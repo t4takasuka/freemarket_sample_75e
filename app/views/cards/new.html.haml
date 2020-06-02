@@ -1,3 +1,5 @@
+= render "layouts/header_toppage"
+
 = flash[:alert]
 %br
 %p クレジットード情報入力
@@ -32,3 +34,6 @@
   = f.password_field :cvc, id: "cvc",class: "card_form" , placeholder: "カード背面3~4桁の番号", maxlength: "6"
   #card_token.card-btn
   = f.submit "登録", id: "token_submit", class: "card-btn"
+
+= render "layouts/appBanner_toppage"
+= render "layouts/footer_toppage"

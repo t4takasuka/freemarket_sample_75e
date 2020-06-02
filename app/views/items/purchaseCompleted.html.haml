@@ -1,5 +1,8 @@
 .app-name
-  =link_to image_tag("logo.png",size:"200x60"),"root_path"
+  =link_to image_tag("logo.png",size:"200x60"),"/"
 
-%h1 購入完了しました
-= link_to "トップページへ戻る", root_path
+.completed-main
+  .completed-main__massage
+    %p 購入完了しました
+  .completed-main__inner
+    = link_to "トップページへ戻る", root_path, class: "root-top"

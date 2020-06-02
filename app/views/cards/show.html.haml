@@ -1,3 +1,5 @@
+= render "layouts/header_toppage"
+
 %p クレジットカード情報
 = "**** **** **** " + @card_information.last4
 %p 有効期限
@@ -6,3 +8,6 @@
 = exp_month + " / " + exp_year
 %br
 = link_to "削除する", card_path, method: :delete, class: ""
+
+= render "layouts/appBanner_toppage"
+= render "layouts/footer_toppage"
