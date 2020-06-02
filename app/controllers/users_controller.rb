@@ -7,7 +7,9 @@ class UsersController < ApplicationController
 
   def logout; end
 
-  def mypage; end
+  def mypage
+    @categories = Category.order(:id)
+  end
 
   private
 

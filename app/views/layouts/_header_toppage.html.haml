@@ -13,11 +13,11 @@
       .header-category
         %ul.category-title
           %li.category-list-title
-            = link_to "カテゴリーから探す","category_path"
+            = link_to "カテゴリーから探す", categories_path
             %ul.category-parent
               - @categories.roots.each do |root_category|
                 %li.category-list-parent
-                  = link_to "category_index_path(category_path.id)" do
+                  = link_to categories_path do
                     = root_category.name
                   %ul.category-child
                     .category-childbox
@@ -31,13 +31,14 @@
                             %li.category-list-grandchild
                               = link_to "/" do
                                 = children_children_category.name
+
       %li.top-page-headerNav__left--bland
         = link_to "ブランド","/"
             
       .top-page-headerNav__right
         %ul
         - if user_signed_in?
-          %li.top-page-headerNav__right--mypage
+          %li.top-page-headerNav__right--mypage 
             = link_to "#{current_user.nickname}さんのマイページ", users_mypage_users_path
         - else
           %li.top-page-headerNav__right--login
