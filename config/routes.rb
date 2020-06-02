@@ -17,6 +17,6 @@ Rails.application.routes.draw do
       get 'users/logout', to: "users#logout"
     end
   end
-  
-  resources :category, only: [:index, :show]
+
+  resources :categories
 end
