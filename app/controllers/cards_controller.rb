@@ -6,6 +6,7 @@ class CardsController < ApplicationController
 
   def new
     @card = Card.where(user_id: current_user.id)
+    @categories = Category.order(:id)
   end
 
   def create
@@ -28,6 +29,7 @@ class CardsController < ApplicationController
   end
 
   def show 
+    @categories = Category.order(:id)
     if @card.blank?
       flash[:alert] = '購入前にクレジットカードを登録してください'
       redirect_to action: "new"

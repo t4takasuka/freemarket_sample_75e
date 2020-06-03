@@ -26,7 +26,9 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @categories = Category.order(:id)
+  end
 
   def edit; end
 
@@ -64,8 +66,9 @@ class ItemsController < ApplicationController
       customer: @card.customer_id,  #顧客ID
       currency: 'jpy',              #日本円
     )
-    @item_buyer = Item.find(params[:id])
-    @item_buyer.update( buyer_id: current_user.id )
+    # 後でbuyerと調整
+    # @item_buyer = Item.find(params[:id])
+    # @item_buyer.update( buyer_id: current_user.id )
     redirect_to purchaseCompleted_item_path #購入完了ページへ
   end
 

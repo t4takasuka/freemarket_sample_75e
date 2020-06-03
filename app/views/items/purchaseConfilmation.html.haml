@@ -52,10 +52,13 @@
         .buy-form__inner
           .btn-default
             = form_tag(action: :pay, method: :post) do
-              - if @item.buyer_id.present?
-                = link_to "売り切れました", root_path, class: "pay"
-              - else
-                = submit_tag("購入する", class: "pay")
+              = submit_tag("購入する", class: "pay")
+              -# 後でbuyerと調整
+              -# - if @item.buyer_id.present?
+              -#   = link_to "売り切れました", root_path, class: "pay"
+              -# - else
+              -#   = submit_tag("購入する", class: "pay")
+= render partial: 'footer'
 
 
 

@@ -13,8 +13,6 @@ class CreateItems < ActiveRecord::Migration[5.2]
       # t.references :preparation_day,  null: false, foreign_key: true
       # t.references :category,         null: false, foreign_key: true
       # t.integer :trading_status,      null: false #ER図なし。item_modelで定義する。
-      t.integer :seller_id
-      t.integer :buyer_id
       # t.timestamps :deal_closed_data
     end
   end
