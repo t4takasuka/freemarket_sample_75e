@@ -9,8 +9,14 @@ Rails.application.routes.draw do
     post 'sending_destinations', to: 'users/registrations#create_sending_destination'
   end
   root to: "items#index"
-  resources :items
-
+  resources :items do
+    member do
+      get 'purchaseConfilmation'
+      post 'pay'
+      get 'purchaseCompleted'
+    end
+  end
+  
   resources :users, only: [:show] do
     collection do
       get 'users/mypage', to: "users#mypage"
@@ -18,5 +24,6 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :cards, only:[:new, :create, :destroy, :show]
   resources :categories
 end
