@@ -1,0 +1,10 @@
+.app-name
+  =link_to image_tag("logo.png",size:"200x60"),"/"
+
+.completed-main
+  .completed-main__massage
+    %p 購入完了しました
+  .completed-main__inner
+    = link_to "トップページへ戻る", root_path, class: "root-top"
+
+= render partial: 'footer'

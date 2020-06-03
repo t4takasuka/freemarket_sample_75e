@@ -1,0 +1,26 @@
+.completed-main {
+  background-color:white;
+  width: 700px;
+  margin: 0 auto;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  .completed-main__massage {
+    padding: 32px;
+    text-align: center;
+    p {
+      margin: 0 auto;
+      line-height: 50px;
+      width: 300px;
+      font-size: 20px;
+      color: #fff;
+      background-color: #3CCACE;
+    }
+  }
+  .completed-main__inner {
+    padding: 28px;
+    text-align: center;
+    .root-top {
+      text-decoration: none;
+      color: black;
+    }
+  }
+}
