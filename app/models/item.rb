@@ -5,13 +5,13 @@ class Item < ApplicationRecord
   belongs_to_active_hash :postage_payer
   belongs_to_active_hash :preparation_day
   belongs_to_active_hash :postage_type 
-  ### ER図の上から順番に記述
+  belongs_to :category
   belongs_to :brand
   has_many :images, dependent: :destroy
-  accepts_nested_attributes_for :images, allow_destroy: true
-  # has_one :user_evaluation
   belongs_to :seller,   class_name: 'User'
   belongs_to :buyer, class_name: 'User'
+  accepts_nested_attributes_for :images, allow_destroy: true
+
   enum trading_status: {
     出品中: 0, 売り切れ: 1 
   }
@@ -28,21 +28,15 @@ class Item < ApplicationRecord
     沖縄県: 47
   }
   
-  # belongs_to :buyer, class_name: User # ER図なし
-  # belongs_to :seller, class_name: User  # ER図なし
-
-  # has_many :favorites,  # 中間テーブルのため記載変更が必要
-  # has_many :comments, dependent: :destroy # 中間テーブルのため記載変更が必要
-
-  belongs_to_active_hash :categorie
-
   ### trello【サーバサイド】商品出品機能の求められる仕様から記述
-  # validates :images, presence: true
-  # validates :name, presence: true
-  # validates :category, presence: true
-  # validates :brand, #任意
-  # validates :postage_payer, presence: true
-  # validates :prefecture_code, presence: true
-  # validates :preparation_day, presence: true  #発送日までの日数について
-  # validates :price, presence: true
+  validates :images, presence: true
+  validates :name, presence: true
+  validates :category, presence: true
+  validates :postage_payer, presence: true
+  validates :prefecture_code, presence: true
+  validates :preparation_day, presence: true 
+  validates :price, presence: true
+  validates :item_condition, presence: true
+  validates :postage_payer, presence: true
+  validates :postage_type, presence: true
 end

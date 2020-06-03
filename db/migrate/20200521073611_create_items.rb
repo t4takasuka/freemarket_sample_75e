@@ -11,7 +11,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :trading_status,      null: false, default: 0
       t.references :seller,           null: false, foreign_key: { to_table: :users}
       t.references :buyer,            null: false, foreign_key: { to_table: :users}
-      t.timestamps :deal_closed_data
+      t.timestamps 
     end
   end
 end
