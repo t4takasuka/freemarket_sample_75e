@@ -1,0 +1,61 @@
+.app-name
+  =link_to image_tag("logo.png",size:"200x60"), "/"
+
+.buy-main
+  %h2 購入内容の確認
+  .buy-main__item
+    .buy-main__item__inner
+      .buy-main__item__inner__box
+        %h3
+          = image_tag @item.images[0].src.url, class:"image"
+        .item-detail
+          %p.item-detail__name
+            = @item.name
+          %p.buy-price-ja
+            %span
+            = number_to_currency(@item.price, format: "%u%n", unit: "¥", precision: 0)
+            %span
+            (税込)送料込み
+  .buy-main__info
+    .buy-main__info__inner
+      .pay__table
+        .pay__table--row
+          .pay-price
+            %h3 支払い金額
+          .pay-price-ja
+            = number_to_currency(@item.price, format: "%u%n", unit:"¥", precision: 0)
+      .pay__card__info
+        .pay__card__info__inner
+          %h3 支払方法
+          .pay__card__info__number
+            = "**** **** **** " + @card_information.last4
+          .pay__card__info__expiration
+            - exp_month = @card_information.exp_month.to_s
+            - exp_year = @card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+      .buy-users__address
+        .buy-user__address__inner
+          %section
+          %h3 配送先
+          %p
+            = "〒" + @address.post_code.to_s.insert(3, "-")
+            %br
+            = @address.prefecture_code
+            %br
+            = @address.city
+            = @address.house_number
+            = @address.building_name
+            %br
+            = @address.destination_family_name
+            = @address.destination_first_name
+      .buy-form
+        .buy-form__inner
+          .btn-default
+            = form_tag(action: :pay, method: :post) do
+              = submit_tag("購入する", class: "pay")
+              -# 後でbuyerと調整
+              -# - if @item.buyer_id.present?
+              -#   = link_to "売り切れました", root_path, class: "pay"
+              -# - else
+              -#   = submit_tag("購入する", class: "pay")
+= render partial: 'footer'
