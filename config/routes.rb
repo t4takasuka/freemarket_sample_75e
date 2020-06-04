@@ -9,8 +9,12 @@ Rails.application.routes.draw do
     post 'sending_destinations', to: 'users/registrations#create_sending_destination'
   end
   root to: "items#index"
-  resources :items
-
+  resources :items do
+    collection do 
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
   resources :users, only: [:show] do
     collection do
       get 'users/mypage', to: "users#mypage"
