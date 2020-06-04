@@ -58,7 +58,7 @@
       商品の状態
       %span.form__request 必須
     .detail__status
-      = f.text_field :text,class:"set_input", placeholder: "選択してください（プルダウンにする。）"
+      = f.collection_select(:item_condition, ItemCondition.all, :id, :name, {prompt: "選択してください"}, {class: "set_input"})
   .delivery
     .delivery__content
       配送について
@@ -66,17 +66,17 @@
       配送料の負担
       %span.form__request 必須
     .delivery__burden
-      = f.collection_select :postage_payer, PostagePayer.all, :id, :name, prompt: "選択してください", class: "set_input"
+      = f.collection_select(:postage_payer, PostagePayer.all, :id, :name, {prompt: "選択してください"}, {class: "set_input"})
     .delivery__title
       発送元の地域
       %span.form__request 必須
     .delivery__area
-      = f.text_field :text,class:"set_input", placeholder: "選択してください（プルダウンにする。）"
+      = f.select :prefecture_code, Item.prefecture_codes.keys,{}, {class: "set_input"}
     .delivery__title
       発送までの日数
       %span.form__request 必須
     .delivery__days
-      = f.text_field :text,class:"set_input", placeholder: "選択してください（プルダウンにする。）"
+      = f.collection_select(:preparation_day, PreparationDay.all, :id, :name, {prompt: "選択してください"}, {class: "set_input"})
   .price
     .price__range
       価格（￥300〜9,999,999）

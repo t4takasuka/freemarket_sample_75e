@@ -85,7 +85,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, images_attributes: %i[src _destroy id])
+    params.require(:item).permit(:name, :price, images_attributes: %i[src _destroy id],:introduction, :brand_id, :prefecture_code, :category_id, :trading_status, :seller_id, :buyer_id, :size_id, :item_condition_id, :postage_payer_id, :postage_type_id, :preparation_day_id)
   end
 
   def set_item

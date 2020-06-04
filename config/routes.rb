@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       get 'purchaseCompleted'
     end
   end
-  
+
   resources :users, only: [:show] do
     collection do
       get 'users/mypage', to: "users#mypage"
@@ -28,6 +28,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cards, only:[:new, :create, :destroy, :show]
+  resources :cards, only: %i[new create destroy show]
   resources :categories
 end
