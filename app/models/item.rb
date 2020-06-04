@@ -50,8 +50,8 @@ class Item < ApplicationRecord
   validates :prefecture_code, presence: true
   validates :category, presence: true
   validates :trading_status, presence: true
-  validates :seller_id, presence: true, foreign_key: true
-  validates :buyer_id, presence: true, foreign_key: true
+  validates :seller_id, presence: true
+  validates :buyer_id, presence: true
   validates :siza_id, presence: true
   validates :item_condition_id, presence: true
   validates :postage_payer_id, presence: true
