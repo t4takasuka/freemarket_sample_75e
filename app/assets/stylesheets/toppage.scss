@@ -39,37 +39,32 @@ body{
   }
 }
 // ヘッダーナビ部
-.top-page-headerNav {
-  height: 40px;
+.top-page-headerNav__right {
   display: flex;
-  justify-content: space-between;
-  &__left {
-    display: flex;
-    line-height: 40px;
-    ul {
-      display: flex;
-      list-style: none;
-    }
-    & li a {
-      text-decoration: none;
-      margin: 0 40px 0 10px;
-      color: black;
-    }
-  }
-  &__right {
-    display: flex;
-    line-height: 40px;
-    ul {
-      display: flex;
-      list-style: none;
-    }
-    & li a {
-      margin: 0 10px 0 40px;
-      text-decoration: none;
-      color: black;
-    }
+  line-height: 40px;
+  margin-left: auto;
+  list-style: none;
+  & li a {
+    margin: 0 10px 0 40px;
+    text-decoration: none;
+    color: black;
   }
 }
+
+.top-page-headerNav__left {
+  background-color: #eee;
+  display: flex;
+  li {
+    list-style: none;
+    line-height: 40px;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+  }
+}
+
 // アプリケーションバナー部
 .top-page-appBanner {
   background-image: image_url("bg-appBanner-pict.jpg");
