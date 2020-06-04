@@ -44,25 +44,12 @@ ActiveRecord::Schema.define(version: 2020_06_03_020753) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.text "introduction", null: false
     t.integer "price", null: false
-    t.bigint "brand_id"
-    t.integer "prefecture_code", null: false
-    t.bigint "category_id", null: false
-    t.integer "trading_status", default: 0, null: false
-    t.bigint "seller_id", null: false
-    t.bigint "buyer_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "item_condition_id"
     t.integer "postage_payer_id"
     t.integer "postage_type_id"
     t.integer "preparation_day_id"
     t.string "size"
-    t.index ["brand_id"], name: "index_items_on_brand_id"
-    t.index ["buyer_id"], name: "index_items_on_buyer_id"
-    t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -111,10 +98,6 @@ ActiveRecord::Schema.define(version: 2020_06_03_020753) do
   end
 
   add_foreign_key "images", "items"
-  add_foreign_key "items", "brands"
-  add_foreign_key "items", "categories"
-  add_foreign_key "items", "users", column: "buyer_id"
-  add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "profiles", "users"
   add_foreign_key "sending_destinations", "users"
 end
