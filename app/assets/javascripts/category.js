@@ -34,7 +34,6 @@ $(function(){
   // 親カテゴリー選択時のイベント
   $("#parent_category").on('change', function(){
     const parent_name = document.getElementById("parent_category").value;
-    // console.log(parent_name);
     if (parent_name != ""){
       $.ajax({
         url: '/items/get_category_children',
