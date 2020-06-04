@@ -66,7 +66,7 @@
       配送料の負担
       %span.form__request 必須
     .delivery__burden
-      = f.text_field :text,class:"set_input", placeholder: "選択してください（プルダウンにする。）"
+      = f.collection_select :postage_payer, PostagePayer.all, :id, :name, prompt: "選択してください", class: "set_input"
     .delivery__title
       発送元の地域
       %span.form__request 必須
