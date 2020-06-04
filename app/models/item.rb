@@ -1,17 +1,18 @@
 class Item < ApplicationRecord
+  belongs_to :category
+  belongs_to :brand
+  belongs_to :seller,   class_name: 'User'
+  belongs_to :buyer, class_name: 'User'
+  has_many :images, dependent: :destroy
+  accepts_nested_attributes_for :images, allow_destroy: true
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :size
   belongs_to_active_hash :item_condition
   belongs_to_active_hash :postage_payer
   belongs_to_active_hash :preparation_day
   belongs_to_active_hash :postage_type 
-  belongs_to :category
-  belongs_to :brand
-  has_many :images, dependent: :destroy
-  belongs_to :seller,   class_name: 'User'
-  belongs_to :buyer, class_name: 'User'
-  accepts_nested_attributes_for :images, allow_destroy: true
-
+  
   enum trading_status: {
     出品中: 0, 売り切れ: 1 
   }
@@ -31,12 +32,16 @@ class Item < ApplicationRecord
   ### trello【サーバサイド】商品出品機能の求められる仕様から記述
   validates :images, presence: true
   validates :name, presence: true
-  validates :category, presence: true
-  validates :postage_payer, presence: true
-  validates :prefecture_code, presence: true
-  validates :preparation_day, presence: true 
+  validates :introduction, presence: true
   validates :price, presence: true
-  validates :item_condition, presence: true
-  validates :postage_payer, presence: true
-  validates :postage_type, presence: true
+  validates :prefecture_code, presence: true
+  validates :category, presence: true
+  validates :trading_status, presence: true
+  validates :seller_id, presence: true, foreign_key: true
+  validates :buyer_id, presence: true, foreign_key: true
+  validates :siza_id, presence: true
+  validates :item_condition_id, presence: true
+  validates :postage_payer_id, presence: true
+  validates :postage_type_id, presence: true
+  validates :preparation_day_id, presence: true 
 end
