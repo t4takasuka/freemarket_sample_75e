@@ -1,11 +1,10 @@
 class ItemsController < ApplicationController
-  require 'payjp'
-
   before_action :move_to_session, except: %i[index show]
-  before_action :set_item, except: %i[index new create purchaseCompleted]
+  before_action :set_item, except: %i[index new create get_category_children get_category_grandchildren purchaseCompleted]
   before_action :set_card, only: %i[purchaseConfilmation pay]
   before_action :set_sending_destinations, only: %i[purchaseConfilmation]
   before_action :set_api_key
+  require 'payjp'
 
   def index
     @items = Item.all
@@ -15,6 +14,15 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
+    @category_parent = Category.where(ancestry: nil)
+  end
+
+  def get_category_children
+    @category_children = Category.find("#{params[:parent_name]}").children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create
@@ -80,7 +88,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, images_attributes: %i[src _destroy id])
+    params.require(:item).permit(:name, :price,:introduction, :brand_id, :prefecture_code, :category_id, :trading_status, :seller_id, :buyer_id, :size_id, :item_condition_id, :postage_payer_id, :postage_type_id, :preparation_day_id, images_attributes: %i[src _destroy id])
   end
 
   def set_item

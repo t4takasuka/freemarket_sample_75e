@@ -24,91 +24,84 @@
           .js-file_group{"data-index" => "#{@item.images.count}"}
             = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
             %span.js-remove 削除
-
-    -# .sell__preview
-    -#   = f.fields_for :images do |i|
-    -#     = i.file_field :src,class:"hidden-field"
-    -#     .sell__preview--text
-    -#       %span ドラッグアンドドロップ
-    -#       %br
-    -#       またはクリックしてファイルをアップロード
-
-    .goods
-      .goods__title
-        商品名
+  .goods
+    .goods__title
+      商品名
+      %span.form__request 必須
+    .goods__name
+      = f.text_field :text,class:"set_input", placeholder: "商品名"
+    .goods__title
+      商品の説明
+      %span.form__request 必須
+    .goods__info
+      = f.text_area :text,class:"goods__textarea", placeholder: "商品の説明（必須 1,000文字以内)（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+  .detail
+    .detail__content
+      商品の詳細
+    .detail-category
+      .detail-category__title
+        = f.label "カテゴリー"
         %span.form__request 必須
-      .goods__name
-        = f.text_field :name,class:"set_input", placeholder: "商品名"
-      .goods__title
-        商品の説明
-        %span.form__request 必須
-      .goods__info
-        = f.text_area :text,class:"goods__textarea", placeholder: "商品の説明（必須 1,000文字以内)（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-    .detail
-      .detail__content
-        商品の詳細
-      .detail__title
-        カテゴリー
-        %span.form__request 必須
-      .detail__category
-        = f.text_field :text,class:"set_input", placeholder: "選択してください(プルダウンになる)"
-      .detail__title
-        ブランド
-        %span.form__request2 任意
-      .detail__bland
-        = f.text_field :text,class:"set_input", placeholder: "例）シャネル（インクリメンタルサーチ使用）"
-      .detail__title
-        商品の状態
-        %span.form__request 必須
-      .detail__status
-        = f.text_field :text,class:"set_input", placeholder: "選択してください（プルダウンにする。）"
-    .delivery
-      .delivery__content
-        配送について
-      .delivery__title
-        配送料の負担
-        %span.form__request 必須
-      .delivery__burden
-        = f.text_field :text,class:"set_input", placeholder: "選択してください（プルダウンにする。）"
-      .delivery__title
-        発送元の地域
-        %span.form__request 必須
-      .delivery__area
-        = f.text_field :text,class:"set_input", placeholder: "選択してください（プルダウンにする。）"
-      .delivery__title
-        発送までの日数
-        %span.form__request 必須
-      .delivery__days
-        = f.text_field :text,class:"set_input", placeholder: "選択してください（プルダウンにする。）"
-    .price
-      .price__range
-        価格（￥300〜9,999,999）
-      .price__title
-        販売価格
-        %span.form__request 必須
-        %span.price__yen ￥
-        .price__sellprice
-          = f.text_field :price,class:"price__input-sell", placeholder: "0"
-      .price__fee
-        販売手数料（10％）
-        .price__fee--totalPrice -----
-      .price__profit
-        販売利益
-        .price__profit--totalPrice -----
-      .price__buttons
-        = f.submit "出品する",class:"price__exhibitionBtn"
-        .price__buttons--back
-          = link_to "もどる","root_path"
-      .price__notes
-        禁止されている
-        =link_to "行為","/"
-        および
-        =link_to "出品物","/"
-        を必ずご確認ください。
-        =link_to "偽ブランド品","/"
-        や
-        =link_to "盗品物","/"
-        などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして
-        =link_to "加盟店規約","/"
-        に同意したことになります。
-        
+        .detail-category__wrapper
+          .detail-category__wrapperbox
+            = f.collection_select :category,@category_parent, :id, :name,{prompt: "選択してください" }, {class: "detail-category__selectbox",id:"parent_category"}
+            %i.fas.fa-chevron-down.detail-category__icon
+    .detail__title--brand
+      ブランド
+      %span.form__request2 任意
+    .detail__bland
+      = f.text_field :text,class:"set_input", placeholder: "例）シャネル（インクリメンタルサーチ使用）"
+    .detail__title
+      商品の状態
+      %span.form__request 必須
+    .detail__status
+      = f.collection_select(:item_condition, ItemCondition.all, :id, :name, {prompt: "選択してください"}, {class: "set_input"})
+  .delivery
+    .delivery__content
+      配送について
+    .delivery__title
+      配送料の負担
+      %span.form__request 必須
+    .delivery__burden
+      = f.collection_select(:postage_payer, PostagePayer.all, :id, :name, {prompt: "選択してください"}, {class: "set_input"})
+    .delivery__title
+      発送元の地域
+      %span.form__request 必須
+    .delivery__area
+      = f.select :prefecture_code, Item.prefecture_codes.keys,{}, {class: "set_input"}
+    .delivery__title
+      発送までの日数
+      %span.form__request 必須
+    .delivery__days
+      = f.collection_select(:preparation_day, PreparationDay.all, :id, :name, {prompt: "選択してください"}, {class: "set_input"})
+  .price
+    .price__range
+      価格（￥300〜9,999,999）
+    .price__title
+      販売価格
+      %span.form__request 必須
+      %span.price__yen ￥
+      .price__sellprice
+        = f.text_field :text,class:"price__input-sell", placeholder: "0"
+    .price__fee
+      販売手数料（10％）
+      .price__fee--totalPrice -----
+    .price__profit
+      販売利益
+      .price__profit--totalPrice -----
+    .price__buttons
+      = f.submit "出品する",class:"price__exhibitionBtn"
+      .price__buttons--back
+        = link_to "もどる","/"
+    .price__notes
+      禁止されている
+      =link_to "行為","/"
+      および
+      =link_to "出品物","/"
+      を必ずご確認ください。
+      =link_to "偽ブランド品","/"
+      や
+      =link_to "盗品物","/"
+      などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして
+      =link_to "加盟店規約","/"
+      に同意したことになります。
