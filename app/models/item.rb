@@ -17,7 +17,7 @@ class Item < ApplicationRecord
   # has_many :favorites,  # 中間テーブルのため記載変更が必要
   # has_many :comments, dependent: :destroy # 中間テーブルのため記載変更が必要
 
-  # belongs_to_active_hash :categorie
+  belongs_to :category
 
   ### trello【サーバサイド】商品出品機能の求められる仕様から記述
   # validates :itemimgs, presence: true
