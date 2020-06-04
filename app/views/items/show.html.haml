@@ -8,6 +8,8 @@
         .itembox__body
           .itembox__body--bigimg
             = image_tag @item.images[0].src.url
+            .sold
+              SOLD OUT
           %ul
             - @item.images.each_with_index do |image, i|
               %li= image_tag image.src.url, data: { index: i }, width: "100", height: '100'

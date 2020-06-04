@@ -19,8 +19,24 @@
           margin: 16px 0 0;
           &--bigimg {
             text-align: center;
+            position: relative;
             img {
               margin: 10px;
+            }
+            .sold {
+              margin: 0 auto;
+              background-color: red;
+              color: white;
+              height: 30px;
+              width: 440px;
+              line-height: 30px;
+              position: absolute;
+              top: 0;
+              text-align: center;
+              left: 50%;
+              transform: translateX(-50%);
+              -webkit-transform: translateX(-50%);
+              -ms-transform: translateX(-50%);
             }
           }
           ul {

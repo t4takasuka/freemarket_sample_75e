@@ -1,8 +1,11 @@
 .productList
   = link_to item_path(item) do
-    %figure.productList--img
-      = image_tag item.images[0].src.url, width: "220", height: '150'
-    .productList--body
+    .productList--top
+      %figure.productList--top--img
+        = image_tag item.images[0].src.url, width: "220", height: '150'
+        .sold
+          SOLD OUT
+    .productList--bottom
       %h3.name 
         = item.name
       .details
