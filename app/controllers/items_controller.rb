@@ -1,11 +1,9 @@
 class ItemsController < ApplicationController
-  require 'payjp'
-
-  before_action :set_item, except: %i[index new create purchaseCompleted]
+  before_action :set_item, except: %i[index new create get_category_children get_category_grandchildren purchaseCompleted]
   before_action :set_card, only: %i[purchaseConfilmation pay]
   before_action :set_sending_destinations, only: %i[purchaseConfilmation] 
   before_action :set_api_key
-  
+  require 'payjp'
 
   def index
     @items = Item.all
@@ -15,6 +13,15 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.images.new
+    @category_parent = Category.where(ancestry: nil)
+  end
+
+  def get_category_children
+    @category_children = Category.find("#{params[:parent_name]}").children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def create

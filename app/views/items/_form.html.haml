@@ -41,12 +41,15 @@
   .detail
     .detail__content
       商品の詳細
-    .detail__title
-      カテゴリー
-      %span.form__request 必須
-    .detail__category
-      = f.select :text,class:"set_input", placeholder: "選択してください"
-    .detail__title
+    .detail-category
+      .detail-category__title
+        = f.label "カテゴリー"
+        %span.form__request 必須
+        .detail-category__wrapper
+          .detail-category__wrapperbox
+            = f.collection_select :category,@category_parent, :id, :name,{prompt: "選択してください" }, {class: "detail-category__selectbox",id:"parent_category"}
+            %i.fas.fa-chevron-down.detail-category__icon
+    .detail__title--brand
       ブランド
       %span.form__request2 任意
     .detail__bland
