@@ -8,7 +8,9 @@
       ➔ ③送り先情報入力
 .session1-container
   .form-title
-    %h2 会員情報入力
+    %h3 
+      会員情報入力
+      %span ※商品の購入・出品には会員登録が必要です
   .form-container
     = form_for(@user, url: user_registration_path) do |f|
       = render "devise/shared/error_messages", resource: @user

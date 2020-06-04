@@ -8,28 +8,30 @@
     .sell__text
       最大10枚までアップロードできます！
   = form_with model: @item, local: true do |f|
-    #image-box
-      #previews
+    .image-container
+      #image-box
+        #previews
+          - if @item.persisted?
+            - @item.images.each_with_index do |image, i|
+              = image_tag image.src.url, data: { index: i }, width: "112", height: '100' # carrier_waveでは.urlを末に追加
+        = f.fields_for :images do |image|
+          .js-file_group{"data-index" => "#{image.index}"}
+            = image.file_field :src, class: 'js-file'
+            %span.js-remove 削除
+          - if @item.persisted?
+            = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
         - if @item.persisted?
-          - @item.images.each_with_index do |image, i|
-            = image_tag image.src.url, data: { index: i }, width: "118", height: '100' # carrier_waveでは.urlを末に追加
-      = f.fields_for :images do |image|
-        .js-file_group{"data-index" => "#{image.index}"}
-          = image.file_field :src, class: 'js-file'
-          %span.js-remove 削除
-        - if @item.persisted?
-          = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-      - if @item.persisted?
-        .js-file_group{"data-index" => "#{@item.images.count}"}
-          = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
-          %span.js-remove 削除
-    .sell__preview
-      = f.fields_for :images do |i|
-        = i.file_field :src,class:"hidden-field"
-        .sell__preview--text
-          %span ドラッグアンドドロップ
-          %br
-          またはクリックしてファイルをアップロード
+          .js-file_group{"data-index" => "#{@item.images.count}"}
+            = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
+            %span.js-remove 削除
+
+    -# .sell__preview
+    -#   = f.fields_for :images do |i|
+    -#     = i.file_field :src,class:"hidden-field"
+    -#     .sell__preview--text
+    -#       %span ドラッグアンドドロップ
+    -#       %br
+    -#       またはクリックしてファイルをアップロード
 
     .goods
       .goods__title
