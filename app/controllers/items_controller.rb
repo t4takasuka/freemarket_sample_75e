@@ -30,8 +30,8 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path, notice: "商品を出品しました"
     else
-      flash.now[:alert] = "必須項目をすべて入力してください"
-      render :new
+      flash[:alert] = "必須項目をすべて入力してください"
+      redirect_to action: :new
     end
   end
 
