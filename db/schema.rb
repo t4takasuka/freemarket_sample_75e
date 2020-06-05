@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_06_04_121122) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.text "introduction", null: false
     t.integer "price", null: false
     t.bigint "brand_id"
     t.integer "prefecture_code", null: false
@@ -110,6 +111,10 @@ ActiveRecord::Schema.define(version: 2020_06_04_121122) do
   end
 
   add_foreign_key "images", "items"
+  add_foreign_key "items", "brands"
+  add_foreign_key "items", "categories"
+  add_foreign_key "items", "users", column: "buyer_id"
+  add_foreign_key "items", "users", column: "seller_id"
   add_foreign_key "profiles", "users"
   add_foreign_key "sending_destinations", "users"
 end

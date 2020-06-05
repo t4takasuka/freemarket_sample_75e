@@ -34,12 +34,10 @@ $(document).on('turbolinks:load', () => {
     } else {  // 新規画像追加の処理
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
-      if (targetIndex < 9) {
-        $('#image-box').append(buildFileField(fileIndex[0]));
-        fileIndex.shift();
-        // 末尾の数に1足した数を追加する
-        fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
-      }
+      $('#image-box').append(buildFileField(fileIndex[0]));
+      fileIndex.shift();
+      // 末尾の数に1足した数を追加する
+      fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
   });
   $('#image-box').on('click', '.js-remove', function () {
