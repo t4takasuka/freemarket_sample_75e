@@ -31,7 +31,7 @@ class Item < ApplicationRecord
   
   ### trello【サーバサイド】商品出品機能の求められる仕様から記述
   validates :images, presence: true
-  validates :images, length: { minimum: 1, maximum: 10}
+  validates :images, length: { minimum: 1, maximum: 10 }
   validates :name, presence: true
   validates :introduction, presence: true
   validates :price, presence: true

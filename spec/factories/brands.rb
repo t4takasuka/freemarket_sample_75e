@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :brand do
-    text {"nike"}
+    text { "nike" }
   end
 end

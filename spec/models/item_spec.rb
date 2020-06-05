@@ -12,7 +12,7 @@ describe Item do
         expect(item).to be_valid
       end
     end
-    
+
     context 'itemを保存できない場合' do
       it "nameがない場合は登録できないこと" do
         item = build(:item, :image1, name: "")

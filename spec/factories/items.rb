@@ -12,19 +12,19 @@ FactoryBot.define do
     size_id                   { 1 }
     # ↓referenceキー
     category                  { create(:category) }
-    seller                    { create(:user) } 
-    buyer                     { create(:user, email: "nnn@gmail.com") } #sellerのuserとは違うアドレスで、異なるuserとして設定している
+    seller                    { create(:user) }
+    buyer                     { create(:user, email: "nnn@gmail.com") } # sellerのuserとは違うアドレスで、異なるuserとして設定している
     brand                     { create(:brand) }
-    
+
     # ↓1枚の画像をアップロードする
-    trait :image1 do 
+    trait :image1 do
       after(:build) do |item|
-          item.images << build(:image)
+        item.images << build(:image)
       end
     end
 
     # ↓10枚の画像をアップロードする
-    trait :image10 do 
+    trait :image10 do
       after(:build) do |item|
         10.times do
           item.images << build(:image)
@@ -33,13 +33,12 @@ FactoryBot.define do
     end
 
     # ↓11枚の画像をアップロードする
-    trait :image11 do 
+    trait :image11 do
       after(:build) do |item|
         11.times do
           item.images << build(:image)
         end
       end
     end
-    
   end
 end
