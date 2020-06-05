@@ -30,6 +30,16 @@
   margin-top: 16px;
 }
 
+@mixin selectbox {
+  width: 100%;
+  height: 45px;
+  border: solid 1px black;
+  border-radius: 4px;
+  padding-left: 10px;
+  margin-top: 16px;
+  cursor: pointer;
+}
+
 body {
   height: 100vh;
   width: 100%;
@@ -123,6 +133,25 @@ body {
   }
   &__title {
     font-weight: bold;
+    &--brand {
+      padding-top: 15px;
+      font-weight: bold;
+    }
+  }
+  &-category__title {
+    font-weight: bold;
+  }
+  &-category__selectbox {
+    @include selectbox;
+    font-weight: normal;
+  }
+  &-category__wrapper{
+    position: relative;
+  }
+  &-category__icon{
+    position: absolute;
+    top: 32px;
+    right: 15px;
   }
   .set_input {
     @include input;
@@ -236,3 +265,17 @@ body {
     margin-bottom: 30px;
   }
 }
+
+// JS側カテゴリセレクトボックス
+.item-category__wrapper {
+  @include selectbox;
+}
+.item-category__title {
+  position: relative;
+}
+.item-category__icon {
+  position: absolute;
+  top: 32px;
+  right: 15px;
+}
+
