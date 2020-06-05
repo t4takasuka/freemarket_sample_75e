@@ -13,10 +13,11 @@
         #previews
           - if @item.persisted?
             - @item.images.each_with_index do |image, i|
-              = image_tag image.src.url, data: { index: i }, width: "112", height: '100' # carrier_waveでは.urlを末に追加
+              = image_tag image.src.url, data: { index: i }, width: "112", height: '100'
         = f.fields_for :images do |image|
           .js-file_group{"data-index" => "#{image.index}"}
             = image.file_field :src, class: 'js-file'
+            %br/
             %span.js-remove 削除
           - if @item.persisted?
             = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
@@ -29,12 +30,12 @@
         商品名
         %span.form__request 必須
       .goods__name
-        = f.text_field :text,class:"set_input", placeholder: "商品名"
+        = f.text_field :name,class:"set_input", placeholder: "商品名"
       .goods__title
         商品の説明
         %span.form__request 必須
       .goods__info
-        = f.text_area :text,class:"goods__textarea", placeholder: "商品の説明（必須 1,000文字以内)（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        = f.text_area :introduction,class:"goods__textarea", placeholder: "商品の説明（必須 1,000文字以内)（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
     .detail
       .detail__content
         商品の詳細
@@ -44,18 +45,18 @@
           %span.form__request 必須
           .detail-category__wrapper
             .detail-category__wrapperbox
-              = f.collection_select :category, Category.roots, :id, :name,{prompt: "選択してください" }, {class: "detail-category__selectbox",id:"parent_category"}
+              = f.collection_select :category_id, Category.roots, :id, :name,{prompt: "選択してください" }, {class: "detail-category__selectbox",id:"parent_category"}
               %i.fas.fa-chevron-down.detail-category__icon
       .detail__title--brand
         ブランド
         %span.form__request2 任意
       .detail__bland
-        = f.text_field :text,class:"set_input", placeholder: "例）シャネル（インクリメンタルサーチ使用）"
+        = f.text_field :brand_id,class:"set_input", placeholder: "例）シャネル（インクリメンタルサーチ使用）"
       .detail__title
         商品の状態
         %span.form__request 必須
       .detail__status
-        = f.collection_select(:item_condition, ItemCondition.all, :id, :name, {prompt: "選択してください"}, {class: "set_input"})
+        = f.collection_select(:item_condition_id, ItemCondition.all, :id, :name, {prompt: "選択してください"}, {class: "set_input"})
     .delivery
       .delivery__content
         配送について
@@ -63,7 +64,7 @@
         配送料の負担
         %span.form__request 必須
       .delivery__burden
-        = f.collection_select(:postage_payer, PostagePayer.all, :id, :name, {prompt: "選択してください"}, {class: "set_input"})
+        = f.collection_select(:postage_payer_id, PostagePayer.all, :id, :name, {prompt: "選択してください"}, {class: "set_input"})
       .delivery__title
         発送元の地域
         %span.form__request 必須
@@ -73,7 +74,7 @@
         発送までの日数
         %span.form__request 必須
       .delivery__days
-        = f.collection_select(:preparation_day, PreparationDay.all, :id, :name, {prompt: "選択してください"}, {class: "set_input"})
+        = f.collection_select(:preparation_day_id, PreparationDay.all, :id, :name, {prompt: "選択してください"}, {class: "set_input"})
     .price
       .price__range
         価格（￥300〜9,999,999）
@@ -82,7 +83,7 @@
         %span.form__request 必須
         %span.price__yen ￥
         .price__sellprice
-          = f.text_field :text,class:"price__input-sell", placeholder: "0"
+          = f.text_field :price,class:"price__input-sell", placeholder: "0"
       .price__fee
         販売手数料（10％）
         .price__fee--totalPrice -----
