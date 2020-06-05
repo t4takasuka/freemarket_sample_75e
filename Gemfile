@@ -81,7 +81,6 @@ gem 'fog-aws'
 gem "font-awesome-sass"
 gem 'haml-rails'
 gem 'jquery-rails'
-gem 'jquery-rails'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'payjp'
