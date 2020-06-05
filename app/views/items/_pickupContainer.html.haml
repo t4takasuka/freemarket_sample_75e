@@ -7,7 +7,10 @@
           %h3.title 新規投稿商品
       .productLists
         .productList
-          = render @items
+          - if @items.present?
+            = render @items
+          - else
+            %h3 まだ商品はありません
 
   %section.pickupContainer
     %h2.head ピックアップブランド
