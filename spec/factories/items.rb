@@ -9,17 +9,37 @@ FactoryBot.define do
     item_condition_id         { 1 }
     postage_payer_id          { 1 }
     postage_type_id           { 1 }
+    size_id                   { 1 }
     # ↓referenceキー
     category                  { create(:category) }
     seller                    { create(:user) } 
     buyer                     { create(:user, email: "nnn@gmail.com") } #sellerのuserとは違うアドレスで、異なるuserとして設定している
     brand                     { create(:brand) }
-    after(:build) do |item|
-      item.images << build(:image)
+    
+    # ↓1枚の画像をアップロードする
+    trait :image1 do 
+      after(:build) do |item|
+          item.images << build(:image)
+      end
     end
 
-    # バリデーションに記述がなかったもの
-    # trading_status            { "出品中" }
+    # ↓10枚の画像をアップロードする
+    trait :image10 do 
+      after(:build) do |item|
+        10.times do
+          item.images << build(:image)
+        end
+      end
+    end
 
+    # ↓11枚の画像をアップロードする
+    trait :image11 do 
+      after(:build) do |item|
+        11.times do
+          item.images << build(:image)
+        end
+      end
+    end
+    
   end
 end

@@ -7,21 +7,8 @@ class Item < ApplicationRecord
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
-
-  # belongs_to_active_hash :size
-  # belongs_to_active_hash :item_condition
-  # belongs_to_active_hash :postage_payer
-  # belongs_to_active_hash :preparation_day
-  # belongs_to_active_hash :postage_type # active_hashで良いのか？
-
-  # belongs_to :buyer, class_name: User # ER図なし
-  # belongs_to :seller, class_name: User  # ER図なし
-
-  # has_many :favorites,  # 中間テーブルのため記載変更が必要
-  # has_many :comments, dependent: :destroy # 中間テーブルのため記載変更が必要
-
   extend ActiveHash::Associations::ActiveRecordExtensions
-  #belongs_to_active_hash :size
+  belongs_to_active_hash :size
   belongs_to_active_hash :item_condition
   belongs_to_active_hash :postage_payer
   belongs_to_active_hash :preparation_day
@@ -46,6 +33,7 @@ class Item < ApplicationRecord
   
   ### trello【サーバサイド】商品出品機能の求められる仕様から記述
   validates :images, presence: true
+  validates :images, length: { minimum: 1, maximum: 10}
   validates :name, presence: true
   validates :introduction, presence: true
   validates :price, presence: true
