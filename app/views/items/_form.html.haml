@@ -6,7 +6,7 @@
     出品画像
     %span.form__request 必須
     .sell__text
-      最大10枚までアップロードできます！
+      複数枚写真をアップロードできます！
   = form_with model: @item, local: true do |f|
     .image-container
       #image-box
@@ -24,14 +24,6 @@
           .js-file_group{"data-index" => "#{@item.images.count}"}
             = file_field_tag :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'js-file'
             %span.js-remove 削除
-  .goods
-    .goods__title
-      商品名
-      %span.form__request 必須
-    .goods__name
-      = f.text_field :text,class:"set_input", placeholder: "商品名"
-    .goods__title
-      商品の説明
     .goods
       .goods__title
         商品名
