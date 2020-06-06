@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def logout
-    @categories = Category.order(:id)
+    @categories = Category.all
   end
 
   def mypage
