@@ -8,7 +8,7 @@ class CardsController < ApplicationController
     if current_user.card
       redirect_to card_path(current_user.card)
     end
-    @categories = Category.order(:id)
+    @categories = Category.all
   end
 
   def create
