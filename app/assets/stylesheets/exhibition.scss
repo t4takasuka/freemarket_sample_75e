@@ -152,6 +152,7 @@ body {
     position: absolute;
     top: 32px;
     right: 15px;
+    pointer-events: none;
   }
   .set_input {
     @include input;
@@ -277,4 +278,29 @@ body {
   position: absolute;
   top: 32px;
   right: 15px;
+  pointer-events: none;
+}
+
+// JS側サイズセレクトボックス
+.item-size {
+  margin-top: 30px;
+}
+.item-size__title {
+  font-weight: bold;
+}
+.form__request {
+  @include req;
+  font-weight: bold;
+}
+.item-size__wrapper--select {
+  @include selectbox;
+}
+.item-size__wrapper--box {
+  position: relative;
+}
+.item-size__icon {
+  position: absolute;
+  top: 32px;
+  right: 15px;
+  pointer-events: none;
 }
