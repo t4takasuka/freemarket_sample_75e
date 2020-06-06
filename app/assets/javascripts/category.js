@@ -43,7 +43,7 @@ $(function(){
                         <span class='form__request'>必須</span>
                         <div class='item-size__wrapper'>
                           <div class='item-size__wrapper--box'>
-                            <select class="item-size__wrapper--select" id="size" name="size_id>
+                            <select class="item-size__wrapper--select" id="size" name="item_size_id">
                               <option value="選択してください">選択してください</option>
                               ${insertHTML}
                             <select>
