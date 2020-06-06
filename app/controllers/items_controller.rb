@@ -30,8 +30,9 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path, notice: "商品を出品しました"
     else
-      flash[:alert] = "必須項目をすべて入力してください"
-      redirect_to action: :new
+      @item.images.build
+      flash[:alert] = "必須項目を正確に入力してください"
+      render :new
     end
   end
 
@@ -44,20 +45,24 @@ class ItemsController < ApplicationController
   def edit; end
 
   def update
-    if @item.update(item_params)
-      redirect_to root_path, notice: "商品を更新しました"
-    else
-      flash.now[:alert] = "必須項目をすべて入力してください"
-      render :edit
+    if @item.seller_id == current_user.id
+      if @item.update(item_params)
+        redirect_to root_path, notice: "商品を更新しました"
+      else
+        flash.now[:alert] = "必須項目をすべて入力してください"
+        render :edit
+      end
     end
   end
 
   def destroy
-    if @item.destroy
-      redirect_to root_path, notice: "商品を削除しました"
-    else
-      redirect_to root_path, notice: "削除に失敗しました"
-      render :show
+    if @item.seller_id == current_user.id
+      if @item.destroy
+        redirect_to root_path, notice: "商品を削除しました"
+      else
+        redirect_to root_path, notice: "削除に失敗しました"
+        render :show
+      end
     end
   end
 

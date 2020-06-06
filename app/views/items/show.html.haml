@@ -8,8 +8,9 @@
         .itembox__body
           .itembox__body--bigimg
             = image_tag @item.images[0].src.url
-            .sold
-              SOLD OUT
+            - unless @item.trading_status == "出品中"
+              .sold
+                SOLD OUT
           %ul
             - @item.images.each_with_index do |image, i|
               %li= image_tag image.src.url, data: { index: i }, width: "100", height: '100'
@@ -21,11 +22,12 @@
               (税込み)
             %span
               送料込み
-        - if current_user&.id == @user.id
-          =link_to "編集する", edit_item_path ,class: "btn btnEdit"
-          =link_to "削除する", item_path, method: :delete, class: "btn btnDelete" ,data: {confirm: "本当に削除しますか？"}
-        - else
-          =link_to "購入する", "", class: "btn btnPurchase"
+        - unless @item.trading_status == "売り切れ"
+          - if current_user&.id == @user.id
+            =link_to "編集する", edit_item_path ,class: "btn btnEdit"
+            =link_to "削除する", item_path, method: :delete, class: "btn btnDelete" ,data: {confirm: "本当に削除しますか？"}
+          - else
+            =link_to "購入する", "", class: "btn btnPurchase"
         .itembox__itemdetail
           = simple_format(h(@item.introduction))
         .itembox__table
