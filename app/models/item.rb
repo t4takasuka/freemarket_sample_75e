@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  belongs_to :item_size
   belongs_to :category
   belongs_to :brand
   belongs_to :seller,   class_name: 'User'
