@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :set_item, except: %i[index new create get_category_children get_category_grandchildren get_size purchaseCompleted]
   before_action :move_to_session, except: %i[index show]
-  before_action :set_item, except: %i[index new create get_category_children get_category_grandchildren purchaseCompleted]
   before_action :set_card, only: %i[purchaseConfilmation pay]
   before_action :set_sending_destinations, only: %i[purchaseConfilmation]
   before_action :set_api_key
@@ -23,6 +23,19 @@ class ItemsController < ApplicationController
 
   def get_category_grandchildren
     @category_grandchildren = Category.find(params[:child_id].to_s).children
+  end
+
+  # 孫カテゴリー後のサイズのアクション
+  def get_size
+    selected_grandchild = Category.find("#{params[:grandchild_id]}")
+    if related_size_parent = selected_grandchild.item_sizes[0]
+      @sizes = related_size_parent.children 
+    else
+      selected_child = Category.find("#{params[:grandchild_id]}").parent
+      if related_size_parent = selected_child.item_sizes[0]
+        @sizes = related_size_parent.children  
+      end
+    end
   end
 
   def create
@@ -73,12 +86,27 @@ class ItemsController < ApplicationController
   def purchaseConfilmation
     if @card.blank?
       flash[:alert] = '購入前にクレジットカードを登録してください'
-      redirect_to controller: "cards", action: "new"
+      redirect_to new_card_path
     else
       set_item
       set_sending_destinations
       set_customer
       set_card_information
+      @card_brand = @card_information.brand
+      case @card_brand
+      when "Visa"
+        @card_src = "Visa.svg"
+      when "MasterCard"
+        @card_src = "master-card.svg"
+      when "JCB"
+        @card_src = "jcb.svg"
+      when "American Express"
+        @card_src = "american_express.svg"
+      when "Diners Club"
+        @card_src = "dinersclub.svg"
+      when "Discover"
+        @card_src = "discover.svg"
+      end
     end
   end
 
@@ -88,9 +116,8 @@ class ItemsController < ApplicationController
       customer: @card.customer_id, # 顧客ID
       currency: 'jpy' # 日本円
     )
-    # 後でbuyerと調整
-    # @item_buyer = Item.find(params[:id])
-    # @item_buyer.update( buyer_id: current_user.id )
+    @item_buyer = Item.find(params[:id])
+    @item_buyer.update( buyer_id: current_user.id )
     redirect_to purchaseCompleted_item_path # 購入完了ページへ
   end
 
