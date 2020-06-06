@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
   require 'payjp'
 
-  before_action :set_card, only:[:show, :destroy]
+  before_action :set_card, only: %i[show destroy]
   before_action :set_api_key
 
   def new
@@ -15,8 +15,8 @@ class CardsController < ApplicationController
     else
       user_id = current_user.id
       customer = Payjp::Customer.create(
-      card: params['payjp-token']
-      ) 
+        card: params['payjp-token']
+      )
       @card = Card.new(user_id: user_id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         flash[:notice] = '登録しました'
@@ -28,7 +28,7 @@ class CardsController < ApplicationController
     end
   end
 
-  def show 
+  def show
     @categories = Category.order(:id)
     if @card.blank?
       flash[:alert] = '購入前にクレジットカードを登録してください'
@@ -54,7 +54,7 @@ class CardsController < ApplicationController
   def set_api_key
     Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
   end
-  
+
   def set_customer # 保管した顧客IDでpayjpから情報取得
     @customer = Payjp::Customer.retrieve(@card.customer_id)
   end

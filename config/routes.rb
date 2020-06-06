@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
   root to: "items#index"
   resources :items do
-    collection do 
+    collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'get_size', defaults: { format: 'json' }
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       get 'purchaseCompleted'
     end
   end
-  
+
   resources :users, only: [:show] do
     collection do
       get 'users/mypage', to: "users#mypage"
@@ -29,6 +29,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cards, only:[:new, :create, :destroy, :show]
+  resources :cards, only: %i[new create destroy show]
   resources :categories
 end

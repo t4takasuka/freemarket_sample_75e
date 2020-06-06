@@ -1,3 +1,5 @@
+@import "form.scss";
+
 .main {
   background: #f8f8f8;
   @mixin base {
@@ -239,15 +241,27 @@
           display: inline-block;
           text-decoration: none;
       }
-        &--img {
-          width: 220px;
-          height: 150px;
-          position: relative;
-          overflow: hidden;
-          margin: 0;
-          z-index: auto;
+        &--top {
+          &--img {
+            width: 220px;
+            height: 150px;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            z-index: auto;
+            .sold {
+              background-color: red;
+              color: white;
+              height: 20px;
+              width: 100%;
+              line-height: 20px;
+              position: absolute;
+              top: 0;
+              text-align: center;
+            }
+        }
       }
-        &--body {
+        &--bottom {
           background-color: white;
           color: #333;
           padding: 16px;
