@@ -21,10 +21,11 @@
               (税込み)
             %span
               送料込み
-        =link_to "購入する", "", class: "btn btnPurchase"
-        =link_to "編集する", edit_item_path ,class: "btn btnEdit"
-        =link_to "削除する", item_path, method: :delete, class: "btn btnDelete" ,data: {confirm: "本当に削除しますか？"}
-
+        - if current_user&.id == @user.id
+          =link_to "編集する", edit_item_path ,class: "btn btnEdit"
+          =link_to "削除する", item_path, method: :delete, class: "btn btnDelete" ,data: {confirm: "本当に削除しますか？"}
+        - else
+          =link_to "購入する", "", class: "btn btnPurchase"
         .itembox__itemdetail
           = simple_format(h(@item.introduction))
         .itembox__table
