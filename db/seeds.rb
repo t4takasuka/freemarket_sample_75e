@@ -324,11 +324,11 @@ shoes_size.each do |s_size|
   shoes_size_parent.children.create(size: s_size)
 end
 
-categories = [{name: "Tシャツ/カットソー(半袖/袖なし)", item_size_id: f_size_parent.id},{name: "Tシャツ/カットソー(七分/長袖)", item_size_id: f_size_parent.id},{name: "シャツ/ブラウス(半袖/袖なし)", item_size_id: f_size_parent.id}]
+categories = [{ name: "Tシャツ/カットソー(半袖/袖なし)", item_size_id: f_size_parent.id },{ name: "Tシャツ/カットソー(七分/長袖)", item_size_id: f_size_parent.id },{ name: "シャツ/ブラウス(半袖/袖なし)", item_size_id: f_size_parent.id }]
 categories.each do |category|
   Category.create(name: category[:name], item_size_ids: [category[:item_size_id]])
 end
-categories = [{name: "ハイヒール/パンプス", item_size_id: shoes_size_parent.id}]
+categories = [{ name: "ハイヒール/パンプス", item_size_id: shoes_size_parent.id }]
 categories.each do |category|
   Category.create(name: category[:name], item_size_ids: [category[:item_size_id]])
 end

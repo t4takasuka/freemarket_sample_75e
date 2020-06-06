@@ -5,9 +5,7 @@ class CardsController < ApplicationController
   before_action :set_api_key
 
   def new
-    if current_user.card
-      redirect_to card_path(current_user.card)
-    end
+    redirect_to card_path(current_user.card) if current_user.card
     @categories = Category.all
   end
 

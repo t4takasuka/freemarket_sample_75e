@@ -27,20 +27,20 @@ class ItemsController < ApplicationController
 
   # 孫カテゴリー後のサイズのアクション
   def get_size
-    selected_grandchild = Category.find("#{params[:grandchild_id]}")
+    selected_grandchild = Category.find(params[:grandchild_id].to_s)
     if related_size_parent = selected_grandchild.item_sizes[0]
-      @sizes = related_size_parent.children 
+      @sizes = related_size_parent.children
     else
-      selected_child = Category.find("#{params[:grandchild_id]}").parent
+      selected_child = Category.find(params[:grandchild_id].to_s).parent
       if related_size_parent = selected_child.item_sizes[0]
-        @sizes = related_size_parent.children  
+        @sizes = related_size_parent.children
       end
     end
   end
 
   def create
     @item = Item.new(item_params)
-    if @item.save
+    if @item.save!
       redirect_to root_path, notice: "商品を出品しました"
     else
       @item.images.build
@@ -56,30 +56,28 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    unless @item.seller_id == current_user.id
-      redirect_to root_path
-    end
+    redirect_to root_path unless @item.seller_id == current_user.id
   end
 
   def update
-    if @item.seller_id == current_user.id
-      if @item.update(item_params)
-        redirect_to root_path, notice: "商品を更新しました"
-      else
-        flash.now[:alert] = "必須項目をすべて入力してください"
-        render :edit
-      end
+    return unless @item.seller_id == current_user.id
+
+    if @item.update(item_params)
+      redirect_to root_path, notice: "商品を更新しました"
+    else
+      flash.now[:alert] = "必須項目をすべて入力してください"
+      render :edit
     end
   end
 
   def destroy
-    if @item.seller_id == current_user.id
-      if @item.destroy
-        redirect_to root_path, notice: "商品を削除しました"
-      else
-        redirect_to root_path, notice: "削除に失敗しました"
-        render :show
-      end
+    return unless @item.seller_id == current_user.id
+
+    if @item.destroy
+      redirect_to root_path, notice: "商品を削除しました"
+    else
+      redirect_to root_path, notice: "削除に失敗しました"
+      render :show
     end
   end
 
@@ -117,7 +115,7 @@ class ItemsController < ApplicationController
       currency: 'jpy' # 日本円
     )
     @item_buyer = Item.find(params[:id])
-    @item_buyer.update( buyer_id: current_user.id )
+    @item_buyer.update(buyer_id: current_user.id)
     redirect_to purchaseCompleted_item_path # 購入完了ページへ
   end
 
