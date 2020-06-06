@@ -42,7 +42,11 @@ class ItemsController < ApplicationController
     @user = User.find(@item.seller_id)
   end
 
-  def edit; end
+  def edit
+    unless @item.seller_id == current_user.id
+      redirect_to root_path
+    end
+  end
 
   def update
     if @item.seller_id == current_user.id
