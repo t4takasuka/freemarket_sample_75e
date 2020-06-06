@@ -37,6 +37,8 @@ class ItemsController < ApplicationController
 
   def show
     @categories = Category.order(:id)
+    @category = Category.find(@item.category_id)
+    @user = User.find(@item.seller_id)
   end
 
   def edit; end
