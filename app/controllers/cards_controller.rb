@@ -5,7 +5,9 @@ class CardsController < ApplicationController
   before_action :set_api_key
 
   def new
-    @card = Card.where(user_id: current_user.id)
+    if current_user.card
+      redirect_to card_path(current_user.card)
+    end
     @categories = Category.order(:id)
   end
 
@@ -19,10 +21,10 @@ class CardsController < ApplicationController
       )
       @card = Card.new(user_id: user_id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        flash[:notice] = '登録しました'
+        flash[:notice] = 'クレジットカードを登録しました'
         redirect_to users_mypage_users_path
       else
-        flash[:alert] = '登録できませんでした'
+        flash[:alert] = 'クレジットカードを登録できませんでした'
         redirect_to new_card_path
       end
     end
@@ -39,19 +41,17 @@ class CardsController < ApplicationController
       @card_brand = @card_information.brand
       case @card_brand
       when "Visa"
-        @card_src = "Visa.gif"
+        @card_src = "Visa.svg"
       when "MasterCard"
-        @card_src = "Mastercard.gif"
-      when "SASION"
-        @card_src = "Saison.gif"
+        @card_src = "master-card.svg"
       when "JCB"
-        @card_src = "Saison.gif"
-      when "AMERICAN"
-        @card_src = "amex.gif"
-      when "DinnersClub"
-        @card_src = "Diners.gif"
-      when "DISCOVER"
-        @card_src = "DISCOVER.gif"
+        @card_src = "jcb.svg"
+      when "American Express"
+        @card_src = "american_express.svg"
+      when "Diners Club"
+        @card_src = "dinersclub.svg"
+      when "Discover"
+        @card_src = "discover.svg"
       end
     end
   end

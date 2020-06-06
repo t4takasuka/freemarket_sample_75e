@@ -8,7 +8,7 @@
         .show-form__content__head
           %h3 クレジットカード情報
         .card-brand
-          = image_tag "/assets/cards/#{@card_src}", width: '26', height: '20', alt: @card_brand
+          = image_tag "/assets/cards/#{@card_src}", width: '36', height: '30', alt: @card_brand
           = link_to "削除する", card_path, method: :delete, class: "payment-remove"
         .card-number
           = "**** **** **** " + @card_information.last4
