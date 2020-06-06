@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: %i[index new create get_category_children get_category_grandchildren purchaseCompleted]
+  before_action :set_item, except: %i[index new create get_category_children get_category_grandchildren get_size purchaseCompleted]
   before_action :set_card, only: %i[purchaseConfilmation pay]
   before_action :set_sending_destinations, only: %i[purchaseConfilmation] 
   before_action :set_api_key
@@ -22,6 +22,19 @@ class ItemsController < ApplicationController
 
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
+
+  # 孫カテゴリー後のサイズのアクション
+  def get_size
+    selected_grandchild = Category.find("#{params[:grandchild_id]}")
+    if related_size_parent = selected_grandchild.item_sizes[0]
+      @sizes = related_size_parent.children 
+    else
+      selected_child = Category.find("#{params[:grandchild_id]}").parent
+      if related_size_parent = selected_child.item_sizes[0]
+        @sizes = related_size_parent.children  
+      end
+    end
   end
 
   def create
