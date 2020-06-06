@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  belongs_to :item_size
   belongs_to :category
   belongs_to :brand, optional: true
   has_many :images, dependent: :destroy
@@ -39,6 +40,7 @@ class Item < ApplicationRecord
   validates :category, presence: true
   validates :trading_status, presence: true
   validates :seller_id, presence: true
+  validates :buyer_id, presence: true
   # validates :size_id, presence: true
   validates :item_condition_id, presence: true
   validates :postage_payer_id, presence: true

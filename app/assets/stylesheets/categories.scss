@@ -1,3 +1,4 @@
+// カテゴリーメニュー
 .category-title {
   display: flex;
   height: 40px;
@@ -90,5 +91,32 @@
   }
   .category-child li a {
     font-size: 12px;
+  }
+}
+
+// カテゴリー一覧画面
+.category-top {
+  height: 50px;
+  padding: 0 60px;
+  line-height: 50px;
+  background-color: #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  border-top: 1px solid #3CCACE;
+  &__nav {
+    max-width: 950px;
+    margin: 0 auto;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+  }
+  &__icon {
+    margin: 0 10px;
+    opacity: 0.5;
+  }
+  &__now-place {
+    display: inline-block;
+    font-weight: bold;
   }
 }

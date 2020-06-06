@@ -1,1 +1,16 @@
-.h1 まだ何もない！！！！！！！！！！
+= render "layouts/header_toppage"
+
+
+.category-top
+  .category-top__nav
+    .category-top__root
+    = link_to "メルカリ","/"
+    %i.fas.fa-angle-right.category-top__icon
+    .category-top__now-place
+      カテゴリー一覧
+.category-main
+  .category-main__title
+    カテゴリー一覧
+  .category-main__parent
+    - @category_parent.each do |parent|
+      = parent.name

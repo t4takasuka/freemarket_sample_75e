@@ -1,13 +1,13 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# # This file should contain all the record creation needed to seed the database with its default values.
+# # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# #
+# # Examples:
+# #
+# #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+# #   Character.create(name: 'Luke', movie: movies.first)
+
 
 # カテゴリー初期データ
-
 # レディース
 ladies_child_array = ['トップス','ジャケット/アウター','パンツ','スカート','ワンピース','靴','ルームウェア/パジャマ','レッグウェア','帽子','バッグ','アクセサリー','ヘアアクセサリー','小物','時計']
 ladies_grandchild_array = [
@@ -285,7 +285,6 @@ moto_child_array.each_with_index do |child, i|
   end
 end
 
-
 # その他
 other_child_array = ['まとめ売り','ペット用品','食品','飲料/酒','日用品/生活雑貨/旅行','アンティーク/コレクション','文房具/事務用品','事務/店舗用品','その他']
 other_grandchild_array = [
@@ -306,3 +305,56 @@ other_child_array.each_with_index do |child, i|
     child.children.create(name: grandchild)
   end
 end
+
+
+# サイズデータ
+parent_size = ["服","靴","ベビー服100cm〜","ベビー服〜95cm"]
+parent_size.each do |p_size|
+  ItemSize.create(size: p_size)
+end
+
+f_size_parent = ItemSize.where(size: "服").first
+f_size = ['XXS以下','XS(SS)','S','M','L','XL(LL)','2XL(3L)','3XL(4L)','4XL(5L以上)','FREE SIZE']
+f_size.each do |size|
+  f_size_parent.children.create(size: size)
+end
+shoes_size_parent = ItemSize.where(size: "靴").first
+shoes_size = ['20cm以下','20.5cm','21cm','21.5cm','22cm','22.5cm','23cm','23.5cm','24cm','24.5cm','25cm','25.5cm','26cm','26.5cm','27cm','27.5cm以上']
+shoes_size.each do |s_size|
+  shoes_size_parent.children.create(size: s_size)
+end
+
+categories = [{name: "Tシャツ/カットソー(半袖/袖なし)", item_size_id: f_size_parent.id},{name: "Tシャツ/カットソー(七分/長袖)", item_size_id: f_size_parent.id},{name: "シャツ/ブラウス(半袖/袖なし)", item_size_id: f_size_parent.id}]
+categories.each do |category|
+  Category.create(name: category[:name], item_size_ids: [category[:item_size_id]])
+end
+categories = [{name: "ハイヒール/パンプス", item_size_id: shoes_size_parent.id}]
+categories.each do |category|
+  Category.create(name: category[:name], item_size_ids: [category[:item_size_id]])
+end
+
+# レディース
+# ladies_child_array = ['トップス','ジャケット/アウター','パンツ','スカート','ワンピース','靴','ルームウェア/パジャマ','レッグウェア','帽子','バッグ','アクセサリー','ヘアアクセサリー','小物','時計']
+# ladies_grandchild_array = [
+#                            [{name:"Tシャツ/カットソー(半袖/袖なし)",item_size_id:f_size_parent.id},{name:"Tシャツ/カットソー(七分/長袖)",item_size_id:f_size_parent.id},{name: "シャツ/ブラウス(半袖/袖なし)", item_size_id: f_size_parent.id}], 
+#                            [{name:"テーラージャケット",item_size_id:f_size_parent.id}],
+#                            [{name:"デニム/ジーンズ",item_size_id:f_size_parent.id}],
+#                            [{name:"ミニスカート",item_size_id:f_size_parent.id}],
+#                            [{name:"ミニワンピース",item_size_id:f_size_parent.id}],
+#                            [{name:"ハイヒール/バンプス",item_size_id:shoes_size_parent.id}],
+#                            [{name:"パジャマ/ルームウェア",item_size_id:f_size_parent.id}],
+#                            [{name:"ソックス"}],
+#                            [{name:"ニットキャップ/ビーニー"}],
+#                            [{name:"ハンドバッグ"}],
+#                            [{name:"ネックレス"}],
+#                            [{name:"ヘアゴム/シュシュ"}],
+#                            [{name:"長財布"}],
+#                            [{name:"腕時計"}]
+#                           ]
+# parent = Category.create(name: 'レディース')
+# ladies_child_array.each do |child|
+#   child = parent.children.create(name:child)
+#   ladies_grandchild_array.each do |grandchild|
+#     child.children.create(name:grandchild[:name],item_size_ids:[grandchild[:item_size_id]])
+#   end
+# end
