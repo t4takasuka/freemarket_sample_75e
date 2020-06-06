@@ -5,13 +5,15 @@ class CardsController < ApplicationController
   before_action :set_api_key
 
   def new
-    @card = Card.where(user_id: current_user.id)
-    @categories = Category.order(:id)
+    if current_user.card
+      redirect_to card_path(current_user.card)
+    end
+    @categories = Category.all
   end
 
   def create
     if params['payjp-token'].blank?
-      redirect_to action: "new"
+      redirect_to new_card_path
     else
       user_id = current_user.id
       customer = Payjp::Customer.create(
@@ -19,11 +21,11 @@ class CardsController < ApplicationController
       )
       @card = Card.new(user_id: user_id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        flash[:notice] = '登録しました'
-        redirect_to root_path
+        flash[:notice] = 'クレジットカードを登録しました'
+        redirect_to users_mypage_users_path
       else
-        flash[:alert] = '登録できませんでした'
-        redirect_to action: "new"
+        flash[:alert] = 'クレジットカードを登録できませんでした'
+        redirect_to new_card_path
       end
     end
   end
@@ -31,11 +33,26 @@ class CardsController < ApplicationController
   def show
     @categories = Category.order(:id)
     if @card.blank?
-      flash[:alert] = '購入前にクレジットカードを登録してください'
-      redirect_to action: "new"
+      flash[:alert] = 'クレジットカードを登録してください'
+      redirect_to new_card_path
     else
       set_customer
       set_card_information
+      @card_brand = @card_information.brand
+      case @card_brand
+      when "Visa"
+        @card_src = "Visa.svg"
+      when "MasterCard"
+        @card_src = "master-card.svg"
+      when "JCB"
+        @card_src = "jcb.svg"
+      when "American Express"
+        @card_src = "american_express.svg"
+      when "Diners Club"
+        @card_src = "dinersclub.svg"
+      when "Discover"
+        @card_src = "discover.svg"
+      end
     end
   end
 
@@ -46,7 +63,7 @@ class CardsController < ApplicationController
       @customer.delete
       @card.delete
     end
-    redirect_to action: "new"
+    redirect_to new_card_path
   end
 
   private

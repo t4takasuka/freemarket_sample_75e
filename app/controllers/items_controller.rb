@@ -75,12 +75,27 @@ class ItemsController < ApplicationController
   def purchaseConfilmation
     if @card.blank?
       flash[:alert] = '購入前にクレジットカードを登録してください'
-      redirect_to controller: "cards", action: "new"
+      redirect_to new_card_path
     else
       set_item
       set_sending_destinations
       set_customer
       set_card_information
+      @card_brand = @card_information.brand
+      case @card_brand
+      when "Visa"
+        @card_src = "Visa.svg"
+      when "MasterCard"
+        @card_src = "master-card.svg"
+      when "JCB"
+        @card_src = "jcb.svg"
+      when "American Express"
+        @card_src = "american_express.svg"
+      when "Diners Club"
+        @card_src = "dinersclub.svg"
+      when "Discover"
+        @card_src = "discover.svg"
+      end
     end
   end
 
@@ -90,9 +105,8 @@ class ItemsController < ApplicationController
       customer: @card.customer_id, # 顧客ID
       currency: 'jpy' # 日本円
     )
-    # 後でbuyerと調整
-    # @item_buyer = Item.find(params[:id])
-    # @item_buyer.update( buyer_id: current_user.id )
+    @item_buyer = Item.find(params[:id])
+    @item_buyer.update( buyer_id: current_user.id )
     redirect_to purchaseCompleted_item_path # 購入完了ページへ
   end
 

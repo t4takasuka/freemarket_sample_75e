@@ -21,7 +21,7 @@
               (税込み)
             %span
               送料込み
-        =link_to "購入する", "", class: "btn btnPurchase"
+        =link_to "購入する", purchaseConfilmation_item_path, class: "btn btnPurchase"
         =link_to "編集する", edit_item_path ,class: "btn btnEdit"
         =link_to "削除する", item_path, method: :delete, class: "btn btnDelete" ,data: {confirm: "本当に削除しますか？"}
 
