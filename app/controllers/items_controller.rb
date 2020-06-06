@@ -58,7 +58,7 @@ class ItemsController < ApplicationController
   def purchaseConfilmation
     if @card.blank?
       flash[:alert] = '購入前にクレジットカードを登録してください'
-      redirect_to controller: "cards", action: "new"
+      redirect_to new_card_path
     else
       set_item
       set_sending_destinations

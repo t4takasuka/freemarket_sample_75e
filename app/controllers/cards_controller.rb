@@ -11,7 +11,7 @@ class CardsController < ApplicationController
 
   def create
     if params['payjp-token'].blank?
-      redirect_to action: "new"
+      redirect_to new_card_path
     else
       user_id = current_user.id
       customer = Payjp::Customer.create(
@@ -20,10 +20,10 @@ class CardsController < ApplicationController
       @card = Card.new(user_id: user_id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         flash[:notice] = '登録しました'
-        redirect_to root_path
+        redirect_to users_mypage_users_path
       else
         flash[:alert] = '登録できませんでした'
-        redirect_to action: "new"
+        redirect_to new_card_path
       end
     end
   end
@@ -31,11 +31,28 @@ class CardsController < ApplicationController
   def show
     @categories = Category.order(:id)
     if @card.blank?
-      flash[:alert] = '購入前にクレジットカードを登録してください'
-      redirect_to action: "new"
+      flash[:alert] = 'クレジットカードを登録してください'
+      redirect_to new_card_path
     else
       set_customer
       set_card_information
+      @card_brand = @card_information.brand
+      case @card_brand
+      when "Visa"
+        @card_src = "Visa.gif"
+      when "MasterCard"
+        @card_src = "Mastercard.gif"
+      when "SASION"
+        @card_src = "Saison.gif"
+      when "JCB"
+        @card_src = "Saison.gif"
+      when "AMERICAN"
+        @card_src = "amex.gif"
+      when "DinnersClub"
+        @card_src = "Diners.gif"
+      when "DISCOVER"
+        @card_src = "DISCOVER.gif"
+      end
     end
   end
 
@@ -46,7 +63,7 @@ class CardsController < ApplicationController
       @customer.delete
       @card.delete
     end
-    redirect_to action: "new"
+    redirect_to new_card_path
   end
 
   private
