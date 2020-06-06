@@ -34,7 +34,7 @@ class Item < ApplicationRecord
   validates :images, length: { minimum: 1, maximum: 10 }
   validates :name, presence: true
   validates :introduction, presence: true
-  validates :price, presence: true
+  validates :price,numericality: { only_integer: true, greater_than: 299, less_than: 1000000 }, presence: true
   validates :prefecture_code, presence: true
   validates :category, presence: true
   validates :trading_status, presence: true
