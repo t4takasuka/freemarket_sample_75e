@@ -17,32 +17,39 @@
         }
         &__body {
           margin: 16px 0 0;
-          ul {
-            display: flex;
+          &--bigimg {
+            text-align: center;
             position: relative;
-            list-style: none;
-            & li {
-              display: flex;
-              flex-direction: column;
-              width: 560px;
-              align-items: center;
+            img {
+              margin: 10px;
+            }
+            .sold {
               margin: 0 auto;
-              & img {
-                object-fit: cover;
-                height: 346px;
-                width: 100%;
-                vertical-align: bottom;
-              }
-              & ul {
-                display: flex;
-                justify-content: center;
-                margin-top: 10px;
-                & li {
-                  width: 100px;
-                  height: 100px;
-                  margin: 0 10px 0 0;
-                }
-              }
+              background-color: red;
+              color: white;
+              height: 30px;
+              width: 440px;
+              line-height: 30px;
+              position: absolute;
+              top: 0;
+              text-align: center;
+              left: 50%;
+              transform: translateX(-50%);
+              -webkit-transform: translateX(-50%);
+              -ms-transform: translateX(-50%);
+            }
+          }
+          ul {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: left;
+          margin-top: 10px;
+          padding: 0 35px;
+          li {
+            width: 100px;
+            height: 100px;
+            margin: 0 10px 10px 0;
+            list-style: none;
             }
           }
         }
@@ -63,6 +70,42 @@
               box-sizing: border-box;
             }
           }
+        }
+        .btnPurchase {
+          background-color: red;
+          text-align: center;
+          padding: 10px;
+          display: block;
+          margin: 30px auto;
+          border-radius: 100px;
+          width: 60%;
+          cursor: pointer;
+        }
+        .btnEdit {
+          background-color: #3ccace;
+          text-align: center;
+          padding: 10px;
+          display: block;
+          margin: 30px auto;
+          border-radius: 100px;
+          width: 60%;
+          cursor: pointer;
+        }
+        .btnDelete {
+          background-color: red;
+          text-align: center;
+          padding: 10px;
+          display: block;
+          margin: 30px auto;
+          border-radius: 100px;
+          width: 60%;
+          cursor: pointer;
+        }
+        a {
+          color: white;
+          font-size: 20px;
+          font-weight: bold;
+          text-decoration: none;
         }
         &__itemdetail {
           line-height: 1.5;
@@ -128,6 +171,7 @@
             }
           }
         }
+
       }
       .commentBox {
         padding: 24px;

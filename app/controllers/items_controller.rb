@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
+  before_action :move_to_session, except: %i[index show]
   before_action :set_item, except: %i[index new create get_category_children get_category_grandchildren purchaseCompleted]
   before_action :set_card, only: %i[purchaseConfilmation pay]
-  before_action :set_sending_destinations, only: %i[purchaseConfilmation] 
+  before_action :set_sending_destinations, only: %i[purchaseConfilmation]
   before_action :set_api_key
   require 'payjp'
 
@@ -17,19 +18,20 @@ class ItemsController < ApplicationController
   end
 
   def get_category_children
-    @category_children = Category.find("#{params[:parent_name]}").children
+    @category_children = Category.find(params[:parent_name].to_s).children
   end
 
   def get_category_grandchildren
-    @category_grandchildren = Category.find("#{params[:child_id]}").children
+    @category_grandchildren = Category.find(params[:child_id].to_s).children
   end
 
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
+      redirect_to root_path, notice: "商品を出品しました"
     else
-      render :new
+      flash[:alert] = "必須項目をすべて入力してください"
+      redirect_to action: :new
     end
   end
 
@@ -41,16 +43,18 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to root_path
+      redirect_to root_path, notice: "商品を更新しました"
     else
+      flash.now[:alert] = "必須項目をすべて入力してください"
       render :edit
     end
   end
 
   def destroy
     if @item.destroy
-      redirect_to root_path
+      redirect_to root_path, notice: "商品を削除しました"
     else
+      redirect_to root_path, notice: "削除に失敗しました"
       render :show
     end
   end
@@ -69,27 +73,30 @@ class ItemsController < ApplicationController
 
   def pay
     charge = Payjp::Charge.create(
-      amount: @item.price, #支払金額を引っ張ってくる
-      customer: @card.customer_id,  #顧客ID
-      currency: 'jpy',              #日本円
+      amount: @item.price, # 支払金額を引っ張ってくる
+      customer: @card.customer_id, # 顧客ID
+      currency: 'jpy' # 日本円
     )
     # 後でbuyerと調整
     # @item_buyer = Item.find(params[:id])
     # @item_buyer.update( buyer_id: current_user.id )
-    redirect_to purchaseCompleted_item_path #購入完了ページへ
+    redirect_to purchaseCompleted_item_path # 購入完了ページへ
   end
 
-  def purchaseCompleted
-  end
+  def purchaseCompleted; end
 
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, images_attributes: %i[src _destroy id],:introduction, :brand_id, :prefecture_code, :category_id, :trading_status, :seller_id, :buyer_id, :size_id, :item_condition_id, :postage_payer_id, :postage_type_id, :preparation_day_id)
+    params.require(:item).permit(:name, :price, :introduction, :brand_id, :prefecture_code, :category_id, :trading_status, :size_id, :item_condition_id, :postage_payer_id, :postage_type_id, :preparation_day_id, images_attributes: %i[src _destroy id]).merge(seller_id: current_user.id)
   end
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def move_to_session
+    redirect_to new_user_registration_path unless user_signed_in?
   end
 
   def set_api_key
@@ -111,5 +118,4 @@ class ItemsController < ApplicationController
   def set_sending_destinations
     @address = SendingDestination.where(user_id: current_user.id).first
   end
-
 end
