@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     collection do
       get 'users/mypage', to: "users#mypage"
       get 'users/logout', to: "users#logout"
+      get 'users/buy', to: "users#buy"
     end
   end
 
