@@ -5,7 +5,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def logout; end
+  def logout
+    @categories = Category.all
+  end
 
   def mypage
     @categories = Category.order(:id)

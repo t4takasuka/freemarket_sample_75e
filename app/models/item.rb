@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  belongs_to :item_size, optional: true
   belongs_to :category
   belongs_to :brand, optional: true
   has_many :images, dependent: :destroy
@@ -34,12 +35,11 @@ class Item < ApplicationRecord
   validates :images, length: { minimum: 1, maximum: 10 }
   validates :name, presence: true
   validates :introduction, presence: true
-  validates :price, presence: true
+  validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 1_000_000 }, presence: true
   validates :prefecture_code, presence: true
   validates :category, presence: true
   validates :trading_status, presence: true
   validates :seller_id, presence: true
-  # validates :size_id, presence: true
   validates :item_condition_id, presence: true
   validates :postage_payer_id, presence: true
   validates :preparation_day_id, presence: true 

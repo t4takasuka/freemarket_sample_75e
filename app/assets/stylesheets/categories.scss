@@ -1,3 +1,4 @@
+// カテゴリーメニュー
 .category-title {
   display: flex;
   height: 40px;
@@ -92,3 +93,85 @@
     font-size: 12px;
   }
 }
+
+// カテゴリー一覧画面
+.category-top {
+  height: 50px;
+  padding: 0 60px;
+  line-height: 50px;
+  background-color: #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  border-top: 1px solid #3CCACE;
+  &__nav {
+    max-width: 950px;
+    margin: 0 auto;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+  }
+  &__icon {
+    margin: 0 10px;
+    opacity: 0.5;
+  }
+  &__now-place {
+    display: inline-block;
+    font-weight: bold;
+  }
+}
+
+// .category-parent {
+//   width: 700px;
+//   margin: 0 auto;
+//   margin-top: 60px;
+//   &__title {
+//     font-size: 25px;
+//     font-weight: bold;
+//   }
+//   &__box {
+//     margin-top: 20px;
+//     &--lists{
+//       list-style: none;
+//     }
+//     a {
+//       border-radius: 4px;
+//       min-width: 80px;
+//       height: 40px;
+//       box-shadow: 1px 1px 1px 1px rgba(14,14,14,0.0580392);
+//       padding: 0 30px;
+//       margin: 5px;
+//       color: black;
+//       line-height: 40px;
+//       display: block;
+//       float: left;
+//       background-color: white;
+//       text-decoration: none;
+//       transition: all 0s ease 0s;
+//       .category-parent__box--list li a:hover {
+//         color: #3CCACE;
+//         background-color: #3CCACE;
+//       }
+//     }
+//   }
+// }
+
+// .category-main {
+//   width: 700px;
+//   margin: 0 auto;
+//   display: flex;
+//   &__child {
+//     height: 60px;
+//     width: 100%;
+//     background-color: #3CCACE;
+//     border-radius: 4px;
+//     margin-top: 30px;
+//     &--title {
+//       font-size: 25px;
+//       font-weight: bold;
+//       color: white;
+//       line-height: 60px;
+//       padding-left: 20px;
+//     }
+//   }
+// }

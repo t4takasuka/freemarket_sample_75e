@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_05_101902) do
+ActiveRecord::Schema.define(version: 2020_06_06_093146) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "text"
@@ -34,12 +34,29 @@ ActiveRecord::Schema.define(version: 2020_06_05_101902) do
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
+  create_table "category_sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "item_size_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_category_sizes_on_category_id"
+    t.index ["item_size_id"], name: "index_category_sizes_on_item_size_id"
+  end
+
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "src", null: false
     t.bigint "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_images_on_item_id"
+  end
+
+  create_table "item_sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "size", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_item_sizes_on_ancestry"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -57,6 +74,7 @@ ActiveRecord::Schema.define(version: 2020_06_05_101902) do
     t.integer "postage_payer_id"
     t.integer "preparation_day_id"
     t.bigint "buyer_id"
+    t.integer "item_size_id"
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"

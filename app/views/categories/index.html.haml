@@ -1,1 +1,45 @@
-.h1 まだ何もない！！！！！！！！！！
+= render "layouts/header_toppage"
+
+
+-# .category-top
+-#   .category-top__nav
+-#     .category-top__root
+-#     = link_to "メルカリ","/"
+-#     %i.fas.fa-angle-right.category-top__icon
+-#     .category-top__now-place
+-#       カテゴリー一覧
+-# .category-parent
+-#   .category-parent__title
+-#     カテゴリー一覧
+-#   .category-parent__box
+-#     .category-parent__box--lists
+-#       = link_to "レディース",id:"category1"
+-#       = link_to "メンズ",id:"category2"
+-#       = link_to "ベビー・キッズ",id:"category3"
+-#       = link_to "インテリア・住まい・小物",id:"category4"
+-#       = link_to "本・音楽・ゲーム",id:"category5"
+-#       = link_to "おもちゃ・ホビー・グッズ",id:"category6"
+-#       = link_to "コスメ・香水・美容",id:"category7"
+-#       = link_to "家電・スマホ・カメラ",id:"category8"
+-#       = link_to "スポーツ・レジャー",id:"category9"
+-#       = link_to "ハンドメイド",id:"category10"
+-#       = link_to "チケット",id:"category11"
+-#       = link_to "自動車・オートバイ",id:"category12"
+-#       = link_to "その他",id:"category13"
+
+-# .category-main
+-#   .category-main__child
+-#     .category-main__child--title
+-#       レディース
+-#     .category-main__parent
+-#       - @category_parent.each do |parent|
+-#         .category-main__parent--name
+-#         =parent.name
+-#         .category-main__
+-#           - parent.children.each do |child|
+-#             = link_to category_path(child) do
+-#               = child.name
+-#               .category-garna
+-#                 - child.children.each do |grandchild|
+-#                   .categorusss
+-#                   =grandchild.name
