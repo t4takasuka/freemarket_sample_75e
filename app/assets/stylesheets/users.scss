@@ -108,8 +108,7 @@
   background-color: rgb(245, 245, 245);
   padding: 10px 0;
   .u-main{
-    padding: 50px;
-    width: 700px;
+    width: 760px;
     margin: 20px auto;
     text-align: left;
     .u-introduction{
@@ -122,6 +121,7 @@
         .productLists {
           display: flex;
           justify-content: start;
+          flex-wrap: wrap;
         }
         p {
           margin-top: 20px;
