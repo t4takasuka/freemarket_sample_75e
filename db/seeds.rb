@@ -337,25 +337,25 @@ end
 # レディース
 ladies_child_array = ['トップス','ジャケット/アウター','パンツ','スカート','ワンピース','靴','ルームウェア/パジャマ','レッグウェア','帽子','バッグ','アクセサリー','ヘアアクセサリー','小物','時計']
 ladies_grandchild_array = [
-                           [name:"Tシャツ/カットソー(半袖/袖なし)",item_size_id:f_size_parent.id,name:"Tシャツ/カットソー(七分/長袖)",item_size_id:f_size_parent.id,name: "シャツ/ブラウス(半袖/袖なし)", item_size_id: f_size_parent.id], 
-                           [name:"テーラージャケット",item_size_id:f_size_parent.id],
-                           [name:"デニム/ジーンズ",item_size_id:f_size_parent.id],
-                           [name:"ミニスカート",item_size_id:f_size_parent.id],
-                           [name:"ミニワンピース",item_size_id:f_size_parent.id],
-                           [name:"ハイヒール/バンプス",item_size_id:shoes_size_parent.id],
-                           [name:"パジャマ/ルームウェア",item_size_id:f_size_parent.id],
-                           [name:"ソックス"],
-                           [name:"ニットキャップ/ビーニー"],
-                           [name:"ハンドバッグ"],
-                           [name:"ネックレス"],
-                           [name:"ヘアゴム/シュシュ"],
-                           [name:"長財布"],
-                           [name:"腕時計"]
+                           [name: "Tシャツ/カットソー(半袖/袖なし)",item_size_id: f_size_parent.id,name: "Tシャツ/カットソー(七分/長袖)",item_size_id: f_size_parent.id,name: "シャツ/ブラウス(半袖/袖なし)", item_size_id: f_size_parent.id], 
+                           [name: "テーラージャケット",item_size_id: f_size_parent.id],
+                           [name: "デニム/ジーンズ",item_size_id: f_size_parent.id],
+                           [name: "ミニスカート",item_size_id: f_size_parent.id],
+                           [name: "ミニワンピース",item_size_id: f_size_parent.id],
+                           [name: "ハイヒール/バンプス",item_size_id: shoes_size_parent.id],
+                           [name: "パジャマ/ルームウェア",item_size_id: f_size_parent.id],
+                           [name: "ソックス"],
+                           [name: "ニットキャップ/ビーニー"],
+                           [name: "ハンドバッグ"],
+                           [name: "ネックレス"],
+                           [name: "ヘアゴム/シュシュ"],
+                           [name: "長財布"],
+                           [name: "腕時計"]
                           ]
 parent = Category.create(name: 'レディース')
 ladies_child_array.each do |child|
-  child = parent.children.create(name:child)
+  child = parent.children.create(name: child)
   ladies_grandchild_array.each do |grandchild|
-    child.children.create(name:grandchild[0][:name],item_size_ids:[grandchild[0][:item_size_id]])
+    child.children.create(name: grandchild[0][:name],item_size_ids: [grandchild[0][:item_size_id]])
   end
 end

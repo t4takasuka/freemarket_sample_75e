@@ -3,7 +3,7 @@
     .productList--top
       %figure.productList--top--img
         = image_tag item.images[0].src.url, width: "220", height: '150'
-        - unless item.trading_status == "出品中"
+        - if item.buyer_id.present?
           .sold
             SOLD OUT
     .productList--bottom
