@@ -1,0 +1,29 @@
+.side-bar
+  %li
+    .mypage-nav-list-item
+      =link_to "マイページ", profiles_path
+      %i.fas.fa-chevron-right
+  %li
+    .mypage-nav-list-item
+      =link_to "商品出品", new_item_path
+      %i.fas.fa-chevron-right
+  %li
+    .mypage-nav-list-item
+      =link_to "出品一覧", root_path
+      %i.fas.fa-chevron-right
+  %li
+    .mypage-nav-list-item
+      =link_to "購入一覧", "/items/:id/purchaseCompleted"
+      %i.fas.fa-chevron-right
+  %li
+    .mypage-nav-list-item
+      =link_to "支払い方法", new_card_path
+      %i.fas.fa-chevron-right
+  %li
+    .mypage-nav-list-item
+      =link_to "ログアウト", users_logout_users_path
+      %i.fas.fa-chevron-right
+  %li
+    .mypage-nav-list-item
+      =link_to "お問い合わせ"
+      %i.fas.fa-chevron-right

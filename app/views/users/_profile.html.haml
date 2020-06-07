@@ -1,22 +1,23 @@
-.content
-  %section.mypage-user-icon
-    = link_to user_path(current_user.id) do
-      .figure
-        =image_tag src="icon-01.png",size:"60x60"
-      .h2= current_user.nickname
-      .mypage-number
-        %div
-          評価
-          %span.bold 0
-        %div
-          出品数
-          %span.bold 0  
-.s-container
-  .s-main
-    %h2 やることリスト
-    %h4 現在、やることリストはありません
-    %h2 設定
-    .left-text
-      = link_to "支払い方法"
-    .right-text
-      = link_to "ログアウト", users_logout_users_path
+.main-content  
+  .content
+    %section.mypage-user-icon
+      = link_to user_path(current_user.id) do
+        .figure
+          =image_tag src="icon-01.png",size:"60x60"
+        .h2= current_user.nickname
+        .mypage-number
+          %div
+            評価
+            %span.bold 0
+          %div
+            出品数
+            %span.bold 0  
+  .s-container
+    .s-main
+      %h2 やることリスト
+      %h4 現在、やることリストはありません
+      -# %h2 設定
+      -# .left-text
+      -#   = link_to "支払い方法", "/cards/:id"
+      -# .right-text
+      -#   = link_to "ログアウト", users_logout_users_path
