@@ -3,10 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # ↓出品商品
     @items = Item.where(seller_id: @user.id)
-    # @items_on_display = Item.where(seller_id: @user.id, trading_status: 0)
-    # @sold_items = Item.where(seller_id: @user.id, trading_status: 1)
-    # @buyed_items = Item.where(buyer_id: @user.id, trading_status: 1)
   end
 
   def logout
@@ -15,6 +13,12 @@ class UsersController < ApplicationController
 
   def mypage
     @categories = Category.order(:id)
+  end
+  
+  def buy
+    @categories = Category.order(:id)
+    # ↓購入商品
+    @items = Item.where(buyer_id: current_user.id)
   end
 
   private

@@ -22,9 +22,8 @@
         この出品者の商品
       .u-items__list
         - if @items.present?
-          .u-items__list__box
-            .productLists
-              = render partial: "items/item", collection: @items
+          .productLists
+            = render partial: "items/item", collection: @items
         - else
           %p
             出品した商品はありません

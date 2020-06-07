@@ -123,70 +123,9 @@
     }
     .u-items {
       &__list {
-        &__box {
+        .productLists {
           display: flex;
-          justify-content: space-between;
-          .productLists {
-            width: 780px;
-            margin: 26px auto;
-            display: flex;
-            justify-content: space-around;
-            .productList {
-              display: inline-block;
-              float: left;
-              margin: 15px;
-              li{
-                display:block;
-              }
-              a {
-                background-color: #fff;
-                display: inline-block;
-                text-decoration: none;
-              }
-              &--top {
-                &--img {
-                  width: 220px;
-                  height: 150px;
-                  position: relative;
-                  overflow: hidden;
-                  margin: 0;
-                  z-index: auto;
-                  .sold {
-                    background-color: red;
-                    color: white;
-                    height: 20px;
-                    width: 100%;
-                    line-height: 20px;
-                    position: absolute;
-                    top: 0;
-                    text-align: center;
-                  }
-                }
-              }
-              &--bottom {
-                background-color: white;
-                color: #333;
-                padding: 16px;
-                .name {
-                  overflow: hidden;
-                  line-height: 1.5;
-                  font-size: 16px;
-                  text-align: left;
-                }
-                .details {
-                  font-size: 16px;
-                  ul {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                  }
-                  p {
-                    font-size: 10px;
-                    }
-                }
-              }
-            }
-          }
+          justify-content: space-around;
         }
       }
     }
