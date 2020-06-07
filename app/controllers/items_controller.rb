@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_card, only: %i[purchaseConfilmation pay]
   before_action :set_sending_destinations, only: %i[purchaseConfilmation]
   before_action :set_api_key
-  before_action :return_unless_seller
+  before_action :return_unless_seller, only: [:edit, :update, :destroy]
   require 'payjp'
 
   def index
@@ -45,7 +45,7 @@ class ItemsController < ApplicationController
       redirect_to root_path, notice: "商品を出品しました"
     else
       @item.images.build
-      flash[:alert] = "必須項目を正確に入力してください"
+      flash.now[:alert] = "必須項目を正確に入力してください"
       render :new
     end
   end

@@ -17,7 +17,16 @@
   .u-main
     .u-introduction
       =@user.profile.introduction
-    %p
-      （＊seller.id が item と関連できたら、出品したアイテム情報を並べる予定です）
+    .u-items
+      %h2 
+        この出品者の商品
+      .u-items__list
+        - if @items.present?
+          .u-items__list__box
+            .productLists
+              = render partial: "items/item", collection: @items
+        - else
+          %p
+            出品した商品はありません
 = render "layouts/appBanner_toppage"
 = render "layouts/footer_toppage"

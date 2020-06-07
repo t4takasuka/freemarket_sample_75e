@@ -3,6 +3,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @items = Item.where(seller_id: @user.id)
+    # @items_on_display = Item.where(seller_id: @user.id, trading_status: 0)
+    # @sold_items = Item.where(seller_id: @user.id, trading_status: 1)
+    # @buyed_items = Item.where(buyer_id: @user.id, trading_status: 1)
   end
 
   def logout
