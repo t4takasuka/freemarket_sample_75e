@@ -152,6 +152,6 @@ class ItemsController < ApplicationController
   end
 
   def return_unless_seller
-    return unless @item.seller_id == current_user.id
+    return unless @item&.seller_id == current_user.id
   end
 end
