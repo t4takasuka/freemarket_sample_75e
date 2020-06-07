@@ -79,8 +79,8 @@ class ItemsController < ApplicationController
 
   def purchaseConfilmation
     if @card.blank?
-      flash[:alert] = '購入前にクレジットカードを登録してください'
-      redirect_to new_card_path
+      # flash[:alert] = '購入前にクレジットカードを登録してください'
+      redirect_to new_card_path, notice: '購入前にクレジットカードを登録してください'
     else
       set_item
       set_sending_destinations
@@ -112,6 +112,8 @@ class ItemsController < ApplicationController
     )
     @item_buyer = Item.find(params[:id])
     @item_buyer.update(buyer_id: current_user.id)
+    @item_trading = Item.find(params[:id])
+    @item_trading.update(trading_status: 1)
     redirect_to purchaseCompleted_item_path # 購入完了ページへ
   end
 
