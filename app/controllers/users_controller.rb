@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     # ↓出品商品
-    @items = Item.where(seller_id: @user.id)
+    @items = Item.where(seller_id: @user.id).includes([:images])
   end
 
   def logout
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def mypage
     @categories = Category.order(:id)
   end
-  
+
   def buy
     @categories = Category.order(:id)
     # ↓購入商品

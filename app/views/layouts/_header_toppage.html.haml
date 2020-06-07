@@ -9,28 +9,28 @@
         %button.top-page-header__form--btn{title: "",type: "submit"}
           = image_tag src="icon-search 1.png",size:"30x30"
 
-    -# .top-page-headerNav__left
-    -#   .header-category
-    -#     %ul.category-title
-    -#       %li.category-list-title
-    -#         = link_to "カテゴリーから探す", categories_path
-    -#         %ul.category-parent
-    -#           - @categories.roots.each do |root_category|
-    -#             %li.category-list-parent
-    -#               = link_to categories_path do
-    -#                 = root_category.name
-    -#               %ul.category-child
-    -#                 .category-childbox
-    -#                 - root_category.children.each do |children_category|
-    -#                   %li.category-list-child
-    -#                     = link_to "/" do
-    -#                       = children_category.name
-    -#                     %ul.category-grandchild
-    -#                       .category-grandchildbox
-    -#                       - children_category.children.each do |children_children_category|
-    -#                         %li.category-list-grandchild
-    -#                           = link_to "/" do
-    -#                             = children_children_category.name
+    .top-page-headerNav__left
+      .header-category
+        %ul.category-title
+          %li.category-list-title
+            = link_to "カテゴリーから探す", categories_path
+            %ul.category-parent
+              - @categories.roots.each do |root_category|
+                %li.category-list-parent
+                  = link_to categories_path do
+                    = root_category.name
+                  %ul.category-child
+                    .category-childbox
+                    - root_category.children.each do |children_category|
+                      %li.category-list-child
+                        = link_to "/" do
+                          = children_category.name
+                        %ul.category-grandchild
+                          .category-grandchildbox
+                          - children_category.children.each do |children_children_category|
+                            %li.category-list-grandchild
+                              = link_to "/" do
+                                = children_children_category.name
 
       %li.top-page-headerNav__left--bland
         = link_to "ブランド","/"

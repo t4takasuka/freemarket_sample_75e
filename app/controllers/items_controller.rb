@@ -4,11 +4,11 @@ class ItemsController < ApplicationController
   before_action :set_card, only: %i[purchaseConfilmation pay]
   before_action :set_sending_destinations, only: %i[purchaseConfilmation]
   before_action :set_api_key
-  before_action :return_unless_seller, only: [:edit, :update, :destroy]
+  before_action :return_unless_seller, only: %i[edit update destroy]
   require 'payjp'
 
   def index
-    @items = Item.all
+    @items = Item.includes([:images])
     @categories = Category.order(:id)
   end
 
@@ -56,8 +56,7 @@ class ItemsController < ApplicationController
     @user = User.find(@item.seller_id)
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @item.update(item_params)

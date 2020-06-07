@@ -17,7 +17,11 @@
   .u-container
     .u-main
       .u-introduction
-        =@user.profile.introduction
+        - if @user.profile.introduction.present?
+          =@user.profile.introduction
+        - else
+          %p 
+            自己紹介文はまだありません
       .u-items
         %h2 
           この出品者の商品
