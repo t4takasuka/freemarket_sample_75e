@@ -1,10 +1,10 @@
 $(function(){
   function appendOption(category){
-    const html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;
+    const html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
   function appendSizeOption(size){
-    const html = `<option value="${size.size}">${size.size}</option>`;
+    const html = `<option value="${size.id}">${size.size}</option>`;
     return html;
   }
 
@@ -26,7 +26,7 @@ $(function(){
     let grandchildSelectHtml = "";
     grandchildSelectHtml = `<div class="item-category" id="grandchildren_wrapper">
                               <div class="item-category__title">
-                                <select class="item-category__wrapper" id="grandchild_category" name="category_id">
+                                <select class="item-category__wrapper" id="grandchild_category" name="item[category_id]">
                                   <option value="選択してください" data-category="選択してください">選択してください</option>
                                   ${insertHTML}
                                 </select>
@@ -43,7 +43,7 @@ $(function(){
                         <span class='form__request'>必須</span>
                         <div class='item-size__wrapper'>
                           <div class='item-size__wrapper--box'>
-                            <select class="item-size__wrapper--select" id="size" name="item_size_id">
+                            <select class="item-size__wrapper--select" id="item_size_id" name="item[item_size_id]">
                               <option value="選択してください">選択してください</option>
                               ${insertHTML}
                             <select>
