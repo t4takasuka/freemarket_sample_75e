@@ -1,7 +1,7 @@
 .side-bar
   %li
     .mypage-nav-list-item
-      =link_to "マイページ", "#"
+      =link_to "マイページ", users_mypage_users_path
       %i.fas.fa-chevron-right
   %li
     .mypage-nav-list-item
@@ -9,7 +9,7 @@
       %i.fas.fa-chevron-right
   %li
     .mypage-nav-list-item
-      =link_to "出品一覧", root_path
+      =link_to "出品一覧", user_path(current_user.id)
       %i.fas.fa-chevron-right
   %li
     .mypage-nav-list-item

@@ -57,7 +57,6 @@
   background-color: rgb(245, 245, 245);
   padding: 100px 0;
   .s-main{
-    background-color: white;
     padding: 30px;
     width: 700px;
     margin: 20px auto;
@@ -83,7 +82,6 @@
   background-color: rgb(245, 245, 245);
   padding: 30px 0;
   .l-main{
-    background-color: white;
     padding: 30px;
     width: 700px;
     margin: 0 auto;
@@ -110,14 +108,13 @@
   background-color: rgb(245, 245, 245);
   padding: 10px 0;
   .u-main{
-    background-color: white;
     padding: 50px;
     width: 700px;
     margin: 20px auto;
     text-align: left;
     .u-introduction{
       width: 100%;
-      margin-bottom: 50px;
+      margin-bottom: 100px;
       word-wrap: break-word;
     }
     .u-items {
@@ -125,6 +122,9 @@
         .productLists {
           display: flex;
           justify-content: space-around;
+        }
+        p {
+          margin-top: 20px;
         }
       }
     }
