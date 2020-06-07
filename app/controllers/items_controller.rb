@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_card, only: %i[purchaseConfilmation pay]
   before_action :set_sending_destinations, only: %i[purchaseConfilmation]
   before_action :set_api_key
+  before_action :return_unless_seller
   require 'payjp'
 
   def index
@@ -56,12 +57,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    redirect_to root_path unless @item.seller_id == current_user.id
   end
 
   def update
-    return unless @item.seller_id == current_user.id
-
     if @item.update(item_params)
       redirect_to root_path, notice: "商品を更新しました"
     else
@@ -71,8 +69,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    return unless @item.seller_id == current_user.id
-
     if @item.destroy
       redirect_to root_path, notice: "商品を削除しました"
     else
@@ -153,5 +149,9 @@ class ItemsController < ApplicationController
 
   def set_sending_destinations
     @address = SendingDestination.where(user_id: current_user.id).first
+  end
+
+  def return_unless_seller
+    return unless @item.seller_id == current_user.id
   end
 end
