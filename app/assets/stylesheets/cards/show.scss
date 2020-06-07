@@ -1,0 +1,46 @@
+.show-wrapper {
+  width: 700px;
+  background-color: #fff;
+  margin: 0 auto;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  .show-head {
+    h2 {
+      font-size: 24px;
+      padding: 8px 24px;
+      text-align: center;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    .show-inner {
+      padding: 64px;
+      .show-form__content {
+        margin: 0 auto;
+        max-width: 320px;
+        border-bottom: 1px solid #f5f5f5;
+        &__head {
+          padding: 8px 0px;
+        }
+        .card-brand {
+          position: relative;
+          padding: 8px 0px;
+          .payment-remove {
+            position: absolute;
+            right: 1px;
+            top: 1px;
+            padding: 4px 6px;
+            background: #fff;
+            border-radius: 3px;
+            border: 1px solid #ea352d;
+            color: #ea352d;
+            text-decoration: none;
+          }
+        }
+        .card-number {
+          padding: 8px 0px;
+        }
+        .card-expire {
+          padding: 8px 0px;
+        }
+      }
+    }
+  }
+}
