@@ -18,6 +18,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @categories = Category.order(:id)
     @category = Category.find(params[:id])
     @items = Item.where(category_id: params[:id]).includes([:images])
   end
