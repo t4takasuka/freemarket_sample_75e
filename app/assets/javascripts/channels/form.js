@@ -1,16 +1,14 @@
-$(function(){
-  $('#price_calc').on('input', function(){   
-    var data = $('#price_calc').val(); 
-    var profit = Math.round(data * 0.9)  
-    var fee = (data - profit) 
-    $('.price__fee').html(fee) 
-    $('.price__fee').prepend('¥') 
-    $('.price__profit').html(profit)
-    $('.price__profit').prepend('¥')
-    $('#price').val(profit) 
-    if(profit == '') {   
-    $('.price__profit').html('');
-    $('.price__fee').html('');
+$(document).on('turbolinks:load',()=> {
+  $(".price__input-sell").on('keyup', function(){
+    var price = $(".price__input-sell").val();
+    if( 300 <= price && price <= 9999999) {
+    var fee = Math.floor(price / 10);
+    var profit = (price - fee);
+    $(".price__fee--totalPrice").text(fee);
+    $(".price__profit--totalPrice").text(profit);
+    }else{
+    $(".price__fee--totalPrice").text('');
+    $(".price__profit--totalPrice").text('');
     }
   })
-})
+});
