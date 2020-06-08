@@ -1,1 +1,15 @@
-.h1 実はここにも何もない！！！！！！！！
+= render "layouts/header_toppage"
+.u-container
+  .u-main
+    .u-items
+      %h3 
+        = "#{@category.name}の商品一覧"
+      .u-items__list
+        - if @items.present?
+          .productLists
+            = render partial: "items/item", collection: @items
+        - else
+          %h5
+            該当する商品はありません
+= render "layouts/appBanner_toppage"
+= render "layouts/footer_toppage"

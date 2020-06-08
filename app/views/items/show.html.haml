@@ -8,7 +8,7 @@
         .itembox__body
           .itembox__body--bigimg
             = image_tag @item.images[0].src.url
-            - unless @item.trading_status == "出品中"
+            - if @item.buyer_id.present?
               .sold
                 SOLD OUT
           %ul
@@ -22,7 +22,7 @@
               (税込み)
             %span
               送料込み
-        - unless @item.trading_status == "売り切れ"
+        - unless @item.buyer_id.present?
           - if current_user&.id == @user.id
             =link_to "編集する", edit_item_path ,class: "btn btnEdit"
             =link_to "削除する", item_path, method: :delete, class: "btn btnDelete" ,data: {confirm: "本当に削除しますか？"}
@@ -35,7 +35,8 @@
             %tr
               %th 出品者
               %td 
-                = @user.nickname
+                = link_to user_path(@user) do
+                  = @user.nickname
             %tr
               %th カテゴリー
               %td 

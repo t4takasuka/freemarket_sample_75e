@@ -1,4 +1,5 @@
 = render "layouts/header_toppage"
+= render "users/sidebar"
 
 .card-wrapper
   .card-head
@@ -13,17 +14,17 @@
             = f.text_field :card_number, id: "card_number", class: "card_form", placeholder: "半角数字のみ", maxlength: "16"
             .signup-card-list
               %li
-                = image_tag "/assets/cards/Visa.svg",width:"49px",height:"20px"
+                = image_tag assets_path=("Visa.svg"),width:"49px",height:"20px"
               %li
-                = image_tag "/assets/cards/master-card.svg",width:"34px",height:"20px"
+                = image_tag assets_path=("master-card.svg"),width:"34px",height:"20px"
               %li
-                = image_tag "/assets/cards/jcb.svg",width:"32px",height:"20px"
+                = image_tag assets_path=("jcb.svg"),width:"32px",height:"20px"
               %li
-                = image_tag "/assets/cards/american_express.svg",width:"21px",height:"20px"
+                = image_tag assets_path=("american_express.svg"),width:"21px",height:"20px"
               %li
-                = image_tag "/assets/cards/dinersclub.svg",width:"32px",height:"20px"
+                = image_tag assets_path=("dinersclub.svg"),width:"32px",height:"20px"
               %li
-                = image_tag "/assets/cards/discover.svg",width:"32px",height:"20px"
+                = image_tag assets_path=("discover.svg"),width:"32px",height:"20px"
             .card-expire
               = f.label :有効期限, class: 'label'
               %span.form-require 必須

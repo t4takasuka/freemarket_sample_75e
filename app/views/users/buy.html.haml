@@ -1,12 +1,13 @@
 = render "layouts/header_toppage"
+= render "sidebar"
 .mainmypage
   .main-content  
     .content
       %section.mypage-user-icon
-        = link_to "#" do
+        = link_to user_path(current_user.id) do
           .figure
             =image_tag src="icon-01.png",size:"60x60"
-          .h2= @user.nickname
+          .h2= current_user.nickname
           .mypage-number
             %div
               評価
@@ -16,21 +17,15 @@
               %span.bold 0  
   .u-container
     .u-main
-      .u-introduction
-        - if @user.profile.introduction.present?
-          =@user.profile.introduction
-        - else
-          %p 
-            自己紹介文はまだありません
       .u-items
         %h2 
-          この出品者の商品
+          購入した商品
         .u-items__list
           - if @items.present?
             .productLists
               = render partial: "items/item", collection: @items
           - else
             %h5
-              出品した商品はありません
+              購入した商品はありません
 = render "layouts/appBanner_toppage"
 = render "layouts/footer_toppage"
