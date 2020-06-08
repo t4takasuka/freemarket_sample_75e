@@ -1,5 +1,4 @@
-
--# = render "layouts/header_toppage"
+= render "layouts/header_toppage"
 .u-container
   .u-main
     .u-items
@@ -10,7 +9,7 @@
           .productLists
             = render partial: "items/item", collection: @items
         - else
-          %p
+          %h5
             該当する商品はありません
 = render "layouts/appBanner_toppage"
 = render "layouts/footer_toppage"
