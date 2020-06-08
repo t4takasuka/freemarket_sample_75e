@@ -34,189 +34,189 @@
         =link_to "すべて", category_path(@ladies), class: "category-main__list--all"
         - @ladies.children.each do |ladiesChild|
           .category-children--name
-            %h3= ladiesChild.name
-          .category-grandchildren
-            =link_to "すべて", category_path(ladiesChild)
-            -ladiesChild.children.each do |ladiesGroundChild|
-              .category-grandchildren--name
-                =link_to ladiesGroundChild.name, category_path(ladiesGroundChild)
+            %h4= ladiesChild.name
+            .category-grandchildren
+              =link_to "すべて", category_path(ladiesChild)
+              -ladiesChild.children.each do |ladiesGroundChild|
+                .category-grandchildren--name
+                  =link_to ladiesGroundChild.name, category_path(ladiesGroundChild)
 
-  -# .category-main
-  -#   .category-main__child
-  -#     .category-main__child--title
-  -#       = @mens.name
-  -#     .category-main__list
-  -#       =link_to "すべて", category_path(@mens), class: "category-main__list--all"
-  -#       - @mens.children.each do |mensChild|
-  -#         .category-children--name
-  -#           %h3= mensChild.name
-  -#         .category-grandchildren
-  -#           =link_to "すべて", category_path(mensChild)
-  -#           -mensChild.children.each do |mensGroundChild|
-  -#             .category-grandchildren--name
-  -#               =link_to mensGroundChild.name, category_path(mensGroundChild)
+  .category-main
+    .category-main__child
+      .category-main__child--title
+        = @mens.name
+      .category-main__list
+        =link_to "すべて", category_path(@mens), class: "category-main__list--all"
+        - @mens.children.each do |mensChild|
+          .category-children--name
+            %h4= mensChild.name
+          .category-grandchildren
+            =link_to "すべて", category_path(mensChild)
+            -mensChild.children.each do |mensGroundChild|
+              .category-grandchildren--name
+                =link_to mensGroundChild.name, category_path(mensGroundChild)
   
-  -# .category-main
-  -#   .category-main__child
-  -#     .category-main__child--title
-  -#       = @baby.name
-  -#     .category-main__list
-  -#       =link_to "すべて", category_path(@baby), class: "category-main__list--all"
-  -#       - @baby.children.each do |babyChild|
-  -#         .category-children--name
-  -#           %h3= babyChild.name
-  -#         .category-grandchildren
-  -#           =link_to "すべて", category_path(babyChild)
-  -#           -babyChild.children.each do |babyGroundChild|
-  -#             .category-grandchildren--name
-  -#               =link_to babyGroundChild.name, category_path(babyGroundChild)
+  .category-main
+    .category-main__child
+      .category-main__child--title
+        = @baby.name
+      .category-main__list
+        =link_to "すべて", category_path(@baby), class: "category-main__list--all"
+        - @baby.children.each do |babyChild|
+          .category-children--name
+            %h4= babyChild.name
+          .category-grandchildren
+            =link_to "すべて", category_path(babyChild)
+            -babyChild.children.each do |babyGroundChild|
+              .category-grandchildren--name
+                =link_to babyGroundChild.name, category_path(babyGroundChild)
   
-  -# .category-main
-  -#   .category-main__child
-  -#     .category-main__child--title
-  -#       = @interior.name
-  -#     .category-main__list
-  -#       =link_to "すべて", category_path(@interior), class: "category-main__list--all"
-  -#       - @interior.children.each do |interiorChild|
-  -#         .category-children--name
-  -#           %h3= interiorChild.name
-  -#         .category-grandchildren
-  -#           =link_to "すべて", category_path(interiorChild)
-  -#           -interiorChild.children.each do |interiorGroundChild|
-  -#             .category-grandchildren--name
-  -#               =link_to interiorGroundChild.name, category_path(interiorGroundChild)
+  .category-main
+    .category-main__child
+      .category-main__child--title
+        = @interior.name
+      .category-main__list
+        =link_to "すべて", category_path(@interior), class: "category-main__list--all"
+        - @interior.children.each do |interiorChild|
+          .category-children--name
+            %h4= interiorChild.name
+          .category-grandchildren
+            =link_to "すべて", category_path(interiorChild)
+            -interiorChild.children.each do |interiorGroundChild|
+              .category-grandchildren--name
+                =link_to interiorGroundChild.name, category_path(interiorGroundChild)
   
-  -# .category-main
-  -#   .category-main__child
-  -#     .category-main__child--title
-  -#       = @book.name
-  -#     .category-main__list
-  -#       =link_to "すべて", category_path(@book), class: "category-main__list--all"
-  -#       - @book.children.each do |bookChild|
-  -#         .category-children--name
-  -#           %h3= bookChild.name
-  -#         .category-grandchildren
-  -#           =link_to "すべて", category_path(bookChild)
-  -#           -bookChild.children.each do |bookGroundChild|
-  -#             .category-grandchildren--name
-  -#               =link_to bookGroundChild.name, category_path(bookGroundChild)
+  .category-main
+    .category-main__child
+      .category-main__child--title
+        = @book.name
+      .category-main__list
+        =link_to "すべて", category_path(@book), class: "category-main__list--all"
+        - @book.children.each do |bookChild|
+          .category-children--name
+            %h4= bookChild.name
+          .category-grandchildren
+            =link_to "すべて", category_path(bookChild)
+            -bookChild.children.each do |bookGroundChild|
+              .category-grandchildren--name
+                =link_to bookGroundChild.name, category_path(bookGroundChild)
   
-  -# .category-main
-  -#   .category-main__child
-  -#     .category-main__child--title
-  -#       = @toy.name
-  -#     .category-main__list
-  -#       =link_to "すべて", category_path(@toy), class: "category-main__list--all"
-  -#       - @toy.children.each do |toyChild|
-  -#         .category-children--name
-  -#           %h3= toyChild.name
-  -#         .category-grandchildren
-  -#           =link_to "すべて", category_path(toyChild)
-  -#           -toyChild.children.each do |toyGroundChild|
-  -#             .category-grandchildren--name
-  -#               =link_to toyGroundChild.name, category_path(toyGroundChild)
+  .category-main
+    .category-main__child
+      .category-main__child--title
+        = @toy.name
+      .category-main__list
+        =link_to "すべて", category_path(@toy), class: "category-main__list--all"
+        - @toy.children.each do |toyChild|
+          .category-children--name
+            %h4= toyChild.name
+          .category-grandchildren
+            =link_to "すべて", category_path(toyChild)
+            -toyChild.children.each do |toyGroundChild|
+              .category-grandchildren--name
+                =link_to toyGroundChild.name, category_path(toyGroundChild)
   
-  -# .category-main
-  -#   .category-main__child
-  -#     .category-main__child--title
-  -#       = @cosmetic.name
-  -#     .category-main__list
-  -#       =link_to "すべて", category_path(@cosmetic), class: "category-main__list--all"
-  -#       - @cosmetic.children.each do |cosmeticChild|
-  -#         .category-children--name
-  -#           %h3= cosmeticChild.name
-  -#         .category-grandchildren
-  -#           =link_to "すべて", category_path(cosmeticChild)
-  -#           -cosmeticChild.children.each do |cosmeticGroundChild|
-  -#             .category-grandchildren--name
-  -#               =link_to cosmeticGroundChild.name, category_path(cosmeticGroundChild)
+  .category-main
+    .category-main__child
+      .category-main__child--title
+        = @cosmetic.name
+      .category-main__list
+        =link_to "すべて", category_path(@cosmetic), class: "category-main__list--all"
+        - @cosmetic.children.each do |cosmeticChild|
+          .category-children--name
+            %h4= cosmeticChild.name
+          .category-grandchildren
+            =link_to "すべて", category_path(cosmeticChild)
+            -cosmeticChild.children.each do |cosmeticGroundChild|
+              .category-grandchildren--name
+                =link_to cosmeticGroundChild.name, category_path(cosmeticGroundChild)
  
-  -# .category-main
-  -#   .category-main__child
-  -#     .category-main__child--title
-  -#       = @appliance.name
-  -#     .category-main__list
-  -#       =link_to "すべて", category_path(@appliance), class: "category-main__list--all"
-  -#       - @appliance.children.each do |applianceChild|
-  -#         .category-children--name
-  -#           %h3= applianceChild.name
-  -#         .category-grandchildren
-  -#           =link_to "すべて", category_path(applianceChild)
-  -#           -applianceChild.children.each do |applianceGroundChild|
-  -#             .category-grandchildren--name
-  -#               =link_to applianceGroundChild.name, category_path(applianceGroundChild)
+  .category-main
+    .category-main__child
+      .category-main__child--title
+        = @appliance.name
+      .category-main__list
+        =link_to "すべて", category_path(@appliance), class: "category-main__list--all"
+        - @appliance.children.each do |applianceChild|
+          .category-children--name
+            %h4= applianceChild.name
+          .category-grandchildren
+            =link_to "すべて", category_path(applianceChild)
+            -applianceChild.children.each do |applianceGroundChild|
+              .category-grandchildren--name
+                =link_to applianceGroundChild.name, category_path(applianceGroundChild)
  
-  -# .category-main
-  -#   .category-main__child
-  -#     .category-main__child--title
-  -#       = @sports.name
-  -#     .category-main__list
-  -#       =link_to "すべて", category_path(@sports), class: "category-main__list--all"
-  -#       - @sports.children.each do |sportsChild|
-  -#         .category-children--name
-  -#           %h3= sportsChild.name
-  -#         .category-grandchildren
-  -#           =link_to "すべて", category_path(sportsChild)
-  -#           -sportsChild.children.each do |sportsGroundChild|
-  -#             .category-grandchildren--name
-  -#               =link_to sportsGroundChild.name, category_path(sportsGroundChild)
+  .category-main
+    .category-main__child
+      .category-main__child--title
+        = @sports.name
+      .category-main__list
+        =link_to "すべて", category_path(@sports), class: "category-main__list--all"
+        - @sports.children.each do |sportsChild|
+          .category-children--name
+            %h4= sportsChild.name
+          .category-grandchildren
+            =link_to "すべて", category_path(sportsChild)
+            -sportsChild.children.each do |sportsGroundChild|
+              .category-grandchildren--name
+                =link_to sportsGroundChild.name, category_path(sportsGroundChild)
  
-  -# .category-main
-  -#   .category-main__child
-  -#     .category-main__child--title
-  -#       = @handmade.name
-  -#     .category-main__list
-  -#       =link_to "すべて", category_path(@handmade), class: "category-main__list--all"
-  -#       - @handmade.children.each do |handmadeChild|
-  -#         .category-children--name
-  -#           %h3= handmadeChild.name
-  -#         .category-grandchildren
-  -#           =link_to "すべて", category_path(handmadeChild)
-  -#           -handmadeChild.children.each do |handmadeGroundChild|
-  -#             .category-grandchildren--name
-  -#               =link_to handmadeGroundChild.name, category_path(handmadeGroundChild)
+  .category-main
+    .category-main__child
+      .category-main__child--title
+        = @handmade.name
+      .category-main__list
+        =link_to "すべて", category_path(@handmade), class: "category-main__list--all"
+        - @handmade.children.each do |handmadeChild|
+          .category-children--name
+            %h4= handmadeChild.name
+          .category-grandchildren
+            =link_to "すべて", category_path(handmadeChild)
+            -handmadeChild.children.each do |handmadeGroundChild|
+              .category-grandchildren--name
+                =link_to handmadeGroundChild.name, category_path(handmadeGroundChild)
  
-  -# .category-main
-  -#   .category-main__child
-  -#     .category-main__child--title
-  -#       = @ticket.name
-  -#     .category-main__list
-  -#       =link_to "すべて", category_path(@ticket), class: "category-main__list--all"
-  -#       - @ticket.children.each do |ticketChild|
-  -#         .category-children--name
-  -#           %h3= ticketChild.name
-  -#         .category-grandchildren
-  -#           =link_to "すべて", category_path(ticketChild)
-  -#           -ticketChild.children.each do |ticketGroundChild|
-  -#             .category-grandchildren--name
-  -#               =link_to ticketGroundChild.name, category_path(ticketGroundChild)
+  .category-main
+    .category-main__child
+      .category-main__child--title
+        = @ticket.name
+      .category-main__list
+        =link_to "すべて", category_path(@ticket), class: "category-main__list--all"
+        - @ticket.children.each do |ticketChild|
+          .category-children--name
+            %h4= ticketChild.name
+          .category-grandchildren
+            =link_to "すべて", category_path(ticketChild)
+            -ticketChild.children.each do |ticketGroundChild|
+              .category-grandchildren--name
+                =link_to ticketGroundChild.name, category_path(ticketGroundChild)
  
-  -# .category-main
-  -#   .category-main__child
-  -#     .category-main__child--title
-  -#       = @bike.name
-  -#     .category-main__list
-  -#       =link_to "すべて", category_path(@bike), class: "category-main__list--all"
-  -#       - @bike.children.each do |bikeChild|
-  -#         .category-children--name
-  -#           %h3= bikeChild.name
-  -#         .category-grandchildren
-  -#           =link_to "すべて", category_path(bikeChild)
-  -#           -bikeChild.children.each do |bikeGroundChild|
-  -#             .category-grandchildren--name
-  -#               =link_to bikeGroundChild.name, category_path(bikeGroundChild)
+  .category-main
+    .category-main__child
+      .category-main__child--title
+        = @bike.name
+      .category-main__list
+        =link_to "すべて", category_path(@bike), class: "category-main__list--all"
+        - @bike.children.each do |bikeChild|
+          .category-children--name
+            %h4= bikeChild.name
+          .category-grandchildren
+            =link_to "すべて", category_path(bikeChild)
+            -bikeChild.children.each do |bikeGroundChild|
+              .category-grandchildren--name
+                =link_to bikeGroundChild.name, category_path(bikeGroundChild)
  
-  -# .category-main
-  -#   .category-main__child
-  -#     .category-main__child--title
-  -#       = @other.name
-  -#     .category-main__list
-  -#       =link_to "すべて", category_path(@other), class: "category-main__list--all"
-  -#       - @other.children.each do |otherChild|
-  -#         .category-children--name
-  -#           %h3= otherChild.name
-  -#         .category-grandchildren
-  -#           =link_to "すべて", category_path(otherChild)
-  -#           -otherChild.children.each do |otherGroundChild|
-  -#             .category-grandchildren--name
-  -#               =link_to otherGroundChild.name, category_path(otherGroundChild)
+  .category-main
+    .category-main__child
+      .category-main__child--title
+        = @other.name
+      .category-main__list
+        =link_to "すべて", category_path(@other), class: "category-main__list--all"
+        - @other.children.each do |otherChild|
+          .category-children--name
+            %h4= otherChild.name
+          .category-grandchildren
+            =link_to "すべて", category_path(otherChild)
+            -otherChild.children.each do |otherGroundChild|
+              .category-grandchildren--name
+                =link_to otherGroundChild.name, category_path(otherGroundChild)

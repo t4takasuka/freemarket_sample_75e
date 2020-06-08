@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :move_to_index, except: :show
 
   def show
+    @categories = Category.order(:id)
     @user = User.find(params[:id])
     # ↓出品商品
     @items = Item.where(seller_id: @user.id).includes([:images])
