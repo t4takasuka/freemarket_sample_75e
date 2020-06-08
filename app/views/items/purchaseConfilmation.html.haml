@@ -33,7 +33,7 @@
             - exp_month = @card_information.exp_month.to_s
             - exp_year = @card_information.exp_year.to_s.slice(2,3)
             = exp_month + " / " + exp_year
-          = image_tag "/assets/cards/#{@card_src}", width: '36', height: '30', alt: @card_brand
+          = image_tag assets_path=("#{@card_src}"), width: '36', height: '30', alt: @card_brand
       .buy-users__address
         .buy-user__address__inner
           %section
