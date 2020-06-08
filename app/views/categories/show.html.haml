@@ -1,10 +1,9 @@
 -# = render "layouts/header_toppage"
--# = render "sidebar"
 .u-container
   .u-main
     .u-items
-      %h1 
-        = @category.name
+      %h3 
+        = "#{@category.name}の商品一覧"
       .u-items__list
         - if @items.present?
           .productLists
@@ -12,5 +11,5 @@
         - else
           %p
             該当する商品はありません
--# = render "layouts/appBanner_toppage"
--# = render "layouts/footer_toppage"
+= render "layouts/appBanner_toppage"
+= render "layouts/footer_toppage"

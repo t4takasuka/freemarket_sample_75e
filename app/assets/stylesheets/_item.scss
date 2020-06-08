@@ -2,6 +2,8 @@
   display: inline-block;
   float: left;
   margin: 15px;
+  width: 220px;
+  height: 150px;
   li{
     display:block;
     }
@@ -34,6 +36,7 @@
     background-color: white;
     color: #333;
     padding: 16px;
+    box-sizing: border-box;
     .name {
       overflow: hidden;
       line-height: 1.5;
