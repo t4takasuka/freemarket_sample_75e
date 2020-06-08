@@ -9,7 +9,7 @@
     background-color: #fff;
     display: inline-block;
     text-decoration: none;
-}
+  }
   &--top {
     &--img {
       width: 220px;
@@ -28,8 +28,8 @@
         top: 0;
         text-align: center;
       }
+    }
   }
-}
   &--bottom {
     background-color: white;
     color: #333;
@@ -44,17 +44,17 @@
       text-align: left;
       text-overflow: ellipsis;
       white-space: nowrap;
-  }
+    }
     .details {
       font-size: 16px;
       ul {
         display: flex;
         align-items: center;
         justify-content: space-between;
-    }
-    p {
-      font-size: 10px;
-        }
+      }
+      p {
+        font-size: 10px;
       }
     }
   }
+}
