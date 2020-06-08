@@ -56,28 +56,10 @@ describe Item do
         expect(item.errors[:postage_payer_id]).to include("を入力してください")
       end
 
-      it "postage_type_idがない場合は登録できないこと" do
-        item = build(:item, :image1, postage_type_id: "")
-        item.valid?
-        expect(item.errors[:postage_type_id]).to include("を入力してください")
-      end
-
       it "seller_idがない場合は登録できないこと" do
         item = build(:item, :image1, seller_id: "")
         item.valid?
         expect(item.errors[:seller_id]).to include("を入力してください")
-      end
-
-      it "buyer_idがない場合は登録できないこと" do
-        item = build(:item, :image1, buyer_id: "")
-        item.valid?
-        expect(item.errors[:buyer_id]).to include("を入力してください")
-      end
-
-      it "size_idがない場合は登録できないこと" do
-        item = build(:item, :image1, size_id: "")
-        item.valid?
-        expect(item.errors[:size_id]).to include("を入力してください")
       end
 
       it "imagesがない場合は登録できないこと" do
