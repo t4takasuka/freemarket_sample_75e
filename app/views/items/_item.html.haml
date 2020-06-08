@@ -3,8 +3,9 @@
     .productList--top
       %figure.productList--top--img
         = image_tag item.images[0].src.url, width: "220", height: '150'
-        .sold
-          SOLD OUT
+        - if item.buyer_id.present?
+          .sold
+            SOLD OUT
     .productList--bottom
       %h3.name 
         = item.name

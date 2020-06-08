@@ -1,13 +1,21 @@
 = render "layouts/header_toppage"
 
-%p クレジットカード情報
-= "**** **** **** " + @card_information.last4
-%p 有効期限
-- exp_month = @card_information.exp_month.to_s
-- exp_year = @card_information.exp_year.to_s.slice(2,3)
-= exp_month + " / " + exp_year
-%br
-= link_to "削除する", card_path, method: :delete, class: ""
+.show-wrapper
+  .show-head
+    %h2 支払い方法
+    .show-inner
+      .show-form__content
+        .show-form__content__head
+          %h3 クレジットカード情報
+        .card-brand
+          = image_tag assets_path=("#{@card_src}"), width: '36', height: '30', alt: @card_brand
+          = link_to "削除する", card_path, method: :delete, class: "payment-remove"
+        .card-number
+          = "**** **** **** " + @card_information.last4
+        .card-expire
+          - exp_month = @card_information.exp_month.to_s
+          - exp_year = @card_information.exp_year.to_s.slice(2,3)
+          = exp_month + " / " + exp_year
 
 = render "layouts/appBanner_toppage"
 = render "layouts/footer_toppage"
