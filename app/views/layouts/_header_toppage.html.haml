@@ -4,7 +4,7 @@
       .top-page-header__image
         = link_to root_path do
           = image_tag asset_path=("logo.png"),size:"150x45"
-      = form_tag('#', method: :get, class: "top-page-header__searchbox") do
+      = form_tag(search_items_path, method: :get, class: "top-page-header__searchbox") do
         %input.top-page-header__form{name: "keyword", placeholder: "キーワードから探す",type: "text", value: ""}
         %button.top-page-header__form--btn{title: "",type: "submit"}
           = image_tag src="icon-search 1.png",size:"30x30"

@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: %i[index new create get_category_children get_category_grandchildren get_size purchaseCompleted]
+  before_action :set_item, except: %i[index new create get_category_children get_category_grandchildren get_size purchaseCompleted search]
   before_action :move_to_session, except: %i[index show]
   before_action :set_card, only: %i[purchaseConfilmation pay]
   before_action :set_sending_destinations, only: %i[purchaseConfilmation]
@@ -74,6 +74,12 @@ class ItemsController < ApplicationController
       redirect_to root_path, notice: "削除に失敗しました"
       render :show
     end
+  end
+
+  def search
+    @keyword = params[:keyword]
+    @items = Item.includes([:images]).where('name LIKE(?)', "%#{params[:keyword]}%")
+    @categories = Category.all
   end
 
   def purchaseConfilmation
