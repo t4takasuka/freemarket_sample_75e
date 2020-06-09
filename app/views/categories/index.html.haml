@@ -13,8 +13,7 @@
       カテゴリー一覧
     .category-parent__box
       .category-parent__box--lists
-        = link_to do
-          #caetgory1 レディース
+        = link_to @ladies.name, category_path(@ladies)
         = link_to @mens.name, category_path(@mens)
         = link_to @baby.name, category_path(@baby)
         = link_to @interior.name, category_path(@interior)
