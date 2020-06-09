@@ -127,8 +127,7 @@ class ItemsController < ApplicationController
   def purchaseCompleted; end
 
   def sold_out
-    @item = Item.find(params[:id])
-    redirect_to root_path if @item.trading_status == "売り切れ"
+    redirect_to root_path if @item.trading_status == "売り切れ" || @item.seller_id == current_user.id
   end
 
   private
