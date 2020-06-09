@@ -1,0 +1,16 @@
+= render "layouts/header_toppage"
+
+.search-head-box
+  .search_head 
+    %h2= @keyword + " 検索結果"
+.u-container
+  .u-main
+    .u-items
+      .u-items__list
+        .productLists
+          - if @items.length != 0
+            = render partial: "items/item", collection: @items
+          - else
+            =(link_to "検索結果が一致しません", root_path, class: "search-text")
+= render "layouts/appBanner_toppage"
+= render "layouts/footer_toppage"
