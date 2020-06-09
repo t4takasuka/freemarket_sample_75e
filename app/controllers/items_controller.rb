@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   before_action :set_sending_destinations, only: %i[purchaseConfilmation]
   before_action :set_api_key
   before_action :return_unless_seller, only: %i[edit update destroy]
+  before_action :sold_out, only: %i[purchaseConfilmation pay purchaseCompleted]
   require 'payjp'
 
   def index
@@ -124,6 +125,11 @@ class ItemsController < ApplicationController
   end
 
   def purchaseCompleted; end
+
+  def sold_out
+    @item = Item.find(params[:id])
+    redirect_to root_path if @item.trading_status == "売り切れ"
+  end
 
   private
 
