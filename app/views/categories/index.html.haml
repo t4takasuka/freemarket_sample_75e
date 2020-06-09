@@ -13,7 +13,8 @@
       カテゴリー一覧
     .category-parent__box
       .category-parent__box--lists
-        = link_to @ladies.name, category_path(@ladies)
+        = link_to do
+          #caetgory1 レディース
         = link_to @mens.name, category_path(@mens)
         = link_to @baby.name, category_path(@baby)
         = link_to @interior.name, category_path(@interior)
@@ -220,3 +221,5 @@
             -otherChild.children.each do |otherGroundChild|
               .category-grandchildren--name
                 =link_to otherGroundChild.name, category_path(otherGroundChild)
+
+= render "layouts/footer_toppage"
