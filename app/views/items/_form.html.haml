@@ -2,12 +2,13 @@
   =link_to root_path do
     = image_tag("logo.png",size:"200x60")
 .sell
-  .sell__title
-    出品画像
-    %span.form__request 必須
-    .sell__text
-      10枚まで写真をアップロードできます！
   = form_with model: @item, local: true do |f|
+    = render "layouts/error_messages", model: f.object
+    .sell__title
+      出品画像
+      %span.form__request 必須
+      .sell__text
+        10枚まで写真をアップロードできます！
     .image-container
       #image-box
         #previews

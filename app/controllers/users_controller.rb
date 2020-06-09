@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def buy
     @categories = Category.order(:id)
     # ↓購入商品
-    @items = Item.where(buyer_id: current_user.id)
+    @items = Item.where(buyer_id: current_user.id).includes([:images])
   end
 
   private
