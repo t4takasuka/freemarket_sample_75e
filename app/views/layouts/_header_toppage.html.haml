@@ -17,19 +17,19 @@
             %ul.category-parent
               - @categories.roots.each do |root_category|
                 %li.category-list-parent
-                  = link_to categories_path do
+                  = link_to category_path(id: root_category) do
                     = root_category.name
                   %ul.category-child
                     .category-childbox
                     - root_category.children.each do |children_category|
                       %li.category-list-child
-                        = link_to "/" do
+                        = link_to category_path(id: children_category) do
                           = children_category.name
                         %ul.category-grandchild
                           .category-grandchildbox
                           - children_category.children.each do |children_children_category|
                             %li.category-list-grandchild
-                              = link_to "/" do
+                              = link_to category_path(id: children_children_category) do
                                 = children_children_category.name
 
       %li.top-page-headerNav__left--bland

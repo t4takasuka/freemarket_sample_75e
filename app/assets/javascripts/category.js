@@ -139,11 +139,3 @@ $(document).on('turbolinks:load',function(){
     }
   });
 });
-
-
-// $(function(){
-//   $('a[href^=#]').click(function(){
-//     let adjust = 0;
-
-//   })
-// })
