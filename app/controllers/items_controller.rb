@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   before_action :set_sending_destinations, only: %i[purchaseConfilmation]
   before_action :set_api_key
   before_action :return_unless_seller, only: %i[edit update destroy]
+  before_action :return_unless_buyer, only: %i[purchaseConfilmation]
   require 'payjp'
 
   def index
@@ -154,6 +155,11 @@ class ItemsController < ApplicationController
   end
 
   def return_unless_seller
-    return unless @item&.seller_id == current_user.id
+    redirect_to root_path, notice: "この操作は行えません" unless @item&.seller_id == current_user.id
   end
+
+  def return_unless_buyer
+    redirect_to root_path, notice: "この操作は行えません" unless @item&.seller_id != current_user.id
+  end
+
 end
