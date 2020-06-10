@@ -1,11 +1,6 @@
 = render "layouts/header_toppage"
-.category-top
-  .category-top__nav
-    .category-top__root
-    = link_to "フリマ","/"
-    %i.fas.fa-angle-right.category-top__icon
-    .category-top__now-place
-      カテゴリー一覧
+- breadcrumb :category
+= render "layouts/breadcrumbs"
 
 .category-wrapper
   .category-parent
