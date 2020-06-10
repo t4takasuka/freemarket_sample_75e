@@ -132,7 +132,6 @@
       font-weight: bold;
     }
     &__box {
-      margin-top: 20px;
       &--lists{
         list-style: none;
       }
@@ -157,30 +156,61 @@
       }
     }
   }
-  .category-main {
-    width: 700px;
-    margin: 0 auto;
-    display: flex;
-    &__child {
-      height: 60px;
-      width: 100%;
-      background-color: #3CCACE;
-      border-radius: 4px;
-      margin-top: 30px;
-      &--title {
-        font-size: 25px;
-        font-weight: bold;
-        color: white;
-        line-height: 60px;
-        padding-left: 20px;
-      }
-    }
-    &__parent--name {
-      height: 60px;
-      width: 100%;
-      background-color: #3CCACE;
-      border-radius: 4px;
-      margin-top: 30px;
+}
+
+.clearfix {
+  content: "";
+  clear: both;
+  display: block;
+}
+.category-main {
+  width: 700px;
+  margin: 0 auto;
+  display: flow-root;
+  background: white;
+  margin-top: 30px;
+  border-radius: 4px;
+  &__child {
+    height: 60px;
+    width: 100%;
+    background-color: #3CCACE;
+    border-radius: 4px;
+    &--title {
+      font-size: 25px;
+      font-weight: bold;
+      color: white;
+      line-height: 60px;
+      padding: 0 0 10px 20px;
     }
   }
+  &__list--all {
+    padding: 10px;
+    color: #3CCACE;
+    text-decoration: none;
+  }
+  &__parent--name {
+    height: 60px;
+    width: 100%;
+    background-color: #3CCACE;
+    border-radius: 4px;
+  }
+}
+
+.category-grandchildren {
+  a {
+    float: left;
+    width: 50%;
+    padding: 10px 0 0 20px;
+    color: #3CCACE;
+    text-decoration: #3CCACE;
+  }
+  a:hover {
+    text-underline-position: red;
+  }
+}
+
+h4 {
+  color: black;
+  padding: 10px 0 10px 5px;
+  clear: both;
 }

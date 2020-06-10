@@ -1,11 +1,12 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: %i[index new create get_category_children get_category_grandchildren get_size purchaseCompleted]
+  before_action :set_item, except: %i[index new create get_category_children get_category_grandchildren get_size purchaseCompleted search]
   before_action :move_to_session, except: %i[index show]
   before_action :set_card, only: %i[purchaseConfilmation pay]
   before_action :set_sending_destinations, only: %i[purchaseConfilmation]
   before_action :set_api_key
   before_action :return_unless_seller, only: %i[edit update destroy]
   before_action :return_unless_buyer, only: %i[purchaseConfilmation]
+  before_action :sold_out, only: %i[purchaseConfilmation]
   require 'payjp'
 
   def index
@@ -77,6 +78,12 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    @keyword = params[:keyword]
+    @items = Item.includes([:images]).where('name LIKE(?)', "%#{params[:keyword]}%")
+    @categories = Category.all
+  end
+
   def purchaseConfilmation
     @categories = Category.all
     if @card.blank?
@@ -106,22 +113,30 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    charge = Payjp::Charge.create(
-      amount: @item.price, # 支払金額を引っ張ってくる
-      customer: @card.customer_id, # 顧客ID
-      currency: 'jpy' # 日本円
-    )
-    @item_buyer = Item.find(params[:id])
-    @item_buyer.update(buyer_id: current_user.id)
-    @item_trading = Item.find(params[:id])
-    @item_trading.update(trading_status: 1)
-    redirect_to purchaseCompleted_item_path # 購入完了ページへ
+    if @item.seller_id == current_user.id
+      redirect_to root_path
+    else
+      charge = Payjp::Charge.create(
+        amount: @item.price, # 支払金額を引っ張ってくる
+        customer: @card.customer_id, # 顧客ID
+        currency: 'jpy' # 日本円
+      )
+      @item_buyer = Item.find(params[:id])
+      @item_buyer.update(buyer_id: current_user.id)
+      @item_trading = Item.find(params[:id])
+      @item_trading.update(trading_status: 1)
+      redirect_to purchaseCompleted_item_path # 購入完了ページへ
+    end
   end
 
   def purchaseCompleted; end
 
+  
   private
-
+  def sold_out
+    redirect_to root_path if @item.trading_status == "売り切れ"
+  end
+  
   def item_params
     params.require(:item).permit(:name, :price, :introduction, :brand_id, :prefecture_code, :category_id, :trading_status, :item_size_id, :item_condition_id, :postage_payer_id, :postage_type_id, :preparation_day_id, images_attributes: %i[src _destroy id]).merge(seller_id: current_user.id)
   end

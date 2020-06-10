@@ -1,0 +1,16 @@
+.breadcrumbs {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 10px 0px 10px 40px;
+  .breadcrumbs-list {
+    a {
+      text-decoration: none;
+      color: black;
+      padding: 0 5px;
+    }
+    span {
+      padding: 0 5px;
+      font-weight: bold;
+    }
+  }
+}

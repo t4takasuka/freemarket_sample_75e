@@ -12,8 +12,8 @@ $(document).on('turbolinks:load',function(){
     let childSelectHtml = "";
     childSelectHtml = `<div class="item-category" id="children_wrapper">
                         <div class="item-category__title">
-                          <select class="item-category__wrapper" id="child_category" name="category_id">
-                            <option value="選択してください" data-category="選択してください">選択してください</option>
+                          <select class="item-category__wrapper" id="child_category" name="item[category_id]">
+                            <option value="" data-category="">選択してください</option>
                             ${insertHTML}
                           </select>
                           <i class='fas fa-chevron-down item-category__icon'></i>
@@ -27,7 +27,7 @@ $(document).on('turbolinks:load',function(){
     grandchildSelectHtml = `<div class="item-category" id="grandchildren_wrapper">
                               <div class="item-category__title">
                                 <select class="item-category__wrapper" id="grandchild_category" name="item[category_id]">
-                                  <option value="選択してください" data-category="選択してください">選択してください</option>
+                                  <option value="" data-category="">選択してください</option>
                                   ${insertHTML}
                                 </select>
                                 <i class='fas fa-chevron-down item-category__icon'></i>
@@ -44,7 +44,7 @@ $(document).on('turbolinks:load',function(){
                         <div class='item-size__wrapper'>
                           <div class='item-size__wrapper--box'>
                             <select class="item-size__wrapper--select" id="item_size_id" name="item[item_size_id]">
-                              <option value="選択してください">選択してください</option>
+                              <option value="">選択してください</option>
                               ${insertHTML}
                             <select>
                             <i class='fas fa-chevron-down item-size__icon'></i>
@@ -56,9 +56,9 @@ $(document).on('turbolinks:load',function(){
   // 親カテゴリー選択時のイベント
   $("#parent_category").on('change', function(){
     const parent_name = document.getElementById("parent_category").value;
-    if (parent_name != "選択してください"){
+    if (parent_name != ""){
       $.ajax({
-        url: 'get_category_children',
+        url: '/items/get_category_children',
         type: 'GET',
         data: {parent_name:parent_name},
         dataType: 'json'
@@ -85,9 +85,9 @@ $(document).on('turbolinks:load',function(){
   // 子カテゴリー選択後のイベント
   $(".detail-category").on("change", "#child_category", function(){
     const childId = $("#child_category option:selected").data("category");
-    if (childId != "選択してください"){
+    if (childId != ""){
       $.ajax({
-        url: 'get_category_grandchildren',
+        url: '/items/get_category_grandchildren',
         type: 'GET',
         data: {child_id:childId},
         dataType:'json'
@@ -114,9 +114,9 @@ $(document).on('turbolinks:load',function(){
   // サイズを出現させるイベント
   $('.detail-category').on('change','#grandchild_category', function(){
     const grandchildId = $("#grandchild_category option:selected").data('category');
-    if (grandchildId != "選択してください"){
+    if (grandchildId != ""){
       $.ajax({
-        url: 'get_size',
+        url: '/items/get_size',
         type: 'GET',
         data: { grandchild_id:grandchildId },
         dataType: 'json'
