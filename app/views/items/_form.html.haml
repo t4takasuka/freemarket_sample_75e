@@ -2,12 +2,13 @@
   =link_to root_path do
     = image_tag("logo.png",size:"200x60")
 .sell
-  .sell__title
-    出品画像
-    %span.form__request 必須
-    .sell__text
-      10枚まで写真をアップロードできます！
   = form_with model: @item, local: true do |f|
+    = render "layouts/error_messages", model: f.object
+    .sell__title
+      出品画像
+      %span.form__request 必須
+      .sell__text
+        10枚まで写真をアップロードできます！
     .image-container
       #image-box
         #previews
@@ -68,7 +69,7 @@
         発送元の地域
         %span.form__request 必須
       .delivery__area
-        = f.select :prefecture_code, Item.prefecture_codes.keys,{}, {class: "set_input"}
+        = f.select :prefecture_code, Item.prefecture_codes.keys, {prompt: "選択してください"} ,{class: "set_input"}
       .delivery__title
         発送までの日数
         %span.form__request 必須

@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   before_action :set_sending_destinations, only: %i[purchaseConfilmation]
   before_action :set_api_key
   before_action :return_unless_seller, only: %i[edit update destroy]
+  before_action :return_unless_buyer, only: %i[purchaseConfilmation]
   before_action :sold_out, only: %i[purchaseConfilmation]
   require 'payjp'
 
@@ -15,7 +16,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item.images.new
+    @item.images.build
     @category_parent = Category.where(ancestry: nil)
   end
 
@@ -130,12 +131,12 @@ class ItemsController < ApplicationController
 
   def purchaseCompleted; end
 
+  
+  private
   def sold_out
     redirect_to root_path if @item.trading_status == "売り切れ"
   end
-
-  private
-
+  
   def item_params
     params.require(:item).permit(:name, :price, :introduction, :brand_id, :prefecture_code, :category_id, :trading_status, :item_size_id, :item_condition_id, :postage_payer_id, :postage_type_id, :preparation_day_id, images_attributes: %i[src _destroy id]).merge(seller_id: current_user.id)
   end
@@ -169,6 +170,11 @@ class ItemsController < ApplicationController
   end
 
   def return_unless_seller
-    return unless @item&.seller_id == current_user.id
+    redirect_to root_path, notice: "この操作は行えません" unless @item&.seller_id == current_user.id
   end
+
+  def return_unless_buyer
+    redirect_to root_path, notice: "この操作は行えません" unless @item&.seller_id != current_user.id
+  end
+
 end

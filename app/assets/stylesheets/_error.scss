@@ -1,0 +1,54 @@
+// フラッシュメッセージ
+.notifications {
+  color: white;
+  text-align: center;  
+  .notice {
+    background-color: #03A9F4;
+  }
+  .alert {
+    background-color: #FF5722;
+  }
+}
+// item error関係
+#item_error_explanation {
+  margin: 0 100px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #F8BBD0;
+  ul {
+    list-style: none;
+    text-align: center;
+    li {
+      color: #D81B60;
+    }
+  }
+}
+
+
+
+// ↓deviseエラー関連
+#error_explanation {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #F8BBD0;
+  ul {
+    list-style: none;
+    text-align: center;
+    li {
+      color: #D81B60;
+    }
+  }
+}
+
+#session-errorMessage {
+  margin-bottom: 15px;
+  border-radius: 5px;
+  background-color: #F8BBD0;
+  color: red;
+  text-align: center;
+}
+
+.field_with_errors {
+  display: contents;
+}
