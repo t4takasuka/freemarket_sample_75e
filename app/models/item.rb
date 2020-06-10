@@ -31,10 +31,11 @@ class Item < ApplicationRecord
   
   ### trello【サーバサイド】商品出品機能の求められる仕様から記述
   validates :images, presence: true
-  validates :images, length: { minimum: 1, maximum: 10 }
+  validates :images, length: { minimum: 1, maximum: 10 }, allow_blank: true
   validates :name, presence: true
   validates :introduction, presence: true
-  validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 1_000_000 }, presence: true
+  validates :price, presence: true
+  validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 1_000_000 }, allow_blank: true
   validates :prefecture_code, presence: true
   validates :category, presence: true
   validates :trading_status, presence: true
