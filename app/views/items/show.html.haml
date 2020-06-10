@@ -68,10 +68,8 @@
               %td 
                 = @item.preparation_day.name
         .itembox__optionalArea
-          %ul
-            %li.optionalBtn--likeBtn
-              %i.fa.fa-star
-                お気に入り 0
+          %ul#favoriteBtn
+            = render partial: "favorites/favorite", locals: {item: @item}
           %ul.optional
             %li.optionalBtn
               %a{:href => "#"} 
