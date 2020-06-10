@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   before_action :set_sending_destinations, only: %i[purchaseConfilmation]
   before_action :set_api_key
   before_action :return_unless_seller, only: %i[edit update destroy]
+  before_action :sold_out, only: %i[purchaseConfilmation]
   require 'payjp'
 
   def index
@@ -111,19 +112,27 @@ class ItemsController < ApplicationController
   end
 
   def pay
-    charge = Payjp::Charge.create(
-      amount: @item.price, # 支払金額を引っ張ってくる
-      customer: @card.customer_id, # 顧客ID
-      currency: 'jpy' # 日本円
-    )
-    @item_buyer = Item.find(params[:id])
-    @item_buyer.update(buyer_id: current_user.id)
-    @item_trading = Item.find(params[:id])
-    @item_trading.update(trading_status: 1)
-    redirect_to purchaseCompleted_item_path # 購入完了ページへ
+    if @item.seller_id == current_user.id
+      redirect_to root_path
+    else
+      charge = Payjp::Charge.create(
+        amount: @item.price, # 支払金額を引っ張ってくる
+        customer: @card.customer_id, # 顧客ID
+        currency: 'jpy' # 日本円
+      )
+      @item_buyer = Item.find(params[:id])
+      @item_buyer.update(buyer_id: current_user.id)
+      @item_trading = Item.find(params[:id])
+      @item_trading.update(trading_status: 1)
+      redirect_to purchaseCompleted_item_path # 購入完了ページへ
+    end
   end
 
   def purchaseCompleted; end
+
+  def sold_out
+    redirect_to root_path if @item.trading_status == "売り切れ"
+  end
 
   private
 
