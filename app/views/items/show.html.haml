@@ -40,8 +40,6 @@
             %tr
               %th カテゴリー
               %td.category-relation
-                = link_to @category.parent.parent.name, category_path(@category)
-                = link_to @category.parent.name, category_path(@category)
                 = link_to @category.name, category_path(@category)
             %tr
               %th ブランド
