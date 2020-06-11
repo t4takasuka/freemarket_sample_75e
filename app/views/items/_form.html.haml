@@ -47,11 +47,6 @@
             .detail-category__wrapperbox
               = f.collection_select :category_id, Category.roots, :id, :name,{prompt: "選択してください" }, {class: "detail-category__selectbox",id:"parent_category"}
               %i.fas.fa-chevron-down.detail-category__icon
-      .detail__title--brand
-        ブランド
-        %span.form__request2 任意
-      .detail__bland
-        = f.text_field :brand_id,class:"set_input", placeholder: "例）シャネル（インクリメンタルサーチ使用）"
       .detail__title
         商品の状態
         %span.form__request 必須
