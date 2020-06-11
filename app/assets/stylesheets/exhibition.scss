@@ -133,6 +133,7 @@ body {
     @include cont;
   }
   &__title {
+    margin-top: 20px;
     font-weight: bold;
     &--brand {
       padding-top: 15px;
