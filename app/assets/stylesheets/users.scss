@@ -1,7 +1,7 @@
 .mainmypage{
   display: flex;
-  margin-top: 30px;
-  margin-bottom: 60px;
+  width: 1020px;
+  margin: 30px auto;
   .content{
     width: 100%;
     .mypage-user-icon {
@@ -107,7 +107,7 @@
 // show.html.haml
 .u-container{
   background-color: rgb(245, 245, 245);
-  padding: 10px 0;
+  padding: 10px 30px;
   .u-main{
     width: 760px;
     margin: 20px auto;
