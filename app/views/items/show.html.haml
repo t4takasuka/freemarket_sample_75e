@@ -46,15 +46,15 @@
             %tr
               %th ブランド
               %td 
-            %tr
-              %th 商品のサイズ 
-              %td 
-                = @item.item_size.size
+            - if @item.item_size.present?
+              %tr
+                %th 商品のサイズ 
+                %td 
+                  = @item.item_size.size
             %tr
               %th 商品の状態
               %td 
                 = @item.item_condition.name
-
             %tr
               %th 配送料の負担
               %td 
