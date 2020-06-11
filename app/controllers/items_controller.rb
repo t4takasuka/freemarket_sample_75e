@@ -84,6 +84,11 @@ class ItemsController < ApplicationController
     @categories = Category.all
   end
 
+  def detail_search
+    @search = Item.ransack(params[:q])
+    @items = @search.result(distinct: true).includes([:images])
+  end
+
   def purchaseConfilmation
     @categories = Category.all
     if @card.blank?

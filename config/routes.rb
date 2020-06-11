@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'get_size', defaults: { format: 'json' }
       get 'search'
+      get 'detail_search'
     end
     member do
       get 'purchaseConfilmation'
