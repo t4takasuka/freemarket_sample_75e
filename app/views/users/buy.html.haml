@@ -2,32 +2,7 @@
 - breadcrumb :buyItem
 = render "layouts/breadcrumbs"
 .mainmypage
-  = render "sidebar"
-  .main-content  
-    .content
-      %section.mypage-user-icon
-        = link_to user_path(current_user.id) do
-          .figure
-            =image_tag src="icon-01.png",size:"60x60"
-          .h2= current_user.nickname
-          .mypage-number
-            %div
-              評価
-              %span.bold 0
-            %div
-              出品数
-              %span.bold 0  
-  .u-container
-    .u-main
-      .u-items
-        %h2 
-          購入した商品
-        .u-items__list
-          - if @items.present?
-            .productLists
-              = render partial: "items/item", collection: @items
-          - else
-            %h5
-              購入した商品はありません
+  = render "sidebar"  
+  = render "buy"
 = render "layouts/appBanner_toppage"
 = render "layouts/footer_toppage"

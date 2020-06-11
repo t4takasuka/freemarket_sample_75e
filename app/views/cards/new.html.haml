@@ -1,52 +1,8 @@
 = render "layouts/header_toppage"
 - breadcrumb :card
 = render "layouts/breadcrumbs"
-
-.card-wrapper
+.mainmypage
   = render "users/sidebar"
-  .card-head
-    %h2 クレジットカード情報入力
-    .card-form
-      .card-form__content
-        .card-form__content__group
-          = form_with model: Card.new, url: cards_path, local: true, html:{name: "inputForm"} do |f|
-            = f.label :カード番号, class: 'label'
-            %span.form-require 必須
-            %br
-            = f.text_field :card_number, id: "card_number", class: "card_form", placeholder: "半角数字のみ", maxlength: "16"
-            .signup-card-list
-              %li
-                = image_tag assets_path=("Visa.svg"),width:"49px",height:"20px"
-              %li
-                = image_tag assets_path=("master-card.svg"),width:"34px",height:"20px"
-              %li
-                = image_tag assets_path=("jcb.svg"),width:"32px",height:"20px"
-              %li
-                = image_tag assets_path=("american_express.svg"),width:"21px",height:"20px"
-              %li
-                = image_tag assets_path=("dinersclub.svg"),width:"32px",height:"20px"
-              %li
-                = image_tag assets_path=("discover.svg"),width:"32px",height:"20px"
-            .card-expire
-              = f.label :有効期限, class: 'label'
-              %span.form-require 必須
-              %br
-              .card-expire__wrap
-                = f.select :exp_month , [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]], id: "exp_month",  class: "card-check-box"
-                %i.fas.fa-chevron-down.expire-icon1
-                %span.expire-text 月
-                %br
-              .card-expire__wrap
-                = f.select :exp_year, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]], id: "exp_year", class: "card-check-box"
-                %i.fas.fa-chevron-down.expire-icon2
-                %span.expire-text 年
-            .card-expire
-              = f.label :セキュリティーコード, class: 'label'
-              %span.form-require 必須
-              %br
-              = f.password_field :cvc, id: "cvc",class: "card_form" , placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "6"
-            #card_token.card-btn
-              = f.submit "登録する", id: "token_submit", class: "card-btn"
-
+  = render "cardnew"
 = render "layouts/appBanner_toppage"
 = render "layouts/footer_toppage"
