@@ -1,0 +1,18 @@
+#favoriteBtn {
+  background-color: #eee;
+  border-radius: 20px;
+  height: 40px;
+  .optionalBtn {
+    line-height: 40px;
+    color: white;
+    background-color: #3CCACE;
+    border-radius: 20px;
+    .fa-star {
+      color: yellow;
+    }
+  }
+  .optionalBtn2 {
+    line-height: 40px;
+    color: black;
+  }
+}

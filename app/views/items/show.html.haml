@@ -39,19 +39,22 @@
                   = @user.nickname
             %tr
               %th カテゴリー
-              %td 
+              %td.category-relation
+                = link_to @category.parent.parent.name, category_path(@category)
+                = link_to @category.parent.name, category_path(@category)
                 = link_to @category.name, category_path(@category)
             %tr
               %th ブランド
               %td 
-            %tr
-              %th 商品のサイズ 
-              %td 
+            - if @item.item_size.present?
+              %tr
+                %th 商品のサイズ 
+                %td 
+                  = @item.item_size.size
             %tr
               %th 商品の状態
               %td 
                 = @item.item_condition.name
-
             %tr
               %th 配送料の負担
               %td 
@@ -65,10 +68,8 @@
               %td 
                 = @item.preparation_day.name
         .itembox__optionalArea
-          %ul
-            %li.optionalBtn--likeBtn
-              %i.fa.fa-star
-                お気に入り 0
+          %ul#favoriteBtn
+            = render partial: "favorites/favorite", locals: {item: @item}
           %ul.optional
             %li.optionalBtn
               %a{:href => "#"} 
