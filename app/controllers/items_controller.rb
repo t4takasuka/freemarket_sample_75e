@@ -46,6 +46,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path, notice: "商品を出品しました"
     else
+      @item.images.destroy_all
       @item.images.build
       flash.now[:alert] = "必須項目を正確に入力してください"
       render :new
