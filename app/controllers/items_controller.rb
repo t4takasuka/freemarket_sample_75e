@@ -46,6 +46,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path, notice: "商品を出品しました"
     else
+      @item.images.destroy_all
       @item.images.build
       flash.now[:alert] = "必須項目を正確に入力してください"
       render :new
@@ -138,7 +139,7 @@ class ItemsController < ApplicationController
   end
   
   def item_params
-    params.require(:item).permit(:name, :price, :introduction, :brand_id, :prefecture_code, :category_id, :trading_status, :item_size_id, :item_condition_id, :postage_payer_id, :postage_type_id, :preparation_day_id, images_attributes: %i[src _destroy id]).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :price, :introduction, :prefecture_code, :category_id, :trading_status, :item_size_id, :item_condition_id, :postage_payer_id, :postage_type_id, :preparation_day_id, images_attributes: %i[src _destroy id]).merge(seller_id: current_user.id)
   end
 
   def set_item

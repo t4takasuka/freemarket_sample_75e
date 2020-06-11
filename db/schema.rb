@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< Updated upstream
-ActiveRecord::Schema.define(version: 2020_06_06_093146) do
-=======
 ActiveRecord::Schema.define(version: 2020_06_10_033706) do
->>>>>>> Stashed changes
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "text"
@@ -47,8 +43,6 @@ ActiveRecord::Schema.define(version: 2020_06_10_033706) do
     t.index ["item_size_id"], name: "index_category_sizes_on_item_size_id"
   end
 
-<<<<<<< Updated upstream
-=======
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id", null: false
     t.bigint "user_id", null: false
@@ -59,7 +53,7 @@ ActiveRecord::Schema.define(version: 2020_06_10_033706) do
     t.index ["item_id"], name: "index_comments_on_item_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
-
+  
   create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "item_id", null: false
@@ -69,7 +63,6 @@ ActiveRecord::Schema.define(version: 2020_06_10_033706) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
->>>>>>> Stashed changes
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "src", null: false
     t.bigint "item_id", null: false
@@ -90,7 +83,6 @@ ActiveRecord::Schema.define(version: 2020_06_10_033706) do
     t.string "name", null: false
     t.text "introduction", null: false
     t.integer "price", null: false
-    t.bigint "brand_id"
     t.integer "prefecture_code", null: false
     t.bigint "category_id", null: false
     t.integer "trading_status", default: 0, null: false
@@ -102,7 +94,6 @@ ActiveRecord::Schema.define(version: 2020_06_10_033706) do
     t.integer "preparation_day_id"
     t.bigint "buyer_id"
     t.integer "item_size_id"
-    t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
@@ -156,7 +147,6 @@ ActiveRecord::Schema.define(version: 2020_06_10_033706) do
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
   add_foreign_key "images", "items"
-  add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users", column: "buyer_id"
   add_foreign_key "items", "users", column: "seller_id"

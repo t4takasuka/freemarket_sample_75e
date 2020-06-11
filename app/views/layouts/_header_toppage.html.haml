@@ -32,9 +32,6 @@
                               = link_to category_path(id: children_children_category) do
                                 = children_children_category.name
 
-      %li.top-page-headerNav__left--bland
-        = link_to "ブランド","/"
-            
       .top-page-headerNav__right
         %ul
         - if user_signed_in?
