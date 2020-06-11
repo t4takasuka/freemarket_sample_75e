@@ -75,8 +75,8 @@
                   不適切な商品の通報
 
       .commentBox
-        = form_with url: root_path, class: "newComments", local: true do |f|
-          = f.text_area :comment, class: "commentBody"
+        .newComments
+          = text_area :comment, class: "commentBody"
           .noticeMsg
             相手のことを考え丁寧なコメントを心がけましょう。
             %br
