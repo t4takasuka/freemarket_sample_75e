@@ -75,7 +75,6 @@ class ItemsController < ApplicationController
       redirect_to root_path, notice: "商品を削除しました"
     else
       redirect_to root_path, notice: "削除に失敗しました"
-      render :show
     end
   end
 
