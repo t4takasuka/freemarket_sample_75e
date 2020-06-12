@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   belongs_to :buyer, class_name: 'User', optional: true
   has_many :images, dependent: :destroy
   has_many :favorites,dependent: :destroy
-  has_many :favorites, through: :favorites, source: :user
+  has_many :users, through: :favorites
   accepts_nested_attributes_for :images, allow_destroy: true
 
   extend ActiveHash::Associations::ActiveRecordExtensions
