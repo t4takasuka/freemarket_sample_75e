@@ -88,4 +88,6 @@ gem 'payjp'
 gem 'rails-i18n'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'gretel'
-
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
